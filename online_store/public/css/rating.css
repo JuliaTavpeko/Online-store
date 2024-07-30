@@ -1,0 +1,37 @@
+
+.ratings-wrapper{
+    display: flex;
+    align-items: center;
+}
+.ratings {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.ratings span{
+    cursor: pointer;
+    transition: color .2s;
+    font-size: 30px;
+    color: #ffffff;
+}
+.ratings span:hover{
+    color: #FDBF3D;
+}
+.ratings span:hover ~ span{
+    color: #FDBF3D;
+}
+.ratings span[data-clicked]{
+    color: #FDBF3D;
+}
+.ratings span[data-clicked] ~ span{
+    color: #FDBF3D;
+}
+
+.reset  {
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 7px;
+    margin-right: 15px;
+}

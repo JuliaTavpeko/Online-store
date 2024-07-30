@@ -1,0 +1,176 @@
+.body-container{
+    width: 900px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00AAC0;
+    transition: 0.5s;
+    position: relative;
+    border-radius: 20px;
+}
+
+.body-container.active{
+    background-color: #2BB26E;
+}
+
+.container-form{
+    width: 800px;
+    height: 500px;
+    padding: 40px 0;
+    position: relative;
+}
+
+.block{
+    height: 100%;
+    background-color: rgb(255,255,255,0.2);
+    box-shadow: 0 5px 45px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.block_item{
+    width: 50%;
+}
+
+.block-item{
+    text-align: center;
+}
+
+.block-item_title{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.block-item_btn{
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form{
+    width: 100%;
+    padding: 50px;
+    font-size: 16px;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.form_signin{
+    left: 0;
+    transition-delay: 0.25s;
+}
+
+.form_signup{
+    left: 100%;
+    transition-delay: 0s;
+}
+
+.form-box.active .form_signin{
+    left: -100%;
+    transition-delay: 0s
+}
+
+.form-box.active .form_signup{
+    left: 0;
+    transition-delay: 0.25s;
+}
+
+
+.form-box{
+    background-color: #fff;
+    height: 100%;
+    width: 50%;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.form-box.active{
+    left: 50%;
+}
+
+.form_title{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form_input{
+    width: 300px;
+    padding: 10px;
+    border: solid 1px #333;
+    font-size: inherit;
+    outline: none;
+}
+
+
+.form_btn{
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: inherit;
+
+    padding: 10px 50px;
+    background-color:  #F0782D;
+}
+
+.form_btn_signup{
+    background-color: #F0782D;
+}
+
+.authCont {
+    background-color: #fff;
+    color: #333;
+    height: 85%;
+    width: 100%;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.authBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center
+}
+
+.welcome {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.userName {
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.logOut {
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+}

@@ -1,0 +1,53 @@
+.btn_basket{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.btn_basket a{
+    background-color: #F0782D;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.popUpBasket{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.8);
+    z-index: 2;
+
+}
+
+.popUpBasket.active{
+    display: block;
+}
+
+.popUpBodyBasket{
+    margin: auto;
+    position: relative;
+}
+
+
+.popUpContainerBasket{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+
+

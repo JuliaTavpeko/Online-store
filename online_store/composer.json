@@ -1,0 +1,21 @@
+{
+  "name": "vendor_name/backend",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "LikeitUser",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "backend\\": "backend/",
+      "backend\\classes\\": "backend/classes/"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+.bodyContainerBasket{
+    width: 850px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #00AAC0;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+.containerFormBasket{
+    height: 90%;
+    width: 90%;
+}
+
+.formBoxBasket{
+    background-color: #fff;
+    height: 90%;
+    width: 90%;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.formBasket{
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.popUpCloseBasket{
+    position: absolute;
+    top: 60px;
+    right: 70px;
+    cursor: pointer;
+    color: #333;
+    font-size: 21px;
+}
+
+.btnOrder{
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: inherit;
+    padding: 10px 50px;
+    background-color:  #F0782D;
+}
+
+.formBasket .photo-prod{
+    height: 70px;
+    width: 60px;
+}
+
+.table-container {
+    height: 300px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.del_like {
+    display: flex;
+}
+
+.delete-btn img, .like-btn img{
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+}
+
+.quantity{
+    display: flex;
+}
+
+.quantity input {
+    background-color: rgba(43, 178, 110, 0.49);
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    height: 30px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+.plus-btn, .minus-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.minus-btn img {
+    height: 30px;
+    width: 30px;
+}
+
+.plus-btn img {
+    height: 30px;
+    width: 30px;
+}
+
+.title-basket{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+.input_price {
+    color: black;
+}
