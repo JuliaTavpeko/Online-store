@@ -14,13 +14,9 @@ export class Basket {
         };
     }
 
-    static deleteProduct(id){
-
-    }
-
     static displayProduct() {
 
-        const basketItemsContainer = document.getElementById('orders-items');
+        const basketItemsContainer = document.getElementById('basket-items');
         basketItemsContainer.innerHTML = '';
 
         [Basket.data].forEach((item) => {
@@ -58,6 +54,10 @@ export class Basket {
     }
 
     static saveToSessionStorage(){
+
+    }
+
+    static deleteProduct(id){
 
     }
 

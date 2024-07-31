@@ -8,7 +8,7 @@
         <p name="description"></p>
     </div>
     <div class="basket basket_item right-column">
-        <p>Цена: <span name="priceProd">3899 </span> руб. </p>
+        <p>Цена: <span name="priceProd"> </span> руб. </p>
         <div class="quantity">
             <button class="minus-btn" type="button" name="button">
                 <img src="image/svg/icon/minus.svg" alt="" />

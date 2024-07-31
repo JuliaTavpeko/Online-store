@@ -23,7 +23,6 @@
                                             <tr class="basket_item">
                                                 <td>
                                                     <span class="delete-btn"></span>
-                                                    <span class="like-btn"></span>
                                                 </td>
                                                 <td class="prodName"></td>
                                                 <td class="prodPrice"></td>

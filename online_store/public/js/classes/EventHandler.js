@@ -11,13 +11,13 @@ export class EventHandler {
             console.log('Authorization.data.cookie',Authorization.data.cookie);
             console.log('Authorization.data.login',Authorization.data.login);
             console.log('Authorization.data.pass',Authorization.data.pass);
-    
+
             if (Authorization.data.cookie && Authorization.data.login && Authorization.data.pass) {
                 if (Authorization.data.login === log_in) {
                     form_for_auth.querySelector('[name="passAuth"]').value = Authorization.data.pass;
                 }
             }
-            
+
         });
     }
 
@@ -33,10 +33,10 @@ export class EventHandler {
 
     static addAddToBasketHandler() {
         let addBtn = document.querySelector('.btn_add_basket');
-    
+
         addBtn.addEventListener('click', function(event) {
             event.preventDefault();
-    
+
             if (addBtn.value !== "Перейти в корзину") {
                 Basket.saveToSessionStorage();
                 addBtn.value = "Перейти в корзину";
