@@ -8,13 +8,11 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 
 class Basket
 {
-
-    public function __construct($idProd,DatabaseManager $dbManager)
+    public function __construct($idProd, DatabaseManager $dbManager)
     {
         $this->idProd = $idProd;
         $this->product = new Catalog($dbManager);
     }
-
 
     public function returnData(){
         return $this->product->getProduct($this->idProd);

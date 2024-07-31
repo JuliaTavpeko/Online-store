@@ -18,12 +18,15 @@ class Catalog
     {
         $query = 'SELECT * FROM Catalog WHERE id = :id';
         try {
-            return $this->dbManager->query($query, ['id' => $id])->find();
+            $result = $this->dbManager->query($query, ['id' => $id])->find();
+            if ($result['Photo']) {
+                $result['Photo'] = base64_encode($result['Photo']);
+            }
+            return $result;
         } catch (PDOException $e) {
             error_log('Database error: ' . $e->getMessage());
             return ['error' => 'Произошла ошибка при получении данных.'];
         }
-
     }
 
 }

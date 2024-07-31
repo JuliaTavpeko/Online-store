@@ -20,7 +20,7 @@ IMask(
 )
 
 document.addEventListener('DOMContentLoaded', function() {
-    const orderForm = document.querySelector('.order');
+    const orderForm = document.querySelector('.orders');
     const openFormBtn = document.getElementById("openFormButton");
 
     const currentUser = Order.getCurrentUser();

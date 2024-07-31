@@ -1,6 +1,6 @@
 //import { Common } from "./Common.js";
 import { Basket } from './Basket.js';
-import {Authorization} from "../classes/Authorization.js"
+import {Authorization} from "./Authorization.js"
 
 export class EventHandler {
 
@@ -20,16 +20,32 @@ export class EventHandler {
             
         });
     }
-/*
+
     static addDeleteProductFromLSHandlers(basketItemsContainer) {
         basketItemsContainer.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
             deleteBtn.addEventListener('click', () => {
                 const itemId = deleteBtn.dataset.id;
-                Basket.deleteFromLocalStorage(itemId);
+                Basket.deleteProduct(itemId);
                 Basket.displayProduct();
             });
         });
     }
+
+    static addAddToBasketHandler() {
+        let addBtn = document.querySelector('.btn_add_basket');
+    
+        addBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+    
+            if (addBtn.value !== "Перейти в корзину") {
+                Basket.saveToSessionStorage();
+                addBtn.value = "Перейти в корзину";
+            } else {
+                window.location.href = 'order.php';
+            }
+        });
+    }
+
     static addQuantityHandlers(product, basket) {
         const quantityInput = product.querySelector('.input_price');
         const plusBtn = product.querySelector('.plus-btn');
@@ -47,19 +63,4 @@ export class EventHandler {
             }
         });
     }
-
-    static addAddToBasketHandler(product, basket) {
-        let addBtn = product.querySelector('.btn_add_basket');
-    
-        addBtn.addEventListener('click', function(event) {
-            event.preventDefault();
-    
-            if (addBtn.value !== "Перейти в корзину") {
-                basket.saveToLocalStorage();
-                addBtn.value = "Перейти в корзину";
-            } else {
-                window.location.href = 'order.php';
-            }
-        });
-    }*/
 }
