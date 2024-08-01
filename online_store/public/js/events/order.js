@@ -22,15 +22,9 @@ IMask(
 document.addEventListener('DOMContentLoaded', function() {
     const orderForm = document.querySelector('.orders');
     const openFormBtn = document.getElementById("openFormButton");
-
-    const currentUser = Order.getCurrentUser();
-    if (currentUser) {
-        const basketKey = Order.getBasketKey(currentUser.userId);
-        const basketOrder = Order.getBasketOrder(basketKey);
-
-        if (!basketOrder.userBasket[0] || basketOrder.userBasket.length === 0) {
+/*
+    if (orderForm) {
             openFormBtn.setAttribute('disabled', '');
-        }
     } else {
         openFormBtn.setAttribute('disabled', '');
     }
@@ -40,15 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         orderForm.classList.add('active');
         document.body.style.overflow = "";
     });
-
-    const user = JSON.parse(sessionStorage.getItem('currentUser'));
-
-    if (user) {
-        const nameClient = orderForm.querySelector('[name="nameClient"]');
-        nameClient.value = user.login;
-        nameClient.readOnly = true;
-    }
-
+*/
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -67,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         const order = new Order(orderData);
-        Order.saveToLocalStorage(order);
 
     })
 

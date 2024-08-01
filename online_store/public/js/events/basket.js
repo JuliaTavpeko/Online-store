@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     EventHandler.addAddToBasketHandler();
 
-    const basketItemsContainer = document.getElementById('orders-items');
+    const basketItemsContainer = document.getElementById('basket-items');
     EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
 
 });
