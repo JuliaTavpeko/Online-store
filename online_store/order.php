@@ -63,7 +63,7 @@
         </div>
     </form>
     <script src="https://unpkg.com/imask"></script>
-    <script src="js/order.js"></script>
+    <script src="js/events/order.js"></script>
 
 </div>
 </body>
