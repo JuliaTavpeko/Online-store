@@ -7,10 +7,11 @@ export class Basket {
     constructor(prodData) {
         Basket.data = {
             'id': prodData['id'],
-            'name': prodData['Name'],
-            'price': prodData['Price'],
+            'user': prodData['user'],
+            'name': prodData['nameProd'],
+            'quantity': prodData['quantity'],
+            'price': prodData['price'],
             'photo': prodData['Photo'],
-            'description': prodData['Description'],
         };
     }
 

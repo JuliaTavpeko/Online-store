@@ -16,7 +16,6 @@ class Basket
 
     public function returnData(){
         //$this->basket->insertIntoBasket($this->basketArray);
-        print_r($this->basketArray);
         return $this->basket->getBasket($this->basketArray['user']);
     }
 

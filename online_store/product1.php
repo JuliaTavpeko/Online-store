@@ -17,7 +17,6 @@
     <script src="js/events/catalog.js" type="module" defer></script>
     <script src="js/events/basket.js" type="module" defer></script>
 
-
     <link href="css/user/popUpUser.css" rel="stylesheet">
     <link href="css/basket/popUpBasket.css" rel="stylesheet">
 

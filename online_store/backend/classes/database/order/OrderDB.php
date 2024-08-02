@@ -5,7 +5,7 @@ namespace backend\classes\database\order;
 use backend\classes\database\DatabaseManager;
 use PDOException;
 
-class Order
+class OrderDB
 {
     private $dbManager;
 
@@ -26,11 +26,11 @@ class Order
         }
     }
 
-    public function getOrder($id){
+    public function getOrder(){
 
-        $query = 'SELECT * FROM Orders WHERE id = :id';
+        $query = 'SELECT * FROM Orders';
         try {
-            return $this->dbManager->query($query, ['id' => $id])->find();
+            return $this->dbManager->query($query)->find();
         } catch (PDOException $e) {
             error_log('Database error: ' . $e->getMessage());
             return ['error' => 'Произошла ошибка при получении данных.'];

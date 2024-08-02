@@ -38,10 +38,9 @@ export class EventHandler {
             event.preventDefault();
 
             if (addBtn.value !== "Перейти в корзину") {
-                Basket.saveToDB();
                 addBtn.value = "Перейти в корзину";
             } else {
-                window.location.href = 'order.php';
+                window.location.href = 'orderAction.php';
             }
         });
     }

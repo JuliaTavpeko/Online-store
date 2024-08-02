@@ -13,14 +13,24 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
 
-    RequestManager.sendRequest('/basket','POST', basketArray)
-        .then(result => {
-            console.log('Результат запроса:', result);
-            new Basket(result);
-            Basket.displayProduct();
-        });
+    let addBtn = document.querySelector('.btn_add_basket');
 
-    EventHandler.addAddToBasketHandler();
+    addBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        if (addBtn.value !== "Перейти в корзину") {
+            RequestManager.sendRequest('/basket','POST', basketArray)
+                .then(result => {
+                    console.log('Результат запроса:', result);
+                    new Basket(result);
+                    Basket.displayProduct();
+                });
+            addBtn.value = "Перейти в корзину";
+        } else {
+            window.location.href = 'order.php';
+        }
+    });
+
 
     const basketItemsContainer = document.getElementById('basket-items');
     EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);

@@ -33,9 +33,15 @@ class BasketDB
 
     public function getBasket($user){
 
-        $query = 'SELECT * FROM Basket WHERE user = :user';
+        $query = 'SELECT Basket.*, Catalog.Photo
+                    FROM Basket, Catalog
+                   WHERE user = :user';
         try {
-            return $this->dbManager->query($query, ['user' => $user])->find();
+            $result = $this->dbManager->query($query, ['user' => $user])->find();
+            if ($result['Photo']) {
+                $result['Photo'] = base64_encode($result['Photo']);
+            }
+            return $result;
         } catch (PDOException $e) {
             error_log('Database error: ' . $e->getMessage());
             return ['error' => 'Произошла ошибка при получении данных.'];

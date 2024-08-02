@@ -1,4 +1,5 @@
-import {Order} from '../classes/Order.js';
+//import {Order} from '../classes/Order.js';
+import {RequestManager} from "../classes/RequestManager";
 
 IMask(
     document.getElementById('phoneClient'),
@@ -20,21 +21,47 @@ IMask(
 )
 
 document.addEventListener('DOMContentLoaded', function() {
-    const orderForm = document.querySelector('.orders');
-    const openFormBtn = document.getElementById("openFormButton");
-/*
-    if (orderForm) {
-            openFormBtn.setAttribute('disabled', '');
-    } else {
-        openFormBtn.setAttribute('disabled', '');
-    }
+    /*  const orderForm = document.querySelector('.orders');
+      const openFormBtn = document.getElementById("openFormButton");
 
-    openFormBtn.addEventListener('click', function (e){
-        e.preventDefault();
-        orderForm.classList.add('active');
-        document.body.style.overflow = "";
-    });
-*/
+
+      const currentUser = Order.getCurrentUser();
+      if (currentUser) {
+          const basketKey = Order.getBasketKey(currentUser.userId);
+          const basketOrder = Order.getBasketOrder(basketKey);
+
+          if (!basketOrder.userBasket[0] || basketOrder.userBasket.length === 0) {
+              openFormBtn.setAttribute('disabled', '');
+          }
+      } else {
+          openFormBtn.setAttribute('disabled', '');
+      }
+
+      openFormBtn.addEventListener('click', function (e){
+          e.preventDefault();
+          orderForm.classList.add('active');
+          document.body.style.overflow = "";
+      });
+  */
+
+    const orderArray = {
+        "user": "Vova",
+        "phone": "+375292222222",
+        "email": "aaaaaaaaaaaa",
+        "address": "aaaaaaaaaaa",
+        "payment": "cash",
+    };
+
+    RequestManager.sendRequest('/order','POST', orderArray)
+        .then(result => {
+            console.log('Результат запроса:', result);
+            //new Order(result);
+
+        });
+
+    //Order.displayOrder();
+    //Order.makeOrder(orderForm);
+/*
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -54,11 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const order = new Order(orderData);
 
-
-
     })
 
-    Order.displayOrder();
-    Order.makeOrder(orderForm);
+*/
 
 });

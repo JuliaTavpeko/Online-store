@@ -13,8 +13,6 @@ export class Order {
         };
     }
 
-
-
     static displayOrderId(id) {
         const numOr = document.querySelector('.orderSuccess span');
         if (numOr) {
@@ -22,7 +20,6 @@ export class Order {
             numOr.textContent = id;
         }
     }
-
 
     static displayOrder() {
         const data = Order.data;
