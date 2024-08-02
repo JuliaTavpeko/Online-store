@@ -2,23 +2,22 @@
 
 namespace backend\classes\basket;
 use backend\classes\database\DatabaseManager;
-use backend\classes\database\catalog\Catalog;
+use backend\classes\database\basket\BasketDB;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
 class Basket
 {
-    public function __construct($idProd, DatabaseManager $dbManager)
+    public function __construct($basketArray, DatabaseManager $dbManager)
     {
-        $this->idProd = $idProd;
-        $this->product = new Catalog($dbManager);
+        $this->basketArray = $basketArray;
+        $this->basket = new BasketDB($dbManager);
     }
 
     public function returnData(){
-        return $this->product->getProduct($this->idProd);
+        //$this->basket->insertIntoBasket($this->basketArray);
+        print_r($this->basketArray);
+        return $this->basket->getBasket($this->basketArray['user']);
     }
-
-
-
 
 }

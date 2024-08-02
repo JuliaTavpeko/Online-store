@@ -53,19 +53,12 @@ export class Basket {
         });
     }
 
-    static saveToSessionStorage(){
+    static async saveToDB(){
 
     }
 
     static deleteProduct(id){
 
-    }
-
-    static updateProductPage() {
-        document.getElementById('prod-photo').src = `data:image/png;base64,${Basket.data.photo}`;
-        document.querySelector('[name="name"]').textContent = Basket.data.name;
-        document.querySelector('[name="priceProd"]').textContent = Basket.data.price;
-        document.querySelector('[name="description"]').textContent = Basket.data.description;
     }
 
 }

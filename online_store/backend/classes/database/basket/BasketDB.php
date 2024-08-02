@@ -5,7 +5,7 @@ namespace backend\classes\database\basket;
 use backend\classes\database\DatabaseManager;
 use PDOException;
 
-class Basket
+class BasketDB
 {
 
     private $dbManager;
@@ -31,16 +31,15 @@ class Basket
 
     }
 
-    public function getBasket($id){
+    public function getBasket($user){
 
-        $query = 'SELECT * FROM Basket WHERE id = :id';
+        $query = 'SELECT * FROM Basket WHERE user = :user';
         try {
-            return $this->dbManager->query($query, ['id' => $id])->find();
+            return $this->dbManager->query($query, ['user' => $user])->find();
         } catch (PDOException $e) {
             error_log('Database error: ' . $e->getMessage());
             return ['error' => 'Произошла ошибка при получении данных.'];
         }
-
     }
 
     public function deleteFromBasket($id){

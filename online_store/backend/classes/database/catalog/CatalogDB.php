@@ -5,7 +5,7 @@ namespace backend\classes\database\catalog;
 use backend\classes\database\DatabaseManager;
 use PDOException;
 
-class Catalog
+class CatalogDB
 {
     private $dbManager;
 

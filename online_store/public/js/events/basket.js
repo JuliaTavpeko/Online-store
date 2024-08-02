@@ -4,14 +4,20 @@ import { RequestManager } from '../classes/RequestManager.js';
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const idProduct = 1;
 
-    RequestManager.sendRequest('/basket','POST', idProduct)
+    const basketArray = {
+      "user": "Vova",
+      "nameProd": "Смартфон HONOR Magic6 Pro 12GB/512GB международная версия (шалфейный зеленый)",
+      "quantity": 2,
+      "price": 25,
+    };
+
+
+    RequestManager.sendRequest('/basket','POST', basketArray)
         .then(result => {
             console.log('Результат запроса:', result);
             new Basket(result);
             Basket.displayProduct();
-            Basket.updateProductPage();
         });
 
     EventHandler.addAddToBasketHandler();

@@ -10,4 +10,5 @@ $routes = [
     'auth' => '/backend/actions/auth/auth.php',
     'logout' => '/backend/actions/auth/logout.php',
     'basket' => '/backend/actions/basket/basket.php',
+    'catalog' => '/backend/actions/catalog/catalog.php',
 ];
