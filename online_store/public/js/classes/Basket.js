@@ -17,7 +17,13 @@ export class Basket {
 
     static setQuantity(newQuantity) {
         Basket.data.quantity = newQuantity;
+        console.log('Basket.data.quantity:', Basket.data.quantity);
+        console.log('newQuantity:', newQuantity);
         return Basket.data.quantity;
+    }
+
+    static getQuantity(result) {
+        return result;
     }
 
     static displayProduct() {
@@ -25,6 +31,7 @@ export class Basket {
         const basketItemsContainer = document.getElementById('basket-items');
         basketItemsContainer.innerHTML = '';
 
+        console.log('setQuantity():',this.setQuantity());
         [Basket.data].forEach((item) => {
             const itemRow = `
                 <tr class="basket_item">
@@ -43,7 +50,7 @@ export class Basket {
                            <button class="minus-btn" type="button" name="button">
                                 <img src="image/svg/icon/minus.svg" alt="minus" />
                             </button>
-                            <input type="number" class="input_price" data-price="${item.price}" value="${item.quantity}" disabled>
+                            <input type="number" class="input_price" data-price="${item.price}" value="${Basket.getQuantity()}" disabled>
                             <button class="plus-btn" type="button" name="button">
                                 <img src="image/svg/icon/plus.svg" alt="plus" />
                             </button>
