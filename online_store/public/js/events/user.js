@@ -56,8 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             authData[element.name] = element.value;
         });
 
-        console.log(authData);
-
         authData['checkbox'] = form_for_auth.querySelector('[name="remember"]').checked;
 
         RequestManager.sendRequest('/auth','POST', authData)

@@ -11,7 +11,6 @@
     <link href="css/order.css" rel="stylesheet">
 
     <script src="js/events/user.js" type="module" defer></script>
-    <script src="js/events/review.js" type="module" defer></script>
     <script src="js/events/order.js" type="module" defer></script>
 
     <link href="css/user/popUpUser.css" rel="stylesheet">
@@ -19,7 +18,6 @@
 
     <script src="js/events/block/popUp/popUpUser.js" defer></script>
     <script src="js/events/block/popUp/popUpBasket.js" type="module" defer></script>
-
 </head>
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 <body>

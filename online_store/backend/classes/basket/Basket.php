@@ -16,7 +16,13 @@ class Basket
 
     public function returnData(){
         //$this->basket->insertIntoBasket($this->basketArray);
+        if($this->basket->checkData('quantity', $this->basketArray['quantity']) != $this->basketArray['quantity']){
+            $this->basket->updateBasket($this->basketArray['quantity'], $this->basketArray['nameProd']);
+        }
+
         return $this->basket->getBasket($this->basketArray['user']);
     }
+
+
 
 }

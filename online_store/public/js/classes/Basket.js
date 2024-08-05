@@ -15,6 +15,11 @@ export class Basket {
         };
     }
 
+    static setQuantity(newQuantity) {
+        Basket.data.quantity = newQuantity;
+        return Basket.data.quantity;
+    }
+
     static displayProduct() {
 
         const basketItemsContainer = document.getElementById('basket-items');
@@ -35,17 +40,17 @@ export class Basket {
                     <td class="prodPrice">${item.price} руб.</td>
                     <td>
                         <div class="quantity">
-                            <button class="minus-btn" type="button">
-                                <img src="image/svg/icon/minus.svg">
+                           <button class="minus-btn" type="button" name="button">
+                                <img src="image/svg/icon/minus.svg" alt="minus" />
                             </button>
-                           <!-- <input type="number" class="input_price" data-price="${item.price}" value="${item.amountProd}" disabled>-->
-                            <button class="plus-btn" type="button">
-                                <img src="image/svg/icon/plus.svg">
+                            <input type="number" class="input_price" data-price="${item.price}" value="${item.quantity}" disabled>
+                            <button class="plus-btn" type="button" name="button">
+                                <img src="image/svg/icon/plus.svg" alt="plus" />
                             </button>
                         </div>
                     </td>
                     <td class="subtotal">
-                      <!--  <span class="price">${Common.formatNumber(item.amountProd * item.price)} руб.</span>-->
+                        <span class="price">${Common.formatNumber(item.quantity * item.price)} руб.</span>
                     </td>
                 </tr>
             `;
@@ -54,12 +59,5 @@ export class Basket {
         });
     }
 
-    static async saveToDB(){
-
-    }
-
-    static deleteProduct(id){
-
-    }
 
 }

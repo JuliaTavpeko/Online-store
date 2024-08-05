@@ -4,14 +4,12 @@ import { RequestManager } from '../classes/RequestManager.js';
 
 document.addEventListener('DOMContentLoaded', function() {
 
-
     const basketArray = {
       "user": "Vova",
       "nameProd": "Смартфон HONOR Magic6 Pro 12GB/512GB международная версия (шалфейный зеленый)",
-      "quantity": 2,
+      "quantity": 3,
       "price": 25,
     };
-
 
     let addBtn = document.querySelector('.btn_add_basket');
 
@@ -31,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    EventHandler.addQuantityHandlers();
 
     const basketItemsContainer = document.getElementById('basket-items');
     EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);

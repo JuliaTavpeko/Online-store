@@ -17,7 +17,6 @@ export class EventHandler {
                     form_for_auth.querySelector('[name="passAuth"]').value = Authorization.data.pass;
                 }
             }
-
         });
     }
 
@@ -31,35 +30,21 @@ export class EventHandler {
         });
     }
 
-    static addAddToBasketHandler() {
-        let addBtn = document.querySelector('.btn_add_basket');
-
-        addBtn.addEventListener('click', function(event) {
-            event.preventDefault();
-
-            if (addBtn.value !== "Перейти в корзину") {
-                addBtn.value = "Перейти в корзину";
-            } else {
-                window.location.href = 'orderAction.php';
+    static addQuantityHandlers() {
+        document.addEventListener('click', (event) => {
+            const button = event.target.closest('.plus-btn, .minus-btn');
+            if (button) {
+                const product = button.closest('.quantity');
+                const quantityInput = product.querySelector('.input_price');
+                if (button.classList.contains('plus-btn')) {
+                    quantityInput.value++;
+                    Basket.setQuantity(quantityInput.value);
+                } else if (button.classList.contains('minus-btn')) {
+                    quantityInput.value = quantityInput.value > 1 ? quantityInput.value - 1 : quantityInput.value;
+                    Basket.setQuantity(quantityInput.value);
+                }
             }
         });
-    }
 
-    static addQuantityHandlers(product, basket) {
-        const quantityInput = product.querySelector('.input_price');
-        const plusBtn = product.querySelector('.plus-btn');
-        const minusBtn = product.querySelector('.minus-btn');
-
-        plusBtn.addEventListener('click', () => {
-            quantityInput.value++;
-            basket.setQuantity(quantityInput.value);
-        });
-
-        minusBtn.addEventListener('click', () => {
-            if (quantityInput.value > 1) {
-                quantityInput.value--;
-                basket.setQuantity(quantityInput.value);
-            }
-        });
     }
 }
