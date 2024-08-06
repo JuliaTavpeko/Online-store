@@ -4,10 +4,18 @@ export class Authorization {
     constructor(authData) {
         Authorization.data = {
             'cookie': authData['cookie'],
+            'session': authData['session'],
             'id': authData['id'],
             'login': authData['login'],
             'pass': authData['pass'],
             'photo': authData['photo'],
+        };
+    }
+
+    static getSessionData(){
+        return {
+            'id': Authorization.data.id,
+            'session': Authorization.data.session,
         };
     }
     

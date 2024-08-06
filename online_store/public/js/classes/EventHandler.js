@@ -1,4 +1,3 @@
-//import { Common } from "./Common.js";
 import { Basket } from './Basket.js';
 import {Authorization} from "./Authorization.js"
 
@@ -35,14 +34,13 @@ export class EventHandler {
             const button = event.target.closest('.plus-btn, .minus-btn');
             if (button) {
                 const product = button.closest('.quantity');
-                const quantityInput = event.target.closest('.input_price');
-                //const quantityInput = product.querySelector('.input_price');
+                const quantityInput = product.querySelector('.input_price');
                 if (button.classList.contains('plus-btn')) {
                     quantityInput.value++;
-                    //Basket.setQuantity(quantityInput.value);
+                    Basket.setQuantity(quantityInput.value);
                 } else if (button.classList.contains('minus-btn')) {
                     quantityInput.value = quantityInput.value > 1 ? quantityInput.value - 1 : quantityInput.value;
-                    //Basket.setQuantity(quantityInput.value);
+                    Basket.setQuantity(quantityInput.value);
                 }
             }
         });

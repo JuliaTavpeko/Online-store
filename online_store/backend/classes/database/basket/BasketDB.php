@@ -28,7 +28,7 @@ class BasketDB
     public function insertIntoBasket($basketData): bool
     {
 
-        $query = "INSERT INTO Basket (`user`, `nameProd`, `quantity`, `price`) VALUES (:user, :nameProd, :quantity, :price)";
+        $query = "INSERT INTO Basket (`idUser`,`nameProd`, `quantity`, `price`) VALUES (:idUser,:nameProd, :quantity, :price)";
         try {
             $this->dbManager->query($query, $basketData);
             return true;
@@ -38,8 +38,8 @@ class BasketDB
         }
     }
 
-    public function updateBasket($quantity, $nameProd){
-        $query = "UPDATE Basket SET `quantity` = '{$quantity}' WHERE `nameProd` = '{$nameProd}'";
+    public function updateBasket($quantity, $idUser){
+        $query = "UPDATE Basket SET `quantity` = '{$quantity}' WHERE `idUser` = '{$idUser}'";
         try {
              return $this->dbManager->query($query)->find();
          } catch (PDOException $e) {
@@ -48,11 +48,11 @@ class BasketDB
          }
     }
 
-    public function getBasket($user){
+    public function getBasket($idUser){
 
         $query = "SELECT Basket.*, Catalog.Photo
                     FROM Basket, Catalog
-                   WHERE `user` = '{$user}'";
+                   WHERE `idUser` = '{$idUser}'";
         try {
             $result = $this->dbManager->query($query)->find();
             if ($result['Photo']) {

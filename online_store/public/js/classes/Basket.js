@@ -3,11 +3,12 @@ import { Common } from "./Common.js";
 export class Basket {
 
     static data = [];
+    static currentQuantity = 0;
 
     constructor(prodData) {
         Basket.data = {
             'id': prodData['id'],
-            'user': prodData['user'],
+            'idUser': prodData['idUser'],
             'name': prodData['nameProd'],
             'quantity': prodData['quantity'],
             'price': prodData['price'],
@@ -17,13 +18,11 @@ export class Basket {
 
     static setQuantity(newQuantity) {
         Basket.data.quantity = newQuantity;
-        console.log('Basket.data.quantity:', Basket.data.quantity);
-        console.log('newQuantity:', newQuantity);
-        return Basket.data.quantity;
+        Basket.currentQuantity = newQuantity;
     }
 
-    static getQuantity(result) {
-        return result;
+    static getQuantity() {
+        return Basket.currentQuantity;
     }
 
     static displayProduct() {
@@ -31,7 +30,6 @@ export class Basket {
         const basketItemsContainer = document.getElementById('basket-items');
         basketItemsContainer.innerHTML = '';
 
-        console.log('setQuantity():',this.setQuantity());
         [Basket.data].forEach((item) => {
             const itemRow = `
                 <tr class="basket_item">
@@ -57,7 +55,7 @@ export class Basket {
                         </div>
                     </td>
                     <td class="subtotal">
-                        <span class="price">${Common.formatNumber(item.quantity * item.price)} руб.</span>
+                        <span class="price">${Common.formatNumber(Basket.getQuantity() * item.price)} руб.</span>
                     </td>
                 </tr>
             `;
@@ -65,6 +63,4 @@ export class Basket {
             basketItemsContainer.innerHTML += itemRow;
         });
     }
-
-
 }

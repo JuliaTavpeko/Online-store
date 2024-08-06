@@ -19,4 +19,11 @@ export class Catalog {
         document.querySelector('[name="description"]').textContent = Catalog.data.description;
     }
 
+    static getProductData(){
+        return {
+            'name': Catalog.data.name,
+            'price': Catalog.data.price,
+        };
+    }
+
 }
