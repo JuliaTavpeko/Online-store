@@ -15,15 +15,6 @@ class Basket
     }
 
     public function returnData(){
-/*
-        if($this->basket->checkData('idUser', $this->basketArray['idUser']) && $this->basket->checkData('quantity', $this->basketArray['quantity']) != $this->basketArray['quantity']){
-            $this->basket->updateBasket($this->basketArray['quantity'], $this->basketArray['idUser']);
-        } else {
-            $this->basket->insertIntoBasket($this->basketArray);
-        }
-
-
-*/
 
         if(!$this->basket->checkData('idUser', $this->basketArray['idUser'])){
             $this->basket->insertIntoBasket($this->basketArray);
@@ -33,7 +24,6 @@ class Basket
 
         return $this->basket->getBasket($this->basketArray['idUser']);
     }
-
 
 
 }

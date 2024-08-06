@@ -3,7 +3,6 @@ import { Common } from "./Common.js";
 export class Basket {
 
     static data = [];
-    static currentQuantity = 0;
 
     constructor(prodData) {
         Basket.data = {
@@ -14,15 +13,6 @@ export class Basket {
             'price': prodData['price'],
             'photo': prodData['Photo'],
         };
-    }
-
-    static setQuantity(newQuantity) {
-        Basket.data.quantity = newQuantity;
-        Basket.currentQuantity = newQuantity;
-    }
-
-    static getQuantity() {
-        return Basket.currentQuantity;
     }
 
     static displayProduct() {
@@ -48,14 +38,14 @@ export class Basket {
                            <button class="minus-btn" type="button" name="button">
                                 <img src="image/svg/icon/minus.svg" alt="minus" />
                             </button>
-                            <input type="number" class="input_price" data-price="${item.price}" value="${Basket.getQuantity()}" disabled>
+                            <input type="number" class="input_price" data-price="${item.price}" value="${item.quantity}" disabled>
                             <button class="plus-btn" type="button" name="button">
                                 <img src="image/svg/icon/plus.svg" alt="plus" />
                             </button>
                         </div>
                     </td>
                     <td class="subtotal">
-                        <span class="price">${Common.formatNumber(Basket.getQuantity() * item.price)} руб.</span>
+                        <span class="price">${Common.formatNumber(item.quantity * item.price)} руб.</span>
                     </td>
                 </tr>
             `;
