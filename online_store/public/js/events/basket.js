@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 userId = sessionData.id;
             }
 
-            const basketArray = {idUser: userId, nameProd: productData.name, price: productData.price, quantity: quantityInput };
+            const basketArray = {idUser: userId, idProd: productData.id, nameProd: productData.name, price: productData.price, quantity: quantityInput };
             if (addBtn.value !== "Перейти в корзину") {
                 RequestManager.sendRequest('/basket', 'POST', basketArray)
                     .then(result => {

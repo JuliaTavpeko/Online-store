@@ -8,6 +8,7 @@ export class Basket {
         Basket.data = {
             'id': prodData['id'],
             'idUser': prodData['idUser'],
+            'idProd': prodData['idProd'],
             'name': prodData['nameProd'],
             'quantity': prodData['quantity'],
             'price': prodData['price'],

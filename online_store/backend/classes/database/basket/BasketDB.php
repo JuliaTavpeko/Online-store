@@ -28,7 +28,7 @@ class BasketDB
     public function insertIntoBasket($basketData): bool
     {
 
-        $query = "INSERT INTO Basket (`idUser`,`nameProd`, `quantity`, `price`) VALUES (:idUser,:nameProd, :quantity, :price)";
+        $query = "INSERT INTO Basket (`idUser`, `idProd`,`nameProd`, `quantity`, `price`) VALUES (:idUser,:idProd,:nameProd, :quantity, :price)";
         try {
             $this->dbManager->query($query, $basketData);
             return true;

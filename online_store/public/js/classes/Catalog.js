@@ -21,6 +21,7 @@ export class Catalog {
 
     static getProductData(){
         return {
+            'id': Catalog.data.id,
             'name': Catalog.data.name,
             'price': Catalog.data.price,
         };
