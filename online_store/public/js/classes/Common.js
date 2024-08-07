@@ -57,5 +57,4 @@ export class Common {
         inputs.forEach(input => input.value = '');
 
     }
-
 }

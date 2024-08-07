@@ -19,12 +19,13 @@ export class EventHandler {
         });
     }
 
-    static addDeleteProductFromLSHandlers(basketItemsContainer) {
+    static async addDeleteProductFromLSHandlers(basketItemsContainer) {
         basketItemsContainer.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
             deleteBtn.addEventListener('click', () => {
-                const itemId = deleteBtn.dataset.id;
-                Basket.deleteProduct(itemId);
-                Basket.displayProduct();
+                const userId = Authorization.getSessionData().id;
+                if (userId) {
+                    Basket.deleteProduct(userId);
+                }
             });
         });
     }

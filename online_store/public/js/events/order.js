@@ -1,8 +1,10 @@
-//import {Order} from '../classes/Order.js';
-import {RequestManager} from "../classes/RequestManager";
+import {Order} from '../classes/Order.js';
+import {RequestManager} from "../classes/RequestManager.js";
+import {Basket} from "../classes/Basket.js";
+import {Authorization} from "../classes/Authorization.js";
 
 IMask(
-    document.getElementById('phoneClient'),
+    document.querySelector('[name="phoneClient"]'),
     {
         mask: '+{375}(00)000-00-00',
         lazy: false
@@ -10,7 +12,7 @@ IMask(
 )
 
 IMask(
-    document.getElementById('emailClient'),
+    document.querySelector('[name="emailClient"]'),
     {
         mask: 'w@w.w',
         blocks: {
@@ -21,47 +23,23 @@ IMask(
 )
 
 document.addEventListener('DOMContentLoaded', function() {
-    /*  const orderForm = document.querySelector('.orders');
-      const openFormBtn = document.getElementById("openFormButton");
+     const orderForm = document.querySelector('.order');
+     const openFormBtn = document.getElementById("openFormButton");
 
+     openFormBtn.addEventListener('click', function (e){
+         e.preventDefault();
+         orderForm.classList.add('active');
+         document.body.style.overflow = "";
+     });
 
-      const currentUser = Order.getCurrentUser();
-      if (currentUser) {
-          const basketKey = Order.getBasketKey(currentUser.userId);
-          const basketOrder = Order.getBasketOrder(basketKey);
+    const sessionData = Authorization.getSessionData();
+    let userId;
+    if(sessionData.id){
+        userId = sessionData.id;
+    }
 
-          if (!basketOrder.userBasket[0] || basketOrder.userBasket.length === 0) {
-              openFormBtn.setAttribute('disabled', '');
-          }
-      } else {
-          openFormBtn.setAttribute('disabled', '');
-      }
+    Basket.displayProduct();
 
-      openFormBtn.addEventListener('click', function (e){
-          e.preventDefault();
-          orderForm.classList.add('active');
-          document.body.style.overflow = "";
-      });
-  */
-
-    const orderArray = {
-        "user": "Vova",
-        "phone": "+375292222222",
-        "email": "aaaaaaaaaaaa",
-        "address": "aaaaaaaaaaa",
-        "payment": "cash",
-    };
-
-    RequestManager.sendRequest('/order','POST', orderArray)
-        .then(result => {
-            console.log('Результат запроса:', result);
-            //new Order(result);
-
-        });
-
-    //Order.displayOrder();
-    //Order.makeOrder(orderForm);
-/*
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -79,10 +57,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        const order = new Order(orderData);
+        orderData['idUser'] = userId;
+        orderData['user'] = sessionData.login;
 
+        console.log('orderData:',orderData);
+
+        RequestManager.sendRequest('/order','POST', orderData)
+            .then(result => {
+                console.log('Результат запроса:', result);
+                new Order(result);
+                Order.makeOrder(orderForm);
+                Order.displayOrder();
+
+            });
     })
 
-*/
 
 });

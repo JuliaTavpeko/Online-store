@@ -16,7 +16,7 @@ class OrderDB
 
     public function makeOrder($orderData){
 
-        $query = "INSERT INTO Orders (`user`, `phone`, `email`, `address`, `payment`) VALUES (:user, :phone, :email, :address, :payment)";
+        $query = "INSERT INTO Orders (`idUser`, `user`, `phone`, `email`, `address`, `payment`) VALUES (:idUser, :user,  :phone, :email, :address, :payment)";
         try {
             $this->dbManager->query($query, $orderData);
             return true;
@@ -36,5 +36,4 @@ class OrderDB
             return ['error' => 'Произошла ошибка при получении данных.'];
         }
     }
-
 }

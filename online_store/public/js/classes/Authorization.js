@@ -15,6 +15,7 @@ export class Authorization {
     static getSessionData(){
         return {
             'id': Authorization.data.id,
+            'login': Authorization.data.login,
             'session': Authorization.data.session,
         };
     }

@@ -1,4 +1,6 @@
 import { Common } from "./Common.js";
+import {EventHandler} from "./EventHandler.js";
+import {RequestManager} from "./RequestManager.js";
 
 export class Basket {
 
@@ -52,6 +54,17 @@ export class Basket {
             `;
 
             basketItemsContainer.innerHTML += itemRow;
+            EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
         });
     }
+
+    static async deleteProduct(idUser) {
+        const requestData = { idUser: idUser };
+
+        RequestManager.sendRequest('/clearBasket', 'POST', requestData)
+            .then(result => {
+                console.log('Результат запроса:', result);
+            });
+    }
+
 }

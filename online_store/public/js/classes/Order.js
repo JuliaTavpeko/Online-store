@@ -5,6 +5,7 @@ export class Order {
     constructor(orderData) {
         Order.data = {
             'id': orderData['id'],
+            'idUser': orderData['idUser'],
             'user': orderData['user'],
             'phone': orderData['phone'],
             'email': orderData['email'],

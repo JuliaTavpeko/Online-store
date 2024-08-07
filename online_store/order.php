@@ -46,13 +46,13 @@
         <div class="order-container">
             <h1>Оформление заказа</h1>
             <label>Имя:</label>
-            <input type="text" id="nameClient" name="nameClient" class="orderInfo" required/>
+            <input type="text" id="user" name="user" class="orderInfo" required/>
             <label>Телефон:</label>
-            <input type="text" id="phoneClient" name="phoneClient" class="orderInfo" required/>
+            <input type="text" id="phone" name="phoneClient" class="orderInfo" required/>
             <label>Email:</label>
-            <input type="text" id="emailClient" name="emailClient" class="orderInfo" required/>
+            <input type="text" id="email" name="emailClient" class="orderInfo" required/>
             <label>Адрес:</label>
-            <input type="text" id="adressClient" name="adressClient" class="orderInfo" required/>
+            <input type="text" id="address" name="address" class="orderInfo" required/>
             <div class="orderInfo payment" id="payment">
                 <label>Наличные</label><input type="checkbox" name="paymentMethod" id="paymentCash" value="cash" checked/>
                 <label>Кредитная карта</label><input type="checkbox" name="paymentMethod" id="paymentCreditCard" value="creditCard" />

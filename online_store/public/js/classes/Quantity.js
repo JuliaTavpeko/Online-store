@@ -16,7 +16,6 @@ export class Quantity {
             if (button) {
                 const product = button.closest('.basket_item');
                 const quantityInput = product.querySelector('.input_price');
-                const productId = product.dataset.id;
 
                 if (button.classList.contains('plus-btn')) {
                     quantityInput.value++;
@@ -32,7 +31,7 @@ export class Quantity {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ idProd: productId, idUser: "55", quantity: newQuantity })
+                    body: JSON.stringify({idUser: "55", quantity: newQuantity })
                 })
                     .then(response => response.json())
                     .then(data => {

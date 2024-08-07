@@ -15,9 +15,8 @@ class Orders
     }
 
     public function returnData(){
-
-        return $this->order->makeOrder($this->orderArray);
+        //$this->order->makeOrder($this->orderArray);
+        return $this->order->getOrder();
     }
-
 
 }

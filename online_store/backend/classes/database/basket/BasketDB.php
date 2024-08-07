@@ -38,8 +38,8 @@ class BasketDB
         }
     }
 
-    public function updateBasket($quantity, $idUser){
-        $query = "UPDATE Basket SET `quantity` = '{$quantity}' WHERE `idUser` = '{$idUser}'";
+    public function updateBasket($quantity, $price, $idUser){
+        $query = "UPDATE Basket SET `quantity` = '{$quantity}' and `price` = '{$price}' WHERE `idUser` = '{$idUser}'";
         try {
              return $this->dbManager->query($query)->find();
          } catch (PDOException $e) {
@@ -65,8 +65,8 @@ class BasketDB
         }
     }
 
-    public function deleteFromBasket($id){
-        $query = "DELETE FROM Basket WHERE `id` = '{$id}'";
+    public function deleteFromBasket($idUser){
+        $query = "DELETE FROM Basket WHERE `idUser` = '{$idUser}'";
         try {
             return $this->dbManager->query($query)->find();
         } catch (PDOException $e) {
@@ -74,6 +74,4 @@ class BasketDB
             return ['error' => 'Произошла ошибка при получении данных.'];
         }
     }
-
-
 }
