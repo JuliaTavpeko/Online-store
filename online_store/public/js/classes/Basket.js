@@ -1,4 +1,3 @@
-import { Common } from "./Common.js";
 import {EventHandler} from "./EventHandler.js";
 import {RequestManager} from "./RequestManager.js";
 
@@ -14,12 +13,12 @@ export class Basket {
             'name': prodData['nameProd'],
             'quantity': prodData['quantity'],
             'price': prodData['price'],
+            'itemPrice': prodData['itemPrice'],
             'photo': prodData['Photo'],
         };
     }
 
     static displayProduct() {
-
         const basketItemsContainer = document.getElementById('basket-items');
         basketItemsContainer.innerHTML = '';
 
@@ -48,7 +47,7 @@ export class Basket {
                         </div>
                     </td>
                     <td class="subtotal">
-                        <span class="price">${Common.formatNumber(item.quantity * item.price)} руб.</span>
+                        <span class="price">${item.itemPrice} руб.</span>
                     </td>
                 </tr>
             `;
@@ -60,11 +59,9 @@ export class Basket {
 
     static async deleteProduct(idUser) {
         const requestData = { idUser: idUser };
-
         RequestManager.sendRequest('/clearBasket', 'POST', requestData)
             .then(result => {
-                console.log('Результат запроса:', result);
+                console.log('Результат запроса clearBasket:', result);
             });
     }
-
 }

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (addBtn.value !== "Перейти в корзину") {
                 RequestManager.sendRequest('/basket', 'POST', basketArray)
                     .then(result => {
-                        console.log('Результат запроса:', result);
+                        console.log('Результат запроса basket:', result);
                         new Basket(result);
                         Basket.displayProduct();
                     });
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         Quantity.addQuantityHandlers();
-
         const basketItemsContainer = document.getElementById('basket-items');
         EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
     });

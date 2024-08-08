@@ -5,7 +5,8 @@ namespace backend\classes\helpers;
 class Calculator
 {
 
-    public static function calculateItemPrice($item){
+    public static function calculateItemPrice($item): float|int
+    {
         return $item['price'] * $item['quantity'];
     }
 

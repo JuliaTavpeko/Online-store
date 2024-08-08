@@ -1,3 +1,7 @@
+import {Authorization} from "./Authorization.js";
+import {Catalog} from "./Catalog.js";
+import {RequestManager} from "./RequestManager.js";
+
 export class Quantity {
     static currentQuantity = 0;
 
@@ -6,7 +10,6 @@ export class Quantity {
     }
 
     static getQuantity() {
-        console.log('Quantity.currentQuantity:', Quantity.currentQuantity);
         return Quantity.currentQuantity;
     }
 
@@ -24,27 +27,19 @@ export class Quantity {
                 }
 
                 Quantity.setQuantity(quantityInput.value);
-                const newQuantity = Quantity.getQuantity();
+                const quantityData = {
+                    idUser: Authorization.getSessionData().id,
+                    quantity: Quantity.getQuantity(),
+                    price: Catalog.getProductData().price
+                };
 
-                fetch('/updateBasket', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({idUser: "55", quantity: newQuantity })
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            const priceElement = product.querySelector('.prodPrice');
-                            const subtotalElement = product.querySelector('.subtotal .price');
-                            const price = parseFloat(priceElement.textContent);
-                            subtotalElement.textContent = `${(price * newQuantity).toFixed(2)} руб.`;
-                        } else {
-                            console.error('Ошибка при обновлении количества товара');
-                        }
-                    })
-                    .catch(error => console.error('Ошибка при отправке запроса на сервер:', error));
+                const subtotalElement = product.querySelector('.subtotal .price');
+
+                RequestManager.sendRequest('/updateBasket','POST', quantityData)
+                    .then(result => {
+                        console.log('Результат запроса updateBasket:', result);
+                        subtotalElement.textContent = `${result.itemPrice} руб.`;
+                    });
             }
         });
     }

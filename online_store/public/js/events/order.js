@@ -64,13 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         RequestManager.sendRequest('/order','POST', orderData)
             .then(result => {
-                console.log('Результат запроса:', result);
+                console.log('Результат запроса order:', result);
                 new Order(result);
                 Order.makeOrder(orderForm);
                 Order.displayOrder();
 
             });
     })
-
 
 });

@@ -17,22 +17,21 @@ class Basket
 
     public function returnData(){
 
+        $this->basketArray['itemPrice'] = $this->calculateData($this->basketArray);
         if(!$this->basket->checkData('idUser', $this->basketArray['idUser'])){
             $this->basket->insertIntoBasket($this->basketArray);
         } else if($this->basket->checkData('idUser', $this->basketArray['idUser']) && $this->basket->checkData('quantity', $this->basketArray['quantity']) != $this->basketArray['quantity']) {
-            $this->basket->updateBasket($this->basketArray['quantity'], $this->calculateData(), $this->basketArray['idUser']);
+            $this->basket->updateBasket($this->basketArray);
         }
-
         return $this->basket->getBasket($this->basketArray['idUser']);
     }
 
-    public function calculateData(){
-        return Calculator::calculateItemPrice($this->basketArray);
+    public function calculateData($item): float|int
+    {
+        return Calculator::calculateItemPrice($item);
     }
 
     public function deleteBasket(){
         return $this->basket->deleteFromBasket($this->basketArray['idUser']);
     }
-
-
 }

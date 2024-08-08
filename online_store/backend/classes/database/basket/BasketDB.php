@@ -7,7 +7,6 @@ use PDOException;
 
 class BasketDB
 {
-
     private $dbManager;
 
     public function __construct(DatabaseManager $dbManager)
@@ -27,8 +26,7 @@ class BasketDB
 
     public function insertIntoBasket($basketData): bool
     {
-
-        $query = "INSERT INTO Basket (`idUser`, `idProd`,`nameProd`, `quantity`, `price`) VALUES (:idUser,:idProd,:nameProd, :quantity, :price)";
+        $query = "INSERT INTO Basket (`idUser`, `idProd`,`nameProd`, `quantity`, `price` , `itemPrice`) VALUES (:idUser,:idProd,:nameProd, :quantity, :price, :itemPrice)";
         try {
             $this->dbManager->query($query, $basketData);
             return true;
@@ -38,8 +36,8 @@ class BasketDB
         }
     }
 
-    public function updateBasket($quantity, $price, $idUser){
-        $query = "UPDATE Basket SET `quantity` = '{$quantity}' and `price` = '{$price}' WHERE `idUser` = '{$idUser}'";
+    public function updateBasket($item){
+        $query = "UPDATE Basket SET `quantity` = '{$item['quantity']}', `itemPrice` = '{$item['itemPrice']}'  WHERE `idUser` = '{$item['idUser']}'";
         try {
              return $this->dbManager->query($query)->find();
          } catch (PDOException $e) {
@@ -49,7 +47,6 @@ class BasketDB
     }
 
     public function getBasket($idUser){
-
         $query = "SELECT Basket.*, Catalog.Photo
                     FROM Basket, Catalog
                    WHERE `idUser` = '{$idUser}'";
