@@ -16,7 +16,7 @@ class Orders
 
     public function returnData(){
         //$this->order->makeOrder($this->orderArray);
-        return $this->order->getOrder();
+        return $this->order->getOrder($this->orderArray['idUser']);
     }
 
 }

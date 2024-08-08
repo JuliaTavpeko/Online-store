@@ -1,7 +1,9 @@
-import {Order} from '../classes/Order.js';
 import {RequestManager} from "../classes/RequestManager.js";
 import {Basket} from "../classes/Basket.js";
 import {Authorization} from "../classes/Authorization.js";
+import {Catalog} from "../classes/Catalog.js";
+import {Quantity} from "../classes/Quantity.js";
+import {Order} from '../classes/Order.js';
 
 IMask(
     document.querySelector('[name="phoneClient"]'),
@@ -23,8 +25,9 @@ IMask(
 )
 
 document.addEventListener('DOMContentLoaded', function() {
-     const orderForm = document.querySelector('.order');
-     const openFormBtn = document.getElementById("openFormButton");
+
+    const orderForm = document.querySelector('.order');
+    const openFormBtn = document.getElementById("openFormButton");
 
      openFormBtn.addEventListener('click', function (e){
          e.preventDefault();
@@ -32,13 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
          document.body.style.overflow = "";
      });
 
-    const sessionData = Authorization.getSessionData();
-    let userId;
-    if(sessionData.id){
-        userId = sessionData.id;
-    }
+    const basketArray = {
+        idUser: Authorization.getSessionData().id,
+        idProd: Catalog.getProductData().id,
+        nameProd: Catalog.getProductData().name,
+        quantity: Quantity.getQuantity(),
+        price: Catalog.getProductData().price,
+    };
 
-    Basket.displayProduct();
+    RequestManager.sendRequest('/getBasket', 'POST', basketArray)
+        .then(result => {
+            console.log('Результат запроса getBasket:', result);
+            Basket.displayProduct(result);
+        });
 
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -57,10 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        orderData['idUser'] = userId;
-        orderData['user'] = sessionData.login;
-
-        console.log('orderData:',orderData);
+        orderData['idUser'] = Authorization.getSessionData().id;
+        orderData['user'] = Authorization.getSessionData().login;
 
         RequestManager.sendRequest('/order','POST', orderData)
             .then(result => {
@@ -68,8 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 new Order(result);
                 Order.makeOrder(orderForm);
                 Order.displayOrder();
-
+                //Basket.deleteProduct(orderData['idUser']);
             });
     })
-
 });

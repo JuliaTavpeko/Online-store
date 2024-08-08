@@ -14,21 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
         addBtn.addEventListener('click', function(event) {
             event.preventDefault();
 
-            const productData = Catalog.getProductData();
-            const quantityInput = Quantity.getQuantity();
-            const sessionData = Authorization.getSessionData();
-            let userId;
-            if(sessionData.id){
-                userId = sessionData.id;
-            }
-
-            const basketArray = {idUser: userId, idProd: productData.id, nameProd: productData.name, price: productData.price, quantity: quantityInput };
+            const basketArray = {
+                idUser: Authorization.getSessionData().id,
+                idProd: Catalog.getProductData().id,
+                nameProd: Catalog.getProductData().name,
+                quantity: Quantity.getQuantity(),
+                price: Catalog.getProductData().price,
+            };
             if (addBtn.value !== "Перейти в корзину") {
                 RequestManager.sendRequest('/basket', 'POST', basketArray)
                     .then(result => {
                         console.log('Результат запроса basket:', result);
                         new Basket(result);
-                        Basket.displayProduct();
+                        Basket.displayProduct(result);
                     });
                 addBtn.value = "Перейти в корзину";
             } else {
@@ -39,6 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
         Quantity.addQuantityHandlers();
         const basketItemsContainer = document.getElementById('basket-items');
         EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
+
+        const orderBtn = document.querySelector('.btnOrder');
+        orderBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'order.php';
+        });
     });
+
+
 
 });

@@ -26,9 +26,8 @@ class OrderDB
         }
     }
 
-    public function getOrder(){
-
-        $query = 'SELECT * FROM Orders';
+    public function getOrder($idUser){
+        $query = "SELECT * FROM Orders WHERE `idUser` = '{$idUser}'";
         try {
             return $this->dbManager->query($query)->find();
         } catch (PDOException $e) {

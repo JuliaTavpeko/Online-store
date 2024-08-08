@@ -3,15 +3,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const closePopUpBasket = document.querySelector('.popUpCloseBasket');
     const popUpBasket = document.querySelector('.popUpBasket');
 
-    openPopUpBasket.addEventListener('click', function (e){
-        e.preventDefault();
-        popUpBasket.classList.add('active');
-        document.body.style.overflow = "hidden";
-    });
+    if (openPopUpBasket && popUpBasket) {
+        openPopUpBasket.addEventListener('click', function (e) {
+            e.preventDefault();
+            popUpBasket.classList.add('active');
+            document.body.style.overflow = "hidden";
+        });
+    }
 
-    closePopUpBasket.addEventListener('click', () =>{
-        popUpBasket.classList.remove('active');
-        document.body.style.overflow = "";
-    });
-
+    if (closePopUpBasket && popUpBasket) {
+        closePopUpBasket.addEventListener('click', () => {
+            popUpBasket.classList.remove('active');
+            document.body.style.overflow = "";
+        });
+    }
 });

@@ -10,19 +10,19 @@ export class Basket {
             'id': prodData['id'],
             'idUser': prodData['idUser'],
             'idProd': prodData['idProd'],
-            'name': prodData['nameProd'],
+            'nameProd': prodData['nameProd'],
             'quantity': prodData['quantity'],
             'price': prodData['price'],
             'itemPrice': prodData['itemPrice'],
-            'photo': prodData['Photo'],
+            'Photo': prodData['Photo'],
         };
     }
 
-    static displayProduct() {
+    static displayProduct(data) {
         const basketItemsContainer = document.getElementById('basket-items');
         basketItemsContainer.innerHTML = '';
 
-        [Basket.data].forEach((item) => {
+        [data].forEach((item) => {
             const itemRow = `
                 <tr class="basket_item">
                     <td>
@@ -31,9 +31,9 @@ export class Basket {
                         </span>
                     </td>
                     <td>
-                        <img src="data:image/png;base64,${item.photo}" alt="prodPic" style="width: 90px; height: 110px;" class="photo-prod">
+                        <img src="data:image/png;base64,${item.Photo}" alt="prodPic" style="width: 90px; height: 110px;" class="photo-prod">
                     </td>
-                    <td class="prodName">${item.name}</td>
+                    <td class="prodName">${item.nameProd}</td>
                     <td class="prodPrice">${item.price} руб.</td>
                     <td>
                         <div class="quantity">
@@ -52,6 +52,7 @@ export class Basket {
                 </tr>
             `;
 
+            // <span className="total-price">${item.itemPrice} руб.</span>
             basketItemsContainer.innerHTML += itemRow;
             EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
         });

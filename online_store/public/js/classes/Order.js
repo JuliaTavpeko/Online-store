@@ -1,3 +1,4 @@
+
 export class Order {
 
     static data = [];
@@ -14,6 +15,10 @@ export class Order {
         };
     }
 
+    static getOrderId(){
+        return Order.data.id;
+    }
+
     static displayOrderId(id) {
         const numOr = document.querySelector('.orderSuccess span');
         if (numOr) {
@@ -24,7 +29,6 @@ export class Order {
 
     static displayOrder() {
         const data = Order.data;
-
         const totalOrder = document.querySelector('.totalOrder');
         if (totalOrder) {
             const clientInfoHtml = `
@@ -35,7 +39,6 @@ export class Order {
                     <p>Способ оплаты: ${data.payment}</p>
                 </div>
             `;
-
             const orderIdHtml = `<p>Номер заказа: ${data.id}</p>`;
             totalOrder.innerHTML = clientInfoHtml + orderIdHtml;
         }
@@ -44,11 +47,13 @@ export class Order {
     static makeOrder(orderForm) {
         const data = Order.data;
         const makeOrderButton = orderForm.querySelector('.makeOrder');
-        if (makeOrderButton) {
-            makeOrderButton.onclick = function () {
-                Order.displayOrderId(data.id);
-                window.location.href = 'orderSuccess.php';
-            };
-        }
+
+        makeOrderButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            Order.displayOrderId(data.id);
+            window.location.href = 'orderSuccess.php';
+        });
+
     }
+
 }

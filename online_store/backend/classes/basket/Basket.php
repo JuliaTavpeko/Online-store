@@ -34,4 +34,8 @@ class Basket
     public function deleteBasket(){
         return $this->basket->deleteFromBasket($this->basketArray['idUser']);
     }
+
+    public function getBasket(){
+        return $this->basket->getBasket($this->basketArray['idUser']);
+    }
 }

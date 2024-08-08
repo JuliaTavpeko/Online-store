@@ -11,7 +11,6 @@
     <link href="css/order.css" rel="stylesheet">
 
     <script src="js/events/user.js" type="module" defer></script>
-    <script src="js/events/order.js" type="module" defer></script>
 
     <link href="css/user/popUpUser.css" rel="stylesheet">
     <link href="css/basket/popUpBasket.css" rel="stylesheet">
@@ -21,7 +20,6 @@
 </head>
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 <body>
-
 <div class="main">
 
     <?php require ROOT . '/backend/static/blocks/popUpUser.php' ?>
@@ -33,7 +31,6 @@
             <table>
                 <tbody id="basket-items">
                 <tr class="basket_item">
-
                 </tr>
                 </tbody>
             </table>
@@ -61,7 +58,7 @@
         </div>
     </form>
     <script src="https://unpkg.com/imask"></script>
-    <script src="js/events/order.js"></script>
+    <script src="js/events/order.js" type="module" defer></script>
 
 </div>
 </body>

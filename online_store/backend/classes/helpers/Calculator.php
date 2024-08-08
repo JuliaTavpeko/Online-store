@@ -12,7 +12,6 @@ class Calculator
 
     public static function calculateTotalPrice($items){
         $totalPrice = 0;
-
     }
 
 }

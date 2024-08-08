@@ -38,7 +38,10 @@ export class Quantity {
                 RequestManager.sendRequest('/updateBasket','POST', quantityData)
                     .then(result => {
                         console.log('Результат запроса updateBasket:', result);
-                        subtotalElement.textContent = `${result.itemPrice} руб.`;
+                        if(subtotalElement){
+                            subtotalElement.textContent = `${result.itemPrice} руб.`;
+
+                        }
                     });
             }
         });
