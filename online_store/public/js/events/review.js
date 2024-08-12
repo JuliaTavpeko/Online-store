@@ -5,18 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const user = JSON.parse(sessionStorage.getItem('currentUser'));
 
     Review.displayForm(reviewForm,user);
+    if(reviewForm) {
+        reviewForm.addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    reviewForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+            let message = reviewForm.querySelector('[name="message"]').value;
+            const reviewer = new Review(user.photo, user.login, message);
+            reviewer.saveToLocalStorage();
 
-        let message = reviewForm.querySelector('[name="message"]').value;
-        const reviewer = new Review(user.photo, user.login, message);
-        reviewer.saveToLocalStorage();
+            reviewForm.reset();
+        });
 
-        reviewForm.reset();
-    });
-
-    Review.updateAverageRating();
-    Review.displayReview();
-
+        Review.updateAverageRating();
+        Review.displayReview();
+    }
 });

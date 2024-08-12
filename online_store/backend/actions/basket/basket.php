@@ -13,5 +13,5 @@ $requestPayload = file_get_contents('php://input');
 $data = json_decode($requestPayload, true);
 
 $basket = new Basket($data, $db);
-$result = $basket->returnData();
+$result = $basket->handleBasketOperations();
 echo json_encode($result, JSON_UNESCAPED_UNICODE);

@@ -14,7 +14,8 @@
 
     <script src="js/events/user.js" type="module" defer></script>
     <script src="js/events/review.js" type="module" defer></script>
-    <script src="js/events/basket.js" type="module" defer></script>
+    <!--<script src="js/events/catalog.js" type="module" defer></script>-->
+    <!--<script src="js/events/basket.js" type="module" defer></script> -->
 
     <link href="css/user/popUpUser.css" rel="stylesheet">
     <link href="css/basket/popUpBasket.css" rel="stylesheet">
@@ -31,11 +32,11 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 <body>
 <div class="main">
-
     <?php require ROOT . '/backend/static/blocks/popUpUser.php' ?>
     <?php require ROOT . '/backend/static/blocks/popUpBasket.php' ?>
 
     <?php require ROOT . '/backend/static/blocks/productContent.php' ?>
+
     <h1 style="text-align: center">Отзывы</h1>
     <div class="reviews-list"></div>
     <script>
@@ -52,7 +53,7 @@
         <form class="decor" name="review">
             <div class="form-inner">
                 <h3>Оставить отзыв</h3>
-                <img src="image/png/user/noUser.png" id="photo-user" style="
+                <img src="image/png/user/noUser.png" id="photo-user" class="photoUser" style="
                                 background-color: white;
                                 border-radius: 50%;
                                 padding: 10px;
@@ -68,9 +69,8 @@
                         <span data-rating="1">★</span>
                     </div>
                 </div>
-                <input type="text" placeholder="Имя" name="name">
-                <script src="js/events/rating.js"></script>
-                <textarea placeholder="Сообщение..." name="message" rows="3"></textarea>
+                <input type="text" class="reviewerName" placeholder="Имя" name="name">
+                <textarea placeholder="Сообщение..." class="reviewerMsg" name="message" rows="3"></textarea>
                 <input type="submit" name="submit" value="Отправить">
             </div>
         </form>

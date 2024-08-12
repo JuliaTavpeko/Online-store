@@ -13,5 +13,5 @@ $requestPayload = file_get_contents('php://input');
 $data = json_decode($requestPayload, true);
 
 $order = new Orders($data, $db);
-$result = $order->returnData();
+$result = $order->makeOrder();
 echo json_encode($result, JSON_UNESCAPED_UNICODE);

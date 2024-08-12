@@ -62,7 +62,7 @@ class Authorization {
         return isset($_SESSION["loginAuth"]);
     }
 
-    public function deleteSession(): bool
+    public static function deleteSession(): bool
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();

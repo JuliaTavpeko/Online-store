@@ -14,7 +14,7 @@ class OrderDB
         $this->dbManager = $dbManager;
     }
 
-    public function makeOrder($orderData){
+    public function insertOrderIntoDB($orderData){
 
         $query = "INSERT INTO Orders (`idUser`, `user`, `phone`, `email`, `address`, `payment`) VALUES (:idUser, :user,  :phone, :email, :address, :payment)";
         try {
@@ -26,7 +26,7 @@ class OrderDB
         }
     }
 
-    public function getOrder($idUser){
+    public function getOrderFromDB($idUser){
         $query = "SELECT * FROM Orders WHERE `idUser` = '{$idUser}'";
         try {
             return $this->dbManager->query($query)->find();

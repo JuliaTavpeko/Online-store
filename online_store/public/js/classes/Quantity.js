@@ -36,7 +36,7 @@ export class Quantity {
                 const subtotalElement = product.querySelector('.subtotal .price');
 
                 if(quantityData && subtotalElement) {
-                    RequestManager.sendRequest('/updateBasket', 'POST', quantityData)
+                    RequestManager.sendRequest('/basket', 'POST', quantityData)
                         .then(result => {
                             console.log('Результат запроса updateBasket:', result);
                             if (subtotalElement) {

@@ -36,7 +36,7 @@ class BasketDB
         }
     }
 
-    public function updateBasket($item){
+    public function updateBasketInDB($item){
         $query = "UPDATE Basket SET `quantity` = '{$item['quantity']}', `itemPrice` = '{$item['itemPrice']}'  WHERE `idUser` = '{$item['idUser']}'";
         try {
              return $this->dbManager->query($query)->find();
@@ -46,7 +46,7 @@ class BasketDB
          }
     }
 
-    public function getBasket($idUser){
+    public function getBasketFromDB($idUser){
         $query = "SELECT Basket.*, Catalog.Photo
                     FROM Basket, Catalog
                    WHERE `idUser` = '{$idUser}'";
@@ -62,7 +62,7 @@ class BasketDB
         }
     }
 
-    public function deleteFromBasket($idUser){
+    public function deleteBasketFromDB($idUser){
         $query = "DELETE FROM Basket WHERE `idUser` = '{$idUser}'";
         try {
             return $this->dbManager->query($query)->find();

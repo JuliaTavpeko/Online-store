@@ -14,7 +14,7 @@ class CatalogDB
         $this->dbManager = $dbManager;
     }
 
-    public function getProduct($id)
+    public function getProductFromDB($id)
     {
         $query = 'SELECT * FROM Catalog WHERE id = :id';
         try {

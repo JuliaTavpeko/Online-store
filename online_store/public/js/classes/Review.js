@@ -1,4 +1,4 @@
-import {calcRating, getAvRating, getCurrentRating} from "../events/rating.js";
+import {Rating} from "./Rating.js";
 
 export class Review {
 
@@ -10,7 +10,7 @@ export class Review {
     constructor(photo, name, message) {
         this.#photo = photo;
         this.#name = name;
-        this.#rating = getCurrentRating();
+        this.#rating = Rating.getCurrentRating();
         this.#message = message;
     }
 
@@ -24,10 +24,10 @@ export class Review {
 
 
     static updateAverageRating() {
-        calcRating();
-        const avRating = getAvRating();
+        Rating.calcRating();
+        const avRating = Rating.getAvRating();
         const prodRatingElement = document.querySelector('.prod-rating');
-        if (prodRatingElement) {
+        if (prodRatingElement && avRating) {
             prodRatingElement.textContent = avRating.toFixed(1) + "★";
         }
     }
@@ -61,20 +61,22 @@ export class Review {
     }
 
     static displayForm(reviewForm,user){
-        if (user) {
-            const nameInput = reviewForm.querySelector('[name="name"]');
-            const photoElement = reviewForm.querySelector('[id="image-user"]');
-            nameInput.value = user.login;
-            nameInput.readOnly = true;
+        if(reviewForm) {
+            if (user) {
+                const nameInput = reviewForm.querySelector('[name="name"]');
+                const photoElement = reviewForm.querySelector('[id="image-user"]');
+                nameInput.value = user.login;
+                nameInput.readOnly = true;
 
-            if (user.photo) {
-                photoElement.src = user.photo;
+                if (user.photo) {
+                    photoElement.src = user.photo;
+                }
+            } else {
+                const hideBlock = document.createElement('div');
+                hideBlock.className = 'hideBlock';
+                hideBlock.textContent = 'Авторизуйтесь';
+                reviewForm.appendChild(hideBlock);
             }
-        } else {
-            const hideBlock = document.createElement('div');
-            hideBlock.className = 'hideBlock';
-            hideBlock.textContent = 'Авторизуйтесь';
-            reviewForm.appendChild(hideBlock);
         }
     }
 

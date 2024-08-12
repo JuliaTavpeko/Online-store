@@ -14,9 +14,9 @@ class Orders
         $this->order = new OrderDB($dbManager);
     }
 
-    public function returnData(){
-        //$this->order->makeOrder($this->orderArray);
-        return $this->order->getOrder($this->orderArray['idUser']);
+    public function makeOrder(){
+        $this->order->insertOrderIntoDB($this->orderArray);
+        return $this->order->getOrderFromDB($this->orderArray['idUser']);
     }
 
 }

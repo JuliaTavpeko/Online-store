@@ -38,54 +38,42 @@
     </div>
     <hr>
     <h2>Новые поступления</h2>
-        <div class="border photo">
-            <div class="wrap">
-                <div class="product-wrap">
-                    <a href=""><img src="image/jpg/products/1.jpg" height="315" alt="img1"></a>
-                </div>
-                <div class="loop-action">
-                    <a href="product1.php" class="add-to-cart">Быстрый просмотр</a>
-                    <a href="" class="loop-add-to-cart">В корзину</a>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-title">Смартфон HONOR Magic6 Pro 12GB/512GB международная версия (шалфейный зеленый)</h3>
-                <div class="price">3899 руб</div>
-            </div>
-        </div>
-        <div class="border photo">
-            <div class="wrap">
-                <div class="product-wrap">
-                    <a href=""><img src="image/jpg/products/2.jpg" height="315" alt="img2"></a>
-                </div>
-                <div class="loop-action">
-                    <a href="product2.php" class="add-to-cart">Быстрый просмотр</a>
-                    <a href="" class="loop-add-to-cart">В корзину</a>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-title">Смартфон HONOR Magic6 Pro 12GB/512GB международная версия (графитовый черный)</h3>
-                <div class="price">3700 руб</div>
-            </div>
-        </div>
-        <div class="border photo">
-            <div class="wrap">
-                <div class="product-wrap">
-                    <a href=""><img src="image/jpg/products/3.jpg" height="315" alt="img3"></a>
-                </div>
-                <div class="loop-action">
-                    <a href="" class="add-to-cart">Быстрый просмотр</a>
-                    <a href="" class="loop-add-to-cart">В корзину</a>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-title">Смартфон HONOR Magic V2 16GB/512GB международная версия (фиолетовый)</h3>
-                <div class="price">5999 руб</div>
-            </div>
-        </div>
-    <p><a href="#" style="text-decoration: none">Смотреть больше &rarr;</a></p>
-    <hr>
 
+    <?php
+    use backend\classes\database\DatabaseManager;
+    require dirname(__DIR__) . '/online_store/vendor/autoload.php';
+
+    $db_config = require CONFIG . '/db.php';
+    $db = DatabaseManager::getInstance();
+    $db->getConnection($db_config);
+
+    $sql = "SELECT * FROM Catalog";
+    $result = $db->query($sql)->findAll();
+
+    foreach ($result as $row) {
+        ?>
+        <div class="border photo">
+            <div class="wrap">
+                <div class="product-wrap">
+                    <a href=""><img src="data:image/png;base64,<?php echo base64_encode($row["Photo"]); ?>" height="315" alt="img1"></a>
+                </div>
+                <div class="loop-action">
+                    <a href="<?php echo 'product.php?prod=' . $row["id"] ?>" class="add-to-cart">Быстрый просмотр</a>
+                    <a href="" class="loop-add-to-cart">В корзину</a>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title"> <?php echo $row["Name"]; ?></h3>
+                <div class="price"> <?php echo $row["Price"]; ?> руб.</div>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+    <p><a href="#" style="text-decoration: none">Смотреть больше &rarr;</a></p>
+
+    <hr>
+<!--
     <h3>Каталог</h3>
         <div class="border photo">
             <div class="wrap">
@@ -121,7 +109,7 @@
 
     <p><a href="#" style="text-decoration: none">Смотреть больше &rarr;</a></p>
     <hr>
-
+--->
     <h4>Доставка по стране</h4>
         <div class="delivery">
             <table class="table">

@@ -15,9 +15,9 @@ class Catalog
         $this->product = new CatalogDB($dbManager);
     }
 
-    public function returnData()
+    public function getProductData()
     {
-        return $this->product->getProduct($this->idProd);
+        return $this->product->getProductFromDB($this->idProd);
     }
 
 }

@@ -11,7 +11,9 @@ global $db;
 header('Content-Type: application/json');
 $requestPayload = file_get_contents('php://input');
 $data = json_decode($requestPayload, true);
-
-$authorization = new Authorization($data,$db);
-$result = $authorization->loginUser();
+$result = [];
+if($data['loginAuth'] && $data['passAuth']){
+    $authorization = new Authorization($data,$db);
+    $result = $authorization->loginUser();
+}
 echo json_encode($result, JSON_UNESCAPED_UNICODE);
