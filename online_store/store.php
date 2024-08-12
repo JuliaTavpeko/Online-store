@@ -159,7 +159,7 @@
             </table>
         </div>
     <hr>
-
+<!--
     <div class="myframe">
     <h5>Обзоры</h5>
         <div>
@@ -190,7 +190,7 @@
                 <area shape="rect" coords="0,0,568,351" href="https://oborot.ru/wp-content/uploads/2020/11/screenshot_48.png" target="_blank" alt="Откроется в новом окне">
             </map></p>
     </div>
-
+-->
 </div>
 
 </body>

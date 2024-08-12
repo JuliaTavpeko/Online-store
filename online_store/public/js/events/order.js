@@ -43,11 +43,13 @@ document.addEventListener('DOMContentLoaded', function() {
         price: Catalog.getProductData().price,
     };
 
-    RequestManager.sendRequest('/getBasket', 'POST', basketArray)
-        .then(result => {
-            console.log('Результат запроса getBasket:', result);
-            Basket.displayProduct(result);
-        });
+    if(basketArray) {
+        RequestManager.sendRequest('/getBasket', 'POST', basketArray)
+            .then(result => {
+                console.log('Результат запроса getBasket:', result);
+                Basket.displayProduct(result);
+            });
+    }
 
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();

@@ -35,14 +35,16 @@ export class Quantity {
 
                 const subtotalElement = product.querySelector('.subtotal .price');
 
-                RequestManager.sendRequest('/updateBasket','POST', quantityData)
-                    .then(result => {
-                        console.log('Результат запроса updateBasket:', result);
-                        if(subtotalElement){
-                            subtotalElement.textContent = `${result.itemPrice} руб.`;
+                if(quantityData && subtotalElement) {
+                    RequestManager.sendRequest('/updateBasket', 'POST', quantityData)
+                        .then(result => {
+                            console.log('Результат запроса updateBasket:', result);
+                            if (subtotalElement) {
+                                subtotalElement.textContent = `${result.itemPrice} руб.`;
 
-                        }
-                    });
+                            }
+                        });
+                }
             }
         });
     }

@@ -7,8 +7,19 @@ import {Quantity} from "../classes/Quantity.js";
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    document.addEventListener('productDataLoaded', function() {
+    const basketPopUp = {
+        idUser: Authorization.getSessionData().id,
+    };
 
+    if(basketPopUp['idUser']){
+            RequestManager.sendRequest('/getBasket', 'POST', basketPopUp)
+            .then(result => {
+            console.log('Результат запроса getBasket:', result);
+            Basket.displayProduct(result);
+        });
+    }
+
+    document.addEventListener('productDataLoaded', function() {
         const addBtn = document.querySelector('.btn_add_basket');
 
         addBtn.addEventListener('click', function(event) {
