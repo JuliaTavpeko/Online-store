@@ -24,7 +24,7 @@ export class Basket {
 
         data.forEach((item) => {
             const itemRow = `
-                <tr class="basket_item">
+                <tr class="basket_item" data-id="${item.id}">
                     <td>
                         <span class="delete-btn" data-id="${item.id}">
                             <img src="image/png/icon/delete.png" alt="delete">

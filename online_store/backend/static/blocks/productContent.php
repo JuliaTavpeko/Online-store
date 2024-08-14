@@ -45,7 +45,7 @@ $json_data = json_encode($data);
             <button class="minus-btn" type="button" name="button">
                 <img src="image/svg/icon/minus.svg" alt="minus" />
             </button>
-            <input type="number" class="input_price" data-price="3899" value="1" disabled />
+            <input type="number" class="input_price" data-price="<?php echo $data['price']; ?>" value="1" disabled />
             <button class="plus-btn" type="button" name="button">
                 <img src="image/svg/icon/plus.svg" alt="plus" />
             </button>

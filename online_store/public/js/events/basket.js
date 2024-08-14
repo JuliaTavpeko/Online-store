@@ -6,20 +6,25 @@ import {Quantity} from "../classes/Quantity.js";
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    const basketPopUp = {
+        idUser: Authorization.getSessionData().id,
+    };
+
+    if (basketPopUp['idUser']) {
+        RequestManager.sendRequest('/getBasket', 'POST', basketPopUp)
+            .then(result => {
+                console.log('Результат запроса getBasket:', result);
+                Basket.displayProduct(result);
+                result.forEach(item => {
+                    new Quantity(item);
+                });
+            });
+    }
+
     const prodContainer = document.querySelector('.product-container');
     if(prodContainer){
         const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
-        const basketPopUp = {
-            idUser: Authorization.getSessionData().id,
-        };
 
-        if(basketPopUp['idUser']){
-            RequestManager.sendRequest('/getBasket', 'POST', basketPopUp)
-                .then(result => {
-                    console.log('Результат запроса getBasket:', result);
-                    Basket.displayProduct(result);
-                });
-        }
 
         const addBtn = document.querySelector('.btn_add_basket');
         addBtn.addEventListener('click', function(event) {
