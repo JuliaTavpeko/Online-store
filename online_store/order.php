@@ -11,6 +11,7 @@
     <link href="css/order.css" rel="stylesheet">
 
     <script src="js/events/user.js" type="module" defer></script>
+    <script src="js/events/order.js" type="module" defer></script>
 
     <link href="css/user/popUpUser.css" rel="stylesheet">
     <link href="css/basket/popUpBasket.css" rel="stylesheet">

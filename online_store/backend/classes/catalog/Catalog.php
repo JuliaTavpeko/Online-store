@@ -20,4 +20,11 @@ class Catalog
         return $this->product->getProductFromDB($this->idProd);
     }
 
+    public function getProductsData()
+    {
+        return $this->product->getProducts();
+    }
+
+
+
 }

@@ -1,5 +1,4 @@
 import {Authorization} from "./Authorization.js";
-import {Catalog} from "./Catalog.js";
 import {RequestManager} from "./RequestManager.js";
 
 export class Quantity {
@@ -15,6 +14,10 @@ export class Quantity {
 
     static addQuantityHandlers() {
         document.addEventListener('click', (event) => {
+
+            const prodContainer = document.querySelector('.product-container');
+            const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
+
             const button = event.target.closest('.plus-btn, .minus-btn');
             if (button) {
                 const product = button.closest('.basket_item');
@@ -29,8 +32,11 @@ export class Quantity {
                 Quantity.setQuantity(quantityInput.value);
                 const quantityData = {
                     idUser: Authorization.getSessionData().id,
+                    idProd: prodData['id'],
+                    nameProd: prodData['name'],
                     quantity: Quantity.getQuantity(),
-                    price: Catalog.getProductData().price
+                    price: prodData['price'],
+                    photo: prodData['photo'],
                 };
 
                 const subtotalElement = product.querySelector('.subtotal .price');
@@ -41,7 +47,6 @@ export class Quantity {
                             console.log('Результат запроса updateBasket:', result);
                             if (subtotalElement) {
                                 subtotalElement.textContent = `${result.itemPrice} руб.`;
-
                             }
                         });
                 }

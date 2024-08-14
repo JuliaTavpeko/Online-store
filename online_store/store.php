@@ -40,15 +40,16 @@
     <h2>Новые поступления</h2>
 
     <?php
-    use backend\classes\database\DatabaseManager;
-    require dirname(__DIR__) . '/online_store/vendor/autoload.php';
+
+    use backend\classes\catalog\Catalog;
+
+    global $db;
 
     $db_config = require CONFIG . '/db.php';
-    $db = DatabaseManager::getInstance();
     $db->getConnection($db_config);
 
-    $sql = "SELECT * FROM Catalog";
-    $result = $db->query($sql)->findAll();
+    $catalog = new Catalog(0, $db);
+    $result = $catalog->getProductsData();
 
     foreach ($result as $row) {
         ?>

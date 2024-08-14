@@ -1,7 +1,6 @@
 import {RequestManager} from "../classes/RequestManager.js";
 import {Basket} from "../classes/Basket.js";
 import {Authorization} from "../classes/Authorization.js";
-import {Catalog} from "../classes/Catalog.js";
 import {Quantity} from "../classes/Quantity.js";
 import {Order} from '../classes/Order.js';
 
@@ -35,20 +34,25 @@ document.addEventListener('DOMContentLoaded', function() {
          document.body.style.overflow = "";
      });
 
-    const basketArray = {
-        idUser: Authorization.getSessionData().id,
-        idProd: Catalog.getProductData().id,
-        nameProd: Catalog.getProductData().name,
-        quantity: Quantity.getQuantity(),
-        price: Catalog.getProductData().price,
-    };
+    const prodContainer = document.querySelector('.product-container');
+    if(prodContainer){
+        const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
 
-    if(basketArray) {
-        RequestManager.sendRequest('/getBasket', 'POST', basketArray)
-            .then(result => {
-                console.log('Результат запроса getBasket:', result);
-                Basket.displayProduct(result);
-            });
+        const basketArray = {
+            idUser: Authorization.getSessionData().id,
+            idProd: prodData['id'],
+            nameProd: prodData['name'],
+            quantity: Quantity.getQuantity(),
+            price: prodData['price'],
+        };
+
+        if(basketArray) {
+            RequestManager.sendRequest('/getBasket', 'POST', basketArray)
+                .then(result => {
+                    console.log('Результат запроса getBasket:', result);
+                    Basket.displayProduct(result);
+                });
+        }
     }
 
     orderForm.addEventListener('submit', function (e) {

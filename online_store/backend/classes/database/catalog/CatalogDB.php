@@ -29,4 +29,16 @@ class CatalogDB
         }
     }
 
+    public function getProducts()
+    {
+        $query = 'SELECT * FROM Catalog';
+        try {
+            $result = $this->dbManager->query($query)->findAll();
+            return $result;
+        } catch (PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+            return ['error' => 'Произошла ошибка при получении данных.'];
+        }
+    }
+
 }

@@ -1,44 +1,45 @@
 <?php
 
-/**
- * @var DatabaseManager $db
- */
+use backend\classes\catalog\Catalog;
 
-use backend\classes\database\DatabaseManager;
-require dirname(__DIR__) . '/../../vendor/autoload.php';
+global $db;
 
 $db_config = require CONFIG . '/db.php';
-$db = DatabaseManager::getInstance();
 $db->getConnection($db_config);
 
 $page = $_GET['prod'];
 
-$sql = "SELECT Name, Description, Price, Photo FROM Catalog WHERE id = '{$page}'";
-$result = $db->query($sql)->find();
+$catalog = new Catalog($page, $db);
+$result = $catalog->getProductData();
 
-$title = $result["Name"];
-$description = $result["Description"];
-$photo = $result["Photo"];
-$price = $result["Price"];
+$data = [
+    'id' => $page,
+    'name' => $result["Name"],
+    'description' => $result["Description"],
+    'photo' => 'data:image/png;base64,' . $result["Photo"],
+    'price' => $result["Price"]
+];
+
+$json_data = json_encode($data);
 
 ?>
 
-<article class="product-container">
+<article class="product-container" data-prod='<?php echo $json_data; ?>'>
     <div class="prod_content left-column">
-        <img src="data:image/png;base64,<?php echo base64_encode($photo); ?>" alt="img1" id="prod-photo">
+        <img src="<?php echo $data['photo']; ?>" alt="img-prod" id="prod-photo">
     </div>
     <div class="content center-column">
         <p name="name" style="font-size: 20px; font-weight: 500" data-id-prod="<?php echo $page; ?>">
-            <?php echo $title; ?>
+            <?php echo $data['name']; ?>
         </p>
         <p class="prod-rating"></p>
         <p name="description">
-            <?php echo $description; ?>
+            <?php echo $data['description']; ?>
         </p>
     </div>
     <div class="basket basket_item right-column">
         <p>Цена: <span name="priceProd">
-            <?php echo $price; ?>
+            <?php echo $data['price']; ?>
         </span> руб. </p>
         <div class="quantity">
             <button class="minus-btn" type="button" name="button">

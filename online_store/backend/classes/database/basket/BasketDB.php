@@ -26,7 +26,7 @@ class BasketDB
 
     public function insertIntoBasket($basketData): bool
     {
-        $query = "INSERT INTO Basket (`idUser`, `idProd`,`nameProd`, `quantity`, `price` , `itemPrice`) VALUES (:idUser,:idProd,:nameProd, :quantity, :price, :itemPrice)";
+        $query = "INSERT INTO Basket (`idUser`, `idProd`,`nameProd`, `quantity`, `price` , `itemPrice`, `photo`) VALUES (:idUser,:idProd,:nameProd, :quantity, :price, :itemPrice, :photo)";
         try {
             $this->dbManager->query($query, $basketData);
             return true;
@@ -37,7 +37,15 @@ class BasketDB
     }
 
     public function updateBasketInDB($item){
-        $query = "UPDATE Basket SET `quantity` = '{$item['quantity']}', `itemPrice` = '{$item['itemPrice']}'  WHERE `idUser` = '{$item['idUser']}'";
+        $query = "UPDATE Basket SET 
+                nameProd = '{$item['nameProd']}', 
+                quantity = '{$item['quantity']}', 
+                price = '{$item['price']}', 
+                itemPrice = '{$item['itemPrice']}', 
+                photo = '{$item['photo']}' 
+              WHERE 
+                idUser = '{$item['idUser']}' AND 
+                idProd = '{$item['idProd']}'";
         try {
              return $this->dbManager->query($query)->find();
          } catch (PDOException $e) {
@@ -47,15 +55,11 @@ class BasketDB
     }
 
     public function getBasketFromDB($idUser){
-        $query = "SELECT Basket.*, Catalog.Photo
-                    FROM Basket, Catalog
-                   WHERE `idUser` = '{$idUser}'";
+        $query = "SELECT Basket.*
+                    FROM Basket
+                   WHERE `idUser` = '{$idUser}' ";
         try {
-            $result = $this->dbManager->query($query)->find();
-            if ($result['Photo']) {
-                $result['Photo'] = base64_encode($result['Photo']);
-            }
-            return $result;
+            return $this->dbManager->query($query)->findAll();
         } catch (PDOException $e) {
             error_log('Database error: ' . $e->getMessage());
             return ['error' => 'Произошла ошибка при получении данных.'];
