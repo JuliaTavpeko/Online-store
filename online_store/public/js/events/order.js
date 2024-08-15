@@ -26,41 +26,42 @@ IMask(
 document.addEventListener('DOMContentLoaded', function() {
 
     const orderForm = document.querySelector('.order');
-    const openFormBtn = document.getElementById("openFormButton");
+    const openFormBtn = document.querySelector('.orderFormBtn');
 
-     openFormBtn.addEventListener('click', function (e){
-         e.preventDefault();
-         orderForm.classList.add('active');
-         document.body.style.overflow = "";
-     });
+    openFormBtn.addEventListener('click', function (e){
+        e.preventDefault();
+        orderForm.classList.add('active');
+        document.body.style.overflow = "";
+    });
 
-    const prodContainer = document.querySelector('.product-container');
-    if(prodContainer){
-        const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
+    const basketArray = {
+        idUser: Authorization.getSessionData().id,
+    };
 
-        const basketArray = {
-            idUser: Authorization.getSessionData().id,
-            idProd: prodData['id'],
-            nameProd: prodData['name'],
-            quantity: Quantity.getQuantity(),
-            price: prodData['price'],
-        };
+    let totalPrice = 0;
 
-        if(basketArray) {
-            RequestManager.sendRequest('/getBasket', 'POST', basketArray)
-                .then(result => {
-                    console.log('Результат запроса getBasket:', result);
-                    Basket.displayProduct(result);
+    if(basketArray) {
+        RequestManager.sendRequest('/getBasket', 'POST', basketArray)
+            .then(result => {
+                console.log('Результат запроса getBasket:', result);
+                totalPrice = result.totalPrice;
+
+                const items = Object.keys(result)
+                    .filter(key => key !== 'totalPrice')
+                    .map(key => result[key]);
+
+                Basket.displayProduct(items, totalPrice);
+                items.forEach(item => {
+                    new Quantity(item);
                 });
-        }
+            });
     }
+
+    const dataOr = orderForm.querySelectorAll('.orderInfo');
+    const orderData = {};
 
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();
-
-        const dataOr = orderForm.querySelectorAll('.orderInfo');
-        const orderData = {};
-
         dataOr.forEach(element => {
             if (element.id === 'payment') {
                 const selectedPaymentMethod = element.querySelector('input[name="paymentMethod"]:checked');
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         orderData['idUser'] = Authorization.getSessionData().id;
-        orderData['user'] = Authorization.getSessionData().login;
+        orderData['totalPrice'] = totalPrice;
 
         RequestManager.sendRequest('/order','POST', orderData)
             .then(result => {
@@ -83,5 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 Order.displayOrder();
                 //Basket.deleteProduct(orderData['idUser']);
             });
-    })
+    });
+    Quantity.addQuantityHandlers();
 });

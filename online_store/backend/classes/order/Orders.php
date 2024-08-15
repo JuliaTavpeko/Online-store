@@ -2,6 +2,7 @@
 
 namespace backend\classes\order;
 use backend\classes\database\DatabaseManager;
+use backend\classes\helpers\Validator;
 use backend\classes\database\order\OrderDB;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
@@ -15,8 +16,45 @@ class Orders
     }
 
     public function makeOrder(){
-        $this->order->insertOrderIntoDB($this->orderArray);
-        return $this->order->getOrderFromDB($this->orderArray['idUser']);
+        if($this->validateData()) {
+            //$this->order->insertOrderIntoDB($this->orderArray);
+            return $this->order->getOrderFromDB($this->orderArray['idUser']);
+        } else return false;
+    }
+
+    public function validateData(): bool
+    {
+        $rules = [
+            'user' => [
+                'required' => true,
+                'min' => 3,
+                'max' => 60,
+            ],
+            'phone' => [
+                'required' => true,
+                'min' => 3,
+                'max' => 60,
+            ],
+            'email' => [
+                'required' => true,
+                'email' => true,
+            ],
+            'address' => [
+                'required' => true,
+                'min' => 10,
+                'max' => 100,
+            ],
+        ];
+
+        $validation = Validator::validate($rules, $this->orderArray);
+
+        if (!$validation->hasErrors()) {
+            $_SESSION['success'] = 'OK';
+            return true;
+        } else {
+            $_SESSION['error'] = 'Validation Error';
+            return false;
+        }
     }
 
 }

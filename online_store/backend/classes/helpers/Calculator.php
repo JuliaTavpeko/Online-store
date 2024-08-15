@@ -7,11 +7,20 @@ class Calculator
 
     public static function calculateItemPrice($item): float|int
     {
-        return $item['price'] * $item['quantity'];
+        if (isset($item['price']) && isset($item['quantity'])) {
+            return $item['price'] * $item['quantity'];
+        }
+        return 0;
     }
 
-    public static function calculateTotalPrice($items){
+    public static function calculateTotalPrice($items): float|int
+    {
         $totalPrice = 0;
+
+        foreach($items as $item){
+            $totalPrice += self::calculateItemPrice($item);
+        }
+        return $totalPrice;
     }
 
 }

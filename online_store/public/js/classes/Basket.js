@@ -6,23 +6,14 @@ export class Basket {
     static data = [];
 
     constructor(prodData) {
-        Basket.data = {
-            'id': prodData['id'],
-            'idUser': prodData['idUser'],
-            'idProd': prodData['idProd'],
-            'nameProd': prodData['nameProd'],
-            'quantity': prodData['quantity'],
-            'price': prodData['price'],
-            'itemPrice': prodData['itemPrice'],
-            'photo': prodData['photo'],
-        };
+        Basket.data = { ...prodData };
     }
 
-    static displayProduct(data) {
+    static displayProduct(items, totalPrice) {
         const basketItemsContainer = document.getElementById('basket-items');
         basketItemsContainer.innerHTML = '';
 
-        data.forEach((item) => {
+        items.forEach((item) => {
             const itemRow = `
                 <tr class="basket_item" data-id="${item.id}">
                     <td>
@@ -37,7 +28,7 @@ export class Basket {
                     <td class="prodPrice">${item.price} руб.</td>
                     <td>
                         <div class="quantity">
-                           <button class="minus-btn" type="button" name="button">
+                            <button class="minus-btn" type="button" name="button">
                                 <img src="image/svg/icon/minus.svg" alt="minus" />
                             </button>
                             <input type="number" class="input_price" data-price="${item.price}" value="${item.quantity}" disabled>
@@ -53,6 +44,12 @@ export class Basket {
             `;
             basketItemsContainer.innerHTML += itemRow;
         });
+
+        const totalPriceElement = document.querySelector('.total-price');
+        if (totalPriceElement) {
+            totalPriceElement.textContent = `${totalPrice}`;
+        }
+
         EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
     }
 

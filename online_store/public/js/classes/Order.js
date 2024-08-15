@@ -4,15 +4,7 @@ export class Order {
     static data = [];
 
     constructor(orderData) {
-        Order.data = {
-            'id': orderData['id'],
-            'idUser': orderData['idUser'],
-            'user': orderData['user'],
-            'phone': orderData['phone'],
-            'email': orderData['email'],
-            'address': orderData['address'],
-            'payment': orderData['payment'],
-        };
+        Order.data = { ...orderData };
     }
 
     static getOrderId(){
@@ -28,32 +20,27 @@ export class Order {
     }
 
     static displayOrder() {
-        const data = Order.data;
         const totalOrder = document.querySelector('.totalOrder');
-        if (totalOrder) {
-            const clientInfoHtml = `
+        if (totalOrder && Order.data.id) {
+            totalOrder.innerHTML = `
                 <div>
-                    <p>Телефон: ${data.phone}</p>
-                    <p>Email: ${data.email}</p>
-                    <p>Адрес: ${data.address}</p>
-                    <p>Способ оплаты: ${data.payment}</p>
+                    <p>Номер заказа: ${Order.data.id}</p>
+                    <p>Стоимость: ${Order.data.totalPrice}</p>
+                    <p>Телефон: ${Order.data.phone}</p>
+                    <p>Email: ${Order.data.email}</p>
+                    <p>Адрес: ${Order.data.address}</p>
+                    <p>Способ оплаты: ${Order.data.payment}</p>
                 </div>
             `;
-            const orderIdHtml = `<p>Номер заказа: ${data.id}</p>`;
-            totalOrder.innerHTML = clientInfoHtml + orderIdHtml;
         }
     }
 
     static makeOrder(orderForm) {
-        const data = Order.data;
         const makeOrderButton = orderForm.querySelector('.makeOrder');
-
         makeOrderButton.addEventListener('click', function(event) {
             event.preventDefault();
-            Order.displayOrderId(data.id);
+            Order.displayOrderId(Order.data.id);
             window.location.href = 'orderSuccess.php';
         });
-
     }
-
 }

@@ -15,9 +15,9 @@ class Basket
         $this->basket = new BasketDB($dbManager);
     }
 
-    public function handleBasketOperations(){
-
-        $this->basketArray['itemPrice'] = $this->calculateData($this->basketArray);
+    public function handleBasketOperations(): array
+    {
+        $this->basketArray['itemPrice'] = $this->calculateItemData($this->basketArray);
         if(!$this->basket->checkData('idUser', $this->basketArray['idUser']) ||
             !$this->basket->checkData('idProd', $this->basketArray['idProd'])){
             $this->basket->insertIntoBasket($this->basketArray);
@@ -26,19 +26,29 @@ class Basket
             $this->basket->checkData('quantity', $this->basketArray['quantity']) != $this->basketArray['quantity']) {
             $this->basket->updateBasketInDB($this->basketArray);
         }
-        return $this->basket->getBasketFromDB($this->basketArray['idUser']);
+        $basketData = $this->basket->getBasketFromDB($this->basketArray['idUser']);
+        $basketData['totalPrice'] = $this->calculateTotalData($basketData);
+        return $basketData;
     }
 
-    public function calculateData($item): float|int
+    public function calculateItemData($item): float|int
     {
         return Calculator::calculateItemPrice($item);
+    }
+
+    public function calculateTotalData($items): float|int
+    {
+        return Calculator::calculateTotalPrice($items);
     }
 
     public function deleteBasket(){
         return $this->basket->deleteBasketFromDB($this->basketArray['idUser']);
     }
 
-    public function getBasket(){
-        return $this->basket->getBasketFromDB($this->basketArray['idUser']);
+    public function getBasket(): array
+    {
+        $basketData = $this->basket->getBasketFromDB($this->basketArray['idUser']);
+        $basketData['totalPrice'] = $this->calculateTotalData($basketData);
+        return $basketData;
     }
 }

@@ -14,8 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
         RequestManager.sendRequest('/getBasket', 'POST', basketPopUp)
             .then(result => {
                 console.log('Результат запроса getBasket:', result);
-                Basket.displayProduct(result);
-                result.forEach(item => {
+
+                const totalPrice = result.totalPrice;
+                const items = Object.keys(result)
+                    .filter(key => key !== 'totalPrice')
+                    .map(key => result[key]);
+
+                Basket.displayProduct(items, totalPrice);
+                items.forEach(item => {
                     new Quantity(item);
                 });
             });
@@ -24,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const prodContainer = document.querySelector('.product-container');
     if(prodContainer){
         const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
-
 
         const addBtn = document.querySelector('.btn_add_basket');
         addBtn.addEventListener('click', function(event) {
@@ -43,8 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 RequestManager.sendRequest('/basket', 'POST', basketArray)
                     .then(result => {
                         console.log('Результат запроса basket:', result);
+
+                        const totalPrice = result.totalPrice;
+                        const items = Object.keys(result)
+                            .filter(key => key !== 'totalPrice')
+                            .map(key => result[key]);
                         new Basket(result);
-                        Basket.displayProduct(result);
+                        Basket.displayProduct(items, totalPrice);
+
+
                     });
                 addBtn.value = "Перейти в корзину";
             } else {
@@ -57,10 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const basketItemsContainer = document.getElementById('basket-items');
     EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
 
-    const orderBtn = document.querySelector('.btnOrder');
-    orderBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        window.location.href = 'order.php';
-    });
-
+    const formBasket = document.querySelector('.formBasket');
+    if(formBasket) {
+        const orderBtn = formBasket.querySelector('.btnOrder');
+        orderBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            window.location.href = 'order.php';
+        });
+    }
 });

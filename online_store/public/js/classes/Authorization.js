@@ -1,15 +1,7 @@
 export class Authorization {
 
-
     constructor(authData) {
-        Authorization.data = {
-            'cookie': authData['cookie'],
-            'session': authData['session'],
-            'id': authData['id'],
-            'login': authData['login'],
-            'pass': authData['pass'],
-            'photo': authData['photo'],
-        };
+        Authorization.data = { ...authData };
     }
 
     static getSessionData(){
@@ -30,15 +22,14 @@ export class Authorization {
     }
 
     static displayUser() {
-        const data = Authorization.data;
         const userCab = document.querySelector('.user-cab');
         if (userCab) {
-            userCab.textContent = data.login;
+            userCab.textContent = Authorization.data.login;
         }
 
         const userPhoto = document.getElementById('user_popup');
         if (userPhoto) {
-            userPhoto.innerHTML = `<img src="${data.photo}" alt="photo-user">`;
+            userPhoto.innerHTML = `<img src="${Authorization.data.photo}" alt="photo-user">`;
         }
 
         const containerForm = document.querySelector('.container-form');
@@ -47,13 +38,12 @@ export class Authorization {
             <div class="authCont">
                 <div class="authBlock">
                     <p class="welcome">Вы авторизованы!</p>
-                    <img src="${data.photo}" alt="userPhoto">
-                    <p class="userName">${data.login}</p>
+                    <img src="${Authorization.data.photo}" alt="userPhoto">
+                    <p class="userName">${Authorization.data.login}</p>
                     <button class="logOut">Выйти</button>
                 </div>
             </div>
         `;
-
             Authorization.addLogoutClickListener();
         }
     }

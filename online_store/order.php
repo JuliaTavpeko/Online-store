@@ -36,7 +36,7 @@
                 </tbody>
             </table>
             <div>Итого: <span class="total-price"></span> руб.</div>
-            <div><button id="openFormButton" class="btnOrder">Заказать</button></div>
+            <div class="orderFormBtn"><button id="openFormButton" class="btnOrder">Заказать</button></div>
         </div>
     </div>
 
@@ -44,11 +44,11 @@
         <div class="order-container">
             <h1>Оформление заказа</h1>
             <label>Имя:</label>
-            <input type="text" id="user" name="user" class="orderInfo" required/>
+            <input type="text" id="user" name="user" class="orderInfo" value="" required/>
             <label>Телефон:</label>
             <input type="text" id="phone" name="phoneClient" class="orderInfo" required/>
             <label>Email:</label>
-            <input type="text" id="email" name="emailClient" class="orderInfo" required/>
+            <input type="text" id="email" name="emailClient" class="orderInfo" value="" required/>
             <label>Адрес:</label>
             <input type="text" id="address" name="address" class="orderInfo" required/>
             <div class="orderInfo payment" id="payment">
