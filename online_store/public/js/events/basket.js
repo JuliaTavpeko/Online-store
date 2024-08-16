@@ -6,8 +6,10 @@ import {Quantity} from "../classes/Quantity.js";
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    const idUser = Authorization.getSessionData().id;
+
     const basketPopUp = {
-        idUser: Authorization.getSessionData().id,
+        idUser: idUser,
     };
 
     if (basketPopUp['idUser']) {
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const prodContainer = document.querySelector('.product-container');
-    if(prodContainer){
+    if(prodContainer && idUser){
         const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
 
         const addBtn = document.querySelector('.btn_add_basket');
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
 
             const basketArray = {
-                idUser: Authorization.getSessionData().id,
+                idUser: idUser,
                 idProd: prodData['id'],
                 nameProd: prodData['name'],
                 quantity: Quantity.getQuantity(),
@@ -48,15 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 RequestManager.sendRequest('/basket', 'POST', basketArray)
                     .then(result => {
                         console.log('Результат запроса basket:', result);
-
-                        const totalPrice = result.totalPrice;
-                        const items = Object.keys(result)
-                            .filter(key => key !== 'totalPrice')
-                            .map(key => result[key]);
-                        new Basket(result);
-                        Basket.displayProduct(items, totalPrice);
-
-
+                        if (result && result.totalPrice !== undefined) {
+                            const totalPrice = result.totalPrice;
+                            const items = Object.keys(result)
+                                .filter(key => key !== 'totalPrice')
+                                .map(key => result[key]);
+                            new Basket(result);
+                            Basket.displayProduct(items, totalPrice);
+                        }
                     });
                 addBtn.value = "Перейти в корзину";
             } else {
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     Quantity.addQuantityHandlers();
     const basketItemsContainer = document.getElementById('basket-items');
-    EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
+    EventHandler.addDeleteProductFromBasketHandlers(basketItemsContainer);
 
     const formBasket = document.querySelector('.formBasket');
     if(formBasket) {

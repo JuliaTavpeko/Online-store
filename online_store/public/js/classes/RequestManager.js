@@ -3,8 +3,8 @@ export class RequestManager {
 
    static async sendRequest(url, method, data) {
       try {
-         console.log('url',url);
-         console.log('method',method);
+         //console.log('url',url);
+         //console.log('method',method);
          console.log('data',data);
           const response = await fetch(url, {
               method: method,
@@ -13,7 +13,7 @@ export class RequestManager {
               },
               body: JSON.stringify(data)
           });
-          console.log('response', response);
+          //console.log('response', response);
           const result = await response.json();
           console.log('Сервер ответил:', result);
           return result;

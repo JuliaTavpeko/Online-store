@@ -17,7 +17,7 @@ export class Basket {
             const itemRow = `
                 <tr class="basket_item" data-id="${item.id}">
                     <td>
-                        <span class="delete-btn" data-id="${item.id}">
+                        <span class="delete-btn" data-id="${item.idProd}">
                             <img src="image/png/icon/delete.png" alt="delete">
                         </span>
                     </td>
@@ -49,15 +49,22 @@ export class Basket {
         if (totalPriceElement) {
             totalPriceElement.textContent = `${totalPrice}`;
         }
-
-        EventHandler.addDeleteProductFromLSHandlers(basketItemsContainer);
+        EventHandler.addDeleteProductFromBasketHandlers(basketItemsContainer);
     }
 
-    static async deleteProduct(idUser) {
+    static async deleteBasket(idUser) {
         const requestData = { idUser: idUser };
         RequestManager.sendRequest('/clearBasket', 'POST', requestData)
             .then(result => {
                 console.log('Результат запроса clearBasket:', result);
+            });
+    }
+
+    static async deleteProduct(idUser, idProd) {
+        const requestData = { idUser: idUser, idProd: idProd };
+        RequestManager.sendRequest('/deleteProduct', 'POST', requestData)
+            .then(result => {
+                console.log('Результат запроса deleteProduct:', result);
             });
     }
 }

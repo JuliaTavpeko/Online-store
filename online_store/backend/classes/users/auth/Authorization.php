@@ -3,6 +3,7 @@
 namespace backend\classes\users\auth;
 use backend\classes\database\DatabaseManager;
 use backend\classes\database\user\User;
+use backend\classes\helpers\Validator;
 use Exception;
 
 require_once __DIR__ . '/../../../../vendor/autoload.php';
@@ -31,7 +32,7 @@ class Authorization {
     {
         $user = [];
         try {
-            if ($this->authenticate() && $this->user->checkData('pass', $this->userData['passAuth'])) {
+            if ($this->validateData() && $this->authenticate() && $this->user->checkData('pass', $this->userData['passAuth'])) {
                 if ($this->createSession()) {
                     if (isset($this->userData['checkbox']) && $this->userData['checkbox'] === true) {
                         $user['cookie'] = $this->addToCookie();
@@ -45,6 +46,33 @@ class Authorization {
         }
         return false;
     }
+
+    public function validateData(): bool
+    {
+        $rules = [
+            'loginAuth' => [
+                'required' => true,
+                'min' => 3,
+                'max' => 60,
+            ],
+
+            'passAuth' => [
+                'required' => true,
+                'min' => 4,
+                'max' => 25,
+            ],
+        ];
+        $validation = Validator::validate($rules, $this->userData);
+
+        if (!$validation->hasErrors()) {
+            $_SESSION['success'] = 'OK';
+            return true;
+        } else {
+            $_SESSION['error'] = 'Validation Error';
+            return false;
+        }
+    }
+
 
     private function addToCookie()
     {

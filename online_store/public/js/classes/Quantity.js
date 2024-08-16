@@ -24,8 +24,8 @@ export class Quantity {
         return Quantity.currentQuantity;
     }
 
-    static addQuantityHandlers() {
-        document.addEventListener('click', (event) => {
+    static async addQuantityHandlers() {
+        document.addEventListener('click', async (event) => {
             const button = event.target.closest('.plus-btn, .minus-btn');
             if (button) {
                 const product = button.closest('.basket_item');
@@ -39,7 +39,6 @@ export class Quantity {
                 }
 
                 Quantity.setQuantity(quantityInput.value);
-
                 const selectedProduct = Quantity.data.find(item => item.id == productId);
 
                 if (selectedProduct) {
@@ -52,15 +51,21 @@ export class Quantity {
                         photo: selectedProduct.photo,
                     };
 
-                    const subtotalElement = product.querySelector('.subtotal .price');
+                    const subtotalElements = document.querySelectorAll('.subtotal .price');
+                    const totalPriceElement = document.querySelector('.total-price');
 
-                    if (quantData && subtotalElement) {
+                    if (quantData && subtotalElements && totalPriceElement) {
                         RequestManager.sendRequest('/basket', 'POST', quantData)
                             .then(result => {
                                 console.log('Результат запроса updateBasket:', result);
-                                if (result && result.itemPrice) {
-                                    if (subtotalElement) {
-                                        subtotalElement.textContent = `${result.itemPrice} руб.`;
+                                if (result) {
+                                    subtotalElements.forEach((element, index) => {
+                                        if (result[index] && result[index].itemPrice) {
+                                            element.textContent = `${result[index].itemPrice} руб.`;
+                                        }
+                                    });
+                                    if (result.totalPrice) {
+                                        totalPriceElement.textContent = `${result.totalPrice}`;
                                     }
                                 }
                             });

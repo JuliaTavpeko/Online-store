@@ -75,4 +75,14 @@ class BasketDB
             return ['error' => 'Произошла ошибка при получении данных.'];
         }
     }
+
+    public function deleteProduct($idUser, $idProd){
+        $query = "DELETE FROM Basket WHERE `idUser` = '{$idUser}' and `idProd` = '{$idProd}'";
+        try {
+            return $this->dbManager->query($query)->find();
+        } catch (PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+            return ['error' => 'Произошла ошибка при получении данных.'];
+        }
+    }
 }

@@ -9,6 +9,8 @@ export class Authorization {
             'id': Authorization.data.id,
             'login': Authorization.data.login,
             'session': Authorization.data.session,
+            'cookie': Authorization.data.cookie,
+            'pass': Authorization.data.pass,
         };
     }
     

@@ -11,7 +11,6 @@
     <link href="css/order.css" rel="stylesheet">
 
     <script src="js/events/user.js" type="module" defer></script>
-    <script src="js/events/review.js" type="module" defer></script>
     <script src="js/events/orderSuccess.js" type="module" defer></script>
 
     <link href="css/user/popUpUser.css" rel="stylesheet">
@@ -24,7 +23,6 @@
 <body>
 <div class="main">
     <?php require ROOT . '/backend/static/blocks/popUpUser.php' ?>
-    <?php require ROOT . '/backend/static/blocks/popUpBasket.php' ?>
     <div class="orderSuccess">Заказ №<span data-num-order="0"></span> оформлен</div>
 </div>
 </body>

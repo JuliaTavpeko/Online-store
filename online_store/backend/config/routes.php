@@ -17,4 +17,5 @@ $routes = [
     'updateBasket' => '/backend/actions/basket/updateBasket.php',
     'clearBasket' => '/backend/actions/basket/clearBasket.php',
     'getBasket' => '/backend/actions/basket/getBasket.php',
+    'deleteProduct' => '/backend/actions/basket/deleteProduct.php',
 ];

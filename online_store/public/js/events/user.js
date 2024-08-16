@@ -45,8 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
             regData['photo'] = Common.getBase64Image(photoElement);
 
             RequestManager.sendRequest('/register', 'POST', regData)
-                .then(result => console.log('Результат запроса:', result));
-
+                .then(result => {
+                    console.log('Результат запроса:', result);
+                    alert(result);
+                    Common.clearInputs();
+                });
         });
     }
 
@@ -65,12 +68,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             authData['checkbox'] = form_for_auth.querySelector('[name="remember"]').checked;
 
-            RequestManager.sendRequest('/auth', 'POST', authData)
-                .then(result => {
-                    console.log('Результат запроса:', result);
-                    new Authorization(result);
-                    Authorization.displayUser();
-                });
+                RequestManager.sendRequest('/auth', 'POST', authData)
+                    .then(result => {
+                        console.log('Результат запроса:', result);
+                        if(result !== false) {
+                            new Authorization(result);
+
+                            Authorization.displayUser();
+                        } else {
+                            alert('Данные введены неверно!');
+                            Common.clearInputs();
+                            return false;
+                        }
+                    });
         });
         EventHandler.addPasswordFocusHandler(form_for_auth);
     }

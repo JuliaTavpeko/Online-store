@@ -7,15 +7,11 @@ export class Order {
         Order.data = { ...orderData };
     }
 
-    static getOrderId(){
-        return Order.data.id;
-    }
-
-    static displayOrderId(id) {
+    static displayOrderId(orderId) {
         const numOr = document.querySelector('.orderSuccess span');
         if (numOr) {
-            numOr.dataset.numOrder = id;
-            numOr.textContent = id;
+            numOr.dataset.numOrder = orderId;
+            numOr.textContent = orderId;
         }
     }
 
@@ -35,12 +31,4 @@ export class Order {
         }
     }
 
-    static makeOrder(orderForm) {
-        const makeOrderButton = orderForm.querySelector('.makeOrder');
-        makeOrderButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            Order.displayOrderId(Order.data.id);
-            window.location.href = 'orderSuccess.php';
-        });
-    }
 }

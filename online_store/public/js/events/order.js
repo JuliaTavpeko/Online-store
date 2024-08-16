@@ -3,6 +3,7 @@ import {Basket} from "../classes/Basket.js";
 import {Authorization} from "../classes/Authorization.js";
 import {Quantity} from "../classes/Quantity.js";
 import {Order} from '../classes/Order.js';
+import {EventHandler} from "../classes/EventHandler.js";
 
 IMask(
     document.querySelector('[name="phoneClient"]'),
@@ -79,11 +80,15 @@ document.addEventListener('DOMContentLoaded', function() {
         RequestManager.sendRequest('/order','POST', orderData)
             .then(result => {
                 console.log('Результат запроса order:', result);
-                new Order(result);
-                Order.makeOrder(orderForm);
-                Order.displayOrder();
-                //Basket.deleteProduct(orderData['idUser']);
+                if(result !== false) {
+                    new Order(result);
+                    Order.displayOrder();
+                    /*const basketItemsContainer = document.getElementById('basket-items');
+                    EventHandler.addDeleteBasketFromDBHandlers(basketItemsContainer);*/
+                    window.location.href = `orderSuccess.php?order=${result.id}`;
+                }
             });
     });
+
     Quantity.addQuantityHandlers();
 });
