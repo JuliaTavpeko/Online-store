@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Detail page</title>
+    <title>Детальная страница товара</title>
 
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -31,10 +31,10 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 <body>
 <div class="main">
-    <?php require ROOT . '/backend/static/blocks/popUpUser.php' ?>
-    <?php require ROOT . '/backend/static/blocks/popUpBasket.php' ?>
+    <?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
+    <?php require ROOT . '/backend/static/blocks/popUps/popUpBasket.php' ?>
 
-    <?php require ROOT . '/backend/static/blocks/productContent.php' ?>
+    <?php require ROOT . '/backend/static/blocks/content/productContent.php' ?>
 
     <h1 style="text-align: center">Отзывы</h1>
     <div class="reviews-list"></div>

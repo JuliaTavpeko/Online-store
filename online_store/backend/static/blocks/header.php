@@ -6,10 +6,10 @@
 
         <ul class="links">
             <li><a class="link-box" href="store.php">Главная</a></li>
-            <li><a class="link-box" href="#">Каталог</a></li>
-            <li><a class="link-box" href="#">Новости</a></li>
-            <li><a class="link-box" href="#">О компании</a></li>
-            <li><a class="link-box" href="#">Контакты</a></li>
+            <li><a class="link-box" href="catalog.php">Каталог</a></li>
+            <li><a class="link-box" href="news.php">Новости</a></li>
+            <li><a class="link-box" href="company.php">О компании</a></li>
+            <li><a class="link-box" href="contacts.php">Контакты</a></li>
         </ul>
 
         <div class="child-container">

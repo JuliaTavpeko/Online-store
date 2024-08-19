@@ -11,6 +11,7 @@ export class Authorization {
             'session': Authorization.data.session,
             'cookie': Authorization.data.cookie,
             'pass': Authorization.data.pass,
+            'photo': Authorization.data.photo,
         };
     }
     

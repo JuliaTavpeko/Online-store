@@ -22,7 +22,7 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 <body>
 <div class="main">
-    <?php require ROOT . '/backend/static/blocks/popUpUser.php' ?>
+    <?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
     <div class="orderSuccess">Заказ №<span data-num-order="0"></span> оформлен</div>
 </div>
 </body>

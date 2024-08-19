@@ -3,7 +3,7 @@
 namespace backend\actions;
 require __DIR__ . '/../../../vendor/autoload.php';
 
-use backend\classes\catalog\Catalog;
+use backend\classes\reviews\Reviews;
 
 global $db;
 
@@ -11,6 +11,6 @@ header('Content-Type: application/json');
 $requestPayload = file_get_contents('php://input');
 $data = json_decode($requestPayload, true);
 
-$catalog = new Catalog($data, $db);
-$result = $catalog->getProductData();
+$review = new Reviews($data, $db);
+$result = $review->makeReview();
 echo json_encode($result, JSON_UNESCAPED_UNICODE);

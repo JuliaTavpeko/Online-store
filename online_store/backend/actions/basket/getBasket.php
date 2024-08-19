@@ -4,7 +4,6 @@ namespace backend\actions;
 require __DIR__ . '/../../../vendor/autoload.php';
 
 use backend\classes\basket\Basket;
-use backend\classes\database\DatabaseManager;
 
 global $db;
 

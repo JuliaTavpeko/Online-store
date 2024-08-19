@@ -3,7 +3,6 @@
 namespace backend\actions;
 require __DIR__ . '/../../../vendor/autoload.php';
 
-use backend\classes\database\DatabaseManager;
 use backend\classes\users\auth\Registration;
 
 global $db;

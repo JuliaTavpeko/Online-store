@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Интернет-магазин </title>
+    <title> Каталог </title>
     <meta charset="utf-8" />
 
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/catalog.css" rel="stylesheet">
+    <link href="css/table/table.css" rel="stylesheet">
     <link href="css/user/user.css" rel="stylesheet">
     <link href="css/basket/basket.css" rel="stylesheet">
 
@@ -23,10 +24,10 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 <body>
 <div class="main">
-<?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
-<?php require ROOT . '/backend/static/blocks/popUps/popUpBasket.php' ?>
 
-    <h2>Новые поступления</h2>
+    <?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
+    <?php require ROOT . '/backend/static/blocks/popUps/popUpBasket.php' ?>
+
     <?php
     use backend\classes\catalog\Catalog;
     global $db;
@@ -60,36 +61,43 @@
         <?php
     }
     ?>
-    <p><a href="#" style="text-decoration: none">Смотреть больше &rarr;</a></p>
-    <hr>
 
-    <h3>Каталог</h3>
-    <?php
-
-    $limit = 10;
-    $limitedResult = array_slice($result, 0, $limit);
-
-    foreach ($limitedResult as $row) {
-        ?>
-        <div class="border photo">
-            <div class="wrap">
-                <div class="product-wrap">
-                    <a href=""><img src="data:image/png;base64,<?php echo base64_encode($row["Photo"]); ?>" height="315" alt="img1"></a>
-                </div>
-                <div class="loop-action">
-                    <a href="<?php echo 'product.php?prod=' . $row["id"] ?>" class="add-to-cart">Быстрый просмотр</a>
-                    <a href="" class="loop-add-to-cart">В корзину</a>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3 class="product-title"> <?php echo $row["Name"]; ?></h3>
-                <div class="price"> <?php echo $row["Price"]; ?> руб.</div>
-            </div>
-        </div>
-        <?php
-    }
-    ?>
-    <p><a href="#" style="text-decoration: none">Смотреть больше &rarr;</a></p>
+    <h4>Доставка по стране</h4>
+    <div class="delivery">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Область</th>
+                <th>Цена</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Минская</td>
+                <td>Бесплатно</td>
+            </tr>
+            <tr>
+                <td>Брестская</td>
+                <td>2 руб</td>
+            </tr>
+            <tr>
+                <td>Гродненская</td>
+                <td>3 руб</td>
+            </tr>
+            <tr>
+                <td>Витебская</td>
+                <td>4 руб</td>
+            </tr>
+            <tr>
+                <td>Могилёвская</td>
+                <td>2 руб</td>
+            </tr>
+            <tr>
+                <td>Гомельская</td>
+                <td>2 руб</td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

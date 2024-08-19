@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Оформление заказа</title>
+    <title>Корзина</title>
     <meta charset="utf-8" />
 
     <link href="css/styles.css" rel="stylesheet">
@@ -22,9 +22,7 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 <body>
 <div class="main">
-
-    <?php require ROOT . '/backend/static/blocks/popUpUser.php' ?>
-
+    <?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
     <h1>Корзина</h1>
     <div class="basketCont">
         <div class="totalOrder"></div>
@@ -39,7 +37,6 @@
             <div class="orderFormBtn"><button id="openFormButton" class="btnOrder">Заказать</button></div>
         </div>
     </div>
-
     <form class="order">
         <div class="order-container">
             <h1>Оформление заказа</h1>
@@ -59,8 +56,6 @@
         </div>
     </form>
     <script src="https://unpkg.com/imask"></script>
-    <script src="js/events/order.js" type="module" defer></script>
-
 </div>
 </body>
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

@@ -1,22 +1,60 @@
 import { Review } from '../classes/Review.js';
+import {RequestManager} from "../classes/RequestManager.js";
+import {Authorization} from "../classes/Authorization.js";
+import {Rating} from "../classes/Rating.js";
 
 document.addEventListener('DOMContentLoaded', function () {
+
     const reviewForm = document.querySelector('[name="review"]');
-    const user = JSON.parse(sessionStorage.getItem('currentUser'));
+    const idUser = Authorization.getSessionData().id;
+    const prodContainer = document.querySelector('.product-container');
+    const message = document.querySelector('textarea[name="message"]').value;
 
-    Review.displayForm(reviewForm,user);
-    if(reviewForm) {
-        reviewForm.addEventListener('submit', function (event) {
-            event.preventDefault();
+    if(prodContainer) {
+        const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
 
-            let message = reviewForm.querySelector('[name="message"]').value;
-            const reviewer = new Review(user.photo, user.login, message);
-            reviewer.saveToLocalStorage();
+        const userData = {
+            idUser: idUser,
+            name: Authorization.getSessionData().login,
+            pic: Authorization.getSessionData().photo,
+        };
 
-            reviewForm.reset();
-        });
+        const prodReviews = {
+            idProd: prodData['id'],
+        };
 
-        Review.updateAverageRating();
-        Review.displayReview();
+        RequestManager.sendRequest('/reviews', 'POST', prodReviews)
+            .then(result => {
+                console.log('Результат запроса reviews:', result);
+               Review.displayReview(result);
+            });
+
+        const reviewData = {
+            idUser: idUser,
+            idProd: prodData['id'],
+            //rating: Rating.getCurrentRating(),
+            rating: 1,
+            name: Authorization.getSessionData().login,
+            message: message,
+            pic: Authorization.getSessionData().photo,
+        };
+
+        console.log("reviewData:",reviewData);
+
+        if (reviewForm) {
+            Review.displayForm(reviewForm, userData);
+            reviewForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                RequestManager.sendRequest('/makeReview', 'POST', reviewData)
+                    .then(result => {
+                        console.log('Результат запроса makeReview:', result);
+                        if (result !== false) {
+                            new Review(result);
+                            //Review.updateAverageRating();
+                        }
+                    });
+            });
+        }
     }
 });

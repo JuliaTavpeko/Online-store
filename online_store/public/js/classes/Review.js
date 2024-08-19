@@ -2,26 +2,11 @@ import {Rating} from "./Rating.js";
 
 export class Review {
 
-    #photo;
-    #rating;
-    #name;
-    #message;
+    static data = [];
 
-    constructor(photo, name, message) {
-        this.#photo = photo;
-        this.#name = name;
-        this.#rating = Rating.getCurrentRating();
-        this.#message = message;
+    constructor(reviewData) {
+        Review.data = { ...reviewData };
     }
-
-    saveToLocalStorage() {
-        const reviewers = JSON.parse(localStorage.getItem('reviewers')) || [];
-        reviewers.push({photo: this.#photo, rating: this.#rating, name: this.#name, message: this.#message });
-        localStorage.setItem('reviewers', JSON.stringify(reviewers));
-        alert('Отзыв добавлен');
-        Review.displayReview();
-    }
-
 
     static updateAverageRating() {
         Rating.calcRating();
@@ -32,20 +17,21 @@ export class Review {
         }
     }
 
-    static displayReview() {
-        const reviewers = JSON.parse(localStorage.getItem('reviewers')) || [];
+    static displayReview(items) {
         const review_list = document.querySelector('.reviews-list');
 
+        const reviewItems = Array.isArray(items) ? items : [items];
+
         if (review_list) {
-            reviewers.forEach(reviewer => {
+            reviewItems.forEach((item) => {
                 review_list.innerHTML += `
-            <div class="review-block">
-                <img src="${reviewer.photo}" alt="photo-user">
-                <p class="name-reviewer">${reviewer.name}</p>
-                <span class="ratings-wrapper">${reviewer.rating}★</span>
-                <p class="text-reviewer">${reviewer.message}</p>
-            </div>
-        `;
+                <div class="review-block">
+                    <img src="${item.pic}" alt="photo-user">
+                    <p class="name-reviewer">${item.name}</p>
+                    <span class="ratings-wrapper">${item.rating}★</span>
+                    <p class="text-reviewer">${item.message}</p>
+                </div>
+            `;
             });
         }
 
@@ -62,14 +48,14 @@ export class Review {
 
     static displayForm(reviewForm,user){
         if(reviewForm) {
-            if (user) {
+            if (user.idUser) {
                 const nameInput = reviewForm.querySelector('[name="name"]');
-                const photoElement = reviewForm.querySelector('[id="image-user"]');
-                nameInput.value = user.login;
+                const photoElement = reviewForm.querySelector('[id="photo-user"]');
+                nameInput.value = user.name;
                 nameInput.readOnly = true;
 
-                if (user.photo) {
-                    photoElement.src = user.photo;
+                if (user.pic) {
+                    photoElement.src = user.pic;
                 }
             } else {
                 const hideBlock = document.createElement('div');
