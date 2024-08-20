@@ -18,12 +18,12 @@ class Basket
     public function handleBasketOperations(): array
     {
         $this->basketArray['itemPrice'] = $this->calculateItemData($this->basketArray);
-        if(!$this->basket->checkData('idUser', $this->basketArray['idUser']) ||
-            !$this->basket->checkData('idProd', $this->basketArray['idProd'])){
+        if (!$this->basket->checkUserProduct($this->basketArray['idUser'], $this->basketArray['idProd'])) {
             $this->basket->insertIntoBasket($this->basketArray);
         } else {
             $this->basket->updateBasketInDB($this->basketArray);
         }
+
         $basketData = $this->basket->getBasketFromDB($this->basketArray['idUser']);
         $basketData['totalPrice'] = $this->calculateTotalData($basketData);
         return $basketData;

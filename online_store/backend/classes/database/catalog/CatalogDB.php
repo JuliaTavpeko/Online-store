@@ -41,4 +41,21 @@ class CatalogDB
         }
     }
 
+    public function setProdRating($rating, $idProd)
+    {
+        $query = "UPDATE Catalog SET 
+                Rating = :rating 
+              WHERE 
+                id = :idProd";
+        try {
+            return $this->dbManager->query($query, ['rating' => $rating, 'idProd' => $idProd])->find();
+        } catch (PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+            return ['error' => 'Произошла ошибка при обновлении данных.'];
+        }
+    }
+
+
+
+
 }

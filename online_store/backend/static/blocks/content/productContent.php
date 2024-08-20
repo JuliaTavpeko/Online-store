@@ -17,7 +17,8 @@ $data = [
     'name' => $result["Name"],
     'description' => $result["Description"],
     'photo' => 'data:image/png;base64,' . $result["Photo"],
-    'price' => $result["Price"]
+    'price' => $result["Price"],
+    'rating' => $result["Rating"],
 ];
 
 $json_data = json_encode($data);
@@ -32,7 +33,7 @@ $json_data = json_encode($data);
         <p name="name" style="font-size: 20px; font-weight: 500" data-id-prod="<?php echo $page; ?>">
             <?php echo $data['name']; ?>
         </p>
-        <p class="prod-rating"></p>
+        <p class="prod-rating"><?php echo $data['rating']; ?>★</p>
         <p name="description">
             <?php echo $data['description']; ?>
         </p>

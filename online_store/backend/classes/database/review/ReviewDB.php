@@ -51,4 +51,15 @@ class ReviewDB
         }
     }
 
+    public function getRatingData($idProd)
+    {
+        $query = 'SELECT rating FROM Reviews WHERE idProd = :idProd';
+        try {
+            return $this->dbManager->query($query, ['idProd' => $idProd])->findAll();
+        } catch (PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+            return ['error' => 'Произошла ошибка при получении данных.'];
+        }
+    }
+
 }

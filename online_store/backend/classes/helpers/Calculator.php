@@ -23,4 +23,19 @@ class Calculator
         return $totalPrice;
     }
 
+    public static function calculateRating($items): float|int
+    {
+        $totalRating = 0;
+        $count = count($items);
+
+        if ($count === 0) {
+            return 0;
+        }
+
+        foreach ($items as $item) {
+            $totalRating += $item['rating'];
+        }
+
+        return ceil($totalRating / $count * 10) / 10;
+    }
 }

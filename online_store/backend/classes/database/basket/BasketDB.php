@@ -13,13 +13,24 @@ class BasketDB
     {
         $this->dbManager = $dbManager;
     }
-
+/*
     public function checkData($key, $value){
         try {
             $result = $this->dbManager->query("SELECT COUNT(*) as count FROM Basket WHERE {$key} = ?", [$value])->find();
             return $result && $result['count'] > 0;
         } catch (PDOException $e) {
             error_log('Ошибка проверки ' . $key . ': ' . $e->getMessage());
+            return false;
+        }
+    }*/
+
+    public function checkUserProduct($idUser, $idProd)
+    {
+        try {
+            $result = $this->dbManager->query("SELECT COUNT(*) as count FROM Basket WHERE idUser = ? AND idProd = ?", [$idUser, $idProd])->find();
+            return $result && $result['count'] > 0;
+        } catch (PDOException $e) {
+            error_log('Ошибка проверки товара у пользователя: ' . $e->getMessage());
             return false;
         }
     }

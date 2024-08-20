@@ -1,5 +1,3 @@
-import {Rating} from "./Rating.js";
-
 export class Review {
 
     static data = [];
@@ -8,18 +6,8 @@ export class Review {
         Review.data = { ...reviewData };
     }
 
-    static updateAverageRating() {
-        Rating.calcRating();
-        const avRating = Rating.getAvRating();
-        const prodRatingElement = document.querySelector('.prod-rating');
-        if (prodRatingElement && avRating) {
-            prodRatingElement.textContent = avRating.toFixed(1) + "★";
-        }
-    }
-
     static displayReview(items) {
         const review_list = document.querySelector('.reviews-list');
-
         const reviewItems = Array.isArray(items) ? items : [items];
 
         if (review_list) {
@@ -65,5 +53,4 @@ export class Review {
             }
         }
     }
-
 }

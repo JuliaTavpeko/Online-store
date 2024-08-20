@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const reviewForm = document.querySelector('[name="review"]');
     const idUser = Authorization.getSessionData().id;
     const prodContainer = document.querySelector('.product-container');
-    const message = document.querySelector('textarea[name="message"]').value;
 
     if(prodContainer) {
         const prodData = JSON.parse(prodContainer.getAttribute('data-prod'));
@@ -29,29 +28,29 @@ document.addEventListener('DOMContentLoaded', function () {
                Review.displayReview(result);
             });
 
-        const reviewData = {
-            idUser: idUser,
-            idProd: prodData['id'],
-            //rating: Rating.getCurrentRating(),
-            rating: 1,
-            name: Authorization.getSessionData().login,
-            message: message,
-            pic: Authorization.getSessionData().photo,
-        };
-
-        console.log("reviewData:",reviewData);
+        Rating.calcRating();
 
         if (reviewForm) {
             Review.displayForm(reviewForm, userData);
             reviewForm.addEventListener('submit', function (event) {
                 event.preventDefault();
 
+                const reviewData = {
+                    idUser: idUser,
+                    idProd: prodData['id'],
+                    rating: Rating.getCurrentRating(),
+                    name: Authorization.getSessionData().login,
+                    message: document.querySelector('textarea[name="message"]').value,
+                    pic: Authorization.getSessionData().photo,
+                };
+
+                console.log("reviewData:",reviewData);
+
                 RequestManager.sendRequest('/makeReview', 'POST', reviewData)
                     .then(result => {
                         console.log('Результат запроса makeReview:', result);
                         if (result !== false) {
                             new Review(result);
-                            //Review.updateAverageRating();
                         }
                     });
             });
