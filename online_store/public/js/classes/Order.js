@@ -15,20 +15,19 @@ export class Order {
         }
     }
 
-    static displayOrder() {
+    static displayOrder(order) {
         const totalOrder = document.querySelector('.totalOrder');
-        if (totalOrder && Order.data.id) {
+        if (totalOrder && order.id) {
             totalOrder.innerHTML = `
                 <div>
-                    <p>Номер заказа: ${Order.data.id}</p>
-                    <p>Стоимость: ${Order.data.totalPrice}</p>
-                    <p>Телефон: ${Order.data.phone}</p>
-                    <p>Email: ${Order.data.email}</p>
-                    <p>Адрес: ${Order.data.address}</p>
-                    <p>Способ оплаты: ${Order.data.payment}</p>
+                    <p>Номер заказа: ${order.id}</p>
+                    <p>Стоимость: ${order.totalPrice}</p>
+                    <p>Телефон: ${order.phone}</p>
+                    <p>Email: ${order.email}</p>
+                    <p>Адрес: ${order.address}</p>
+                    <p>Способ оплаты: ${order.payment}</p>
                 </div>
             `;
         }
     }
-
 }

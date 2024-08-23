@@ -17,9 +17,13 @@ class Orders
 
     public function makeOrder(){
         if($this->validateData()) {
-            //$this->order->insertOrderIntoDB($this->orderArray);
+            $this->order->insertOrderIntoDB($this->orderArray);
             return $this->order->getOrderFromDB($this->orderArray['idUser']);
         } else return false;
+    }
+
+    public function getOrder(){
+        return $this->order->getOrderFromDB($this->orderArray);
     }
 
     public function validateData(): bool

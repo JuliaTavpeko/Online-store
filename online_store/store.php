@@ -60,7 +60,7 @@
         <?php
     }
     ?>
-    <p><a href="#" style="text-decoration: none">Смотреть больше &rarr;</a></p>
+    <p><a href="catalog.php" style="text-decoration: none">Смотреть больше &rarr;</a></p>
     <hr>
 
     <h3>Каталог</h3>
@@ -89,7 +89,7 @@
         <?php
     }
     ?>
-    <p><a href="#" style="text-decoration: none">Смотреть больше &rarr;</a></p>
+    <p><a href="catalog.php" style="text-decoration: none">Смотреть больше &rarr;</a></p>
 </div>
 </body>
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

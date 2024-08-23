@@ -26,6 +26,7 @@ IMask(
 
 document.addEventListener('DOMContentLoaded', function() {
 
+
     const orderForm = document.querySelector('.order');
     const openFormBtn = document.querySelector('.orderFormBtn');
 
@@ -82,13 +83,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Результат запроса order:', result);
                 if(result !== false) {
                     new Order(result);
-                    Order.displayOrder();
-                    /*const basketItemsContainer = document.getElementById('basket-items');
-                    EventHandler.addDeleteBasketFromDBHandlers(basketItemsContainer);*/
                     window.location.href = `orderSuccess.php?order=${result.id}`;
                 }
             });
+
+        const basketItemsContainer = document.getElementById('basket-items');
+        EventHandler.addDeleteBasketFromDBHandlers(basketItemsContainer);
     });
+
+    if (Authorization.getSessionData().id) {
+        RequestManager.sendRequest('/getOrder', 'POST', Authorization.getSessionData().id)
+            .then(result => {
+                console.log('Результат запроса getOrder:', result);
+                if (result !== false) {
+                    Order.displayOrder(result);
+                }
+            });
+    }
 
     Quantity.addQuantityHandlers();
 });

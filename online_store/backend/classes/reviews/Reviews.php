@@ -32,18 +32,17 @@ class Reviews
 
     public function getReviews()
     {
+        $this->calculateRating($this->reviewData['idProd']);
         return $this->review->getReviews($this->reviewData['idProd']);
     }
 
     public function calculateRating($idProd)
     {
         $ratingData = $this->review->getRatingData($idProd);
-
-        if (isset($ratingData['error'])) {
-            return $ratingData;
+        if (empty($ratingData)) {
+            $ratingData = [['rating' => 0]];
         }
 
         return $this->product->setProdRating(Calculator::calculateRating($ratingData), $idProd);
     }
-
 }
