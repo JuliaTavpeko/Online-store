@@ -51,6 +51,35 @@ export class Authorization {
         }
     }
 
+    static displayForgotPass(form_for_auth) {
+        let originalFormContent = form_for_auth.innerHTML;
+        if (form_for_auth) {
+            form_for_auth.innerHTML = `
+                <h3 class="form_title">Восстановление пароля</h3>
+                <p><input class="form_input" type="text" name="loginAuth" id="loginAuth" placeholder="Логин"></p>
+                <p><input class="form_input" type="password" name="newPass" id="newPass" placeholder="Новый пароль"></p>
+                <p><input class="form_input" type="password" name="repeatNewPass" id="repeatNewPass" placeholder="Подтвердить пароль"></p>
+                <p><button class="form_btn change-password" type="submit">Изменить</button></p>
+                <p><button class="form_btn return-auth" type="submit">Вернуться</button></p>
+        `;
+
+            const returnBtn = form_for_auth.querySelector('.return-auth');
+            returnBtn.addEventListener('click', function () {
+                form_for_auth.innerHTML = originalFormContent;
+            });
+
+        }
+    }
+
+    static displayChange(form_for_auth) {
+        if (form_for_auth) {
+            form_for_auth.innerHTML = `
+                <h3 class="form_title">Пароль изменён!</h3>
+                <a href="store.php" class="form_btn change-password" style="text-decoration: none; justify-content: center">Перейти на главную</a>
+        `;
+        }
+    }
+
     static async addLogoutClickListener() {
         const logOutBtn = document.querySelector('.logOut');
         if (logOutBtn) {

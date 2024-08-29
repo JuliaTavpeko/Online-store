@@ -24,6 +24,20 @@ class User
         }
     }
 
+    public function updateData($item){
+        $query = "UPDATE Users SET 
+                pass = '{$item['newPass']}', 
+                passRepeat = '{$item['repeatNewPass']}'
+              WHERE 
+                login = '{$item['loginAuth']}'";
+        try {
+            return $this->dbManager->query($query)->find();
+        } catch (PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+            return ['error' => 'Произошла ошибка при получении данных.'];
+        }
+    }
+
     public function insertUserIntoDB($userData): bool
     {
         $query = "INSERT INTO Users (`login`, `email`, `pass`, `passRepeat`, `photo`) VALUES (:login, :email, :pass, :passRepeat, :photo)";

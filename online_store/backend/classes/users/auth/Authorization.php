@@ -28,7 +28,7 @@ class Authorization {
     /**
      * @throws Exception
      */
-    public function loginUser()
+    public function loginUser(): array|bool
     {
         $user = [];
         try {
@@ -47,6 +47,15 @@ class Authorization {
         return false;
     }
 
+    public function changePass(){
+        if ($this->validateData() && $this->authenticate() && !$this->user->checkData('pass', $this->userData['newPass'])) {
+            $this->user->updateData($this->userData);
+        } elseif($this->user->checkData('pass', $this->userData['newPass'])){
+           return 'Password exist';
+        }
+        return $this->user->getUser($this->userData['loginAuth']);
+    }
+
     public function validateData(): bool
     {
         $rules = [
@@ -60,6 +69,16 @@ class Authorization {
                 'required' => true,
                 'min' => 4,
                 'max' => 25,
+            ],
+
+            'newPass' => [
+                'required' => true,
+                'min' => 4,
+                'max' => 25,
+            ],
+
+            'repeatNewPass' => [
+                'match' => 'newPass',
             ],
         ];
         $validation = Validator::validate($rules, $this->userData);
@@ -118,4 +137,6 @@ class Authorization {
         }
         return ['session_id' => session_id()];
     }
+
+
 }

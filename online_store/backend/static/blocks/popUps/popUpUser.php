@@ -20,17 +20,18 @@
                                     <p><input type="text" class="form_input" placeholder="Логин" name="loginAuth" id="loginAuth"></p>
                                     <p><input type="password" class="form_input" placeholder="Пароль" name="passAuth" id="passAuth"></p>
                                     <div class="remember">
-                                        <label for="remember"> <input id="remember" name="remember" type="checkbox" >Запомнить меня</label>
-                                        <a href="forgotPassword.php" class="forget-pass">Забыли пароль?</a>
+                                        <label for="remember"> <input id="remember" name="remember" type="checkbox">Запомнить меня</label>
+                                        <!--<a href="forgotPassword.php" class="forget-pass">Забыли пароль?</a>-->
+                                        <a class="forgot-pass">Забыли пароль?</a>
                                     </div>
-                                    <p><input class="form_btn form_btn_signin" type="submit" value="Войти" ></p>
+                                    <p><input class="form_btn form_btn_signin" type="submit" value="Войти"></p>
                                 </form>
                                 <form class="form form_signup" id="form_reg" method="post" enctype="multipart/form-data" action="">
                                     <h3 class="form_title">Регистрация</h3>
-                                    <p><input type="text" class="form_input" placeholder="Логин" name="login" id="login" ></p>
-                                    <p><input type="email" class="form_input" placeholder="Email" name="email" id="email" ></p>
-                                    <p><input type="password" class="form_input" placeholder="Пароль" name="pass" id="pass" ></p>
-                                    <p><input type="password" class="form_input" placeholder="Подтвердите пароль" name="passRepeat" id="passRepeat" ></p>
+                                    <p><input type="text" class="form_input" placeholder="Логин" name="login" id="login"></p>
+                                    <p><input type="email" class="form_input" placeholder="Email" name="email" id="email"></p>
+                                    <p><input type="password" class="form_input" placeholder="Пароль" name="pass" id="pass"></p>
+                                    <p><input type="password" class="form_input" placeholder="Подтвердите пароль" name="passRepeat" id="passRepeat"></p>
                                     <img id="preview" src="" alt="Превью изображения"/>
                                     <input type="file" id="imageInput" accept="image/*" onchange="displayImage(this)"/>
                                     <script>
@@ -43,7 +44,7 @@
                                             document.getElementById('preview').onload = () => URL.revokeObjectURL(imageURL);
                                         }
                                     </script>
-                                    <p><input class="form_btn form_btn_signup" type="submit" value="Зарегристрироваться" ></p>
+                                    <p><input class="form_btn form_btn_signup" type="submit" value="Зарегристрироваться"></p>
                                 </form>
                             </div>
                         </article>
