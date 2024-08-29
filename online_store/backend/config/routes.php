@@ -10,6 +10,7 @@ $routes = [
     'contacts.php' => '/backend/static/page/contacts/contacts.php',
     'order.php' => '/backend/static/page/orders/order.php',
     'article.php' => '/backend/static/page/news/article.php',
+    'forgotPassword.php' => '/backend/static/page/user/forgotPassword.php',
     'test.php' => 'test.php',
     'orderSuccess.php' => '/backend/static/page/orders/orderSuccess.php',
     'register' => '/backend/actions/auth/register.php',

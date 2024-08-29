@@ -1,0 +1,51 @@
+.forgot-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 50px;
+}
+
+.forgot-pass {
+    height: 445px;
+    width: 555px;
+    border-radius: 15px;
+    border: black 1px solid;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forgot-pass h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+
+.forgot-pass input {
+    height: 20px;
+    width: 250px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forgot-pass button {
+    height: 45px;
+    width: 150px;
+    background-color: #2BB26E;
+    color: white;
+    margin-top: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    border-color: transparent;
+    border-radius: 15px;
+}

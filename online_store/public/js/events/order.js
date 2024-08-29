@@ -64,6 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     orderForm.addEventListener('submit', function (e) {
         e.preventDefault();
+
+        console.log('basketArray', basketArray);
+
+        RequestManager.sendRequest('/basket', 'POST', basketArray)
+            .then(result => {
+                console.log('Результат запроса basket:', result);
+            });
+
         dataOr.forEach(element => {
             if (element.id === 'payment') {
                 const selectedPaymentMethod = element.querySelector('input[name="paymentMethod"]:checked');
@@ -83,12 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Результат запроса order:', result);
                 if(result !== false) {
                     new Order(result);
-                    window.location.href = `orderSuccess.php?order=${result.id}`;
+                    //window.location.href = `orderSuccess.php?order=${result.id}`;
                 }
             });
 
-        const basketItemsContainer = document.getElementById('basket-items');
-        EventHandler.addDeleteBasketFromDBHandlers(basketItemsContainer);
+        /*const basketItemsContainer = document.getElementById('basket-items');
+        EventHandler.addDeleteBasketFromDBHandlers(basketItemsContainer);*/
     });
 
     if (Authorization.getSessionData().id) {
