@@ -1,50 +1,21 @@
-.cont {
-    margin: 0 20px;
-}
-
 .product-container {
     display: flex;
     justify-content: space-between;
-    margin: 0 250px;
 }
-
-
-.prod_content, .content, .basket {
-    flex: 1;
-    margin: 10px;
-
-}
-
-.content h2 {
-    font-size: 20px;
-}
-
-
-.main-content {
-    margin: 0 20px;
-}
-
-.left-column {
-    max-width: 600px;
-}
-
-.center-column {
-    flex: 2;
-}
-
-.right-column {
-    max-width: 250px;
-}
-
-.prod_content img {
-    max-width: 370px;
-    height: 410px;
-}
-
 
 .basket .quantity .minus-btn,
 .basket .quantity .plus-btn {
     cursor: pointer;
+}
+
+.input_price {
+    text-align: center;
+}
+
+.input_price::-webkit-outer-spin-button,
+.input_price::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .btn_add_basket {
@@ -52,43 +23,76 @@
     border: none;
     cursor: pointer;
     color: #fff;
-    font-size: inherit;
     padding: 10px 30px;
-
 }
 
+.btn_add_basket:hover {
+    background-color: #FDBF3D;
+}
 
+/* для табов */
+.tab {
+    display: inline-block;
+    text-align: center;
+    padding: 15px;
+    background-color: #2BB26E;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+}
 
-.reviews-list {
+.tab-hidden{
+    display: none;
+}
+
+.tab:hover {
+    background-color: lightgreen;
+}
+/* "конец" табов */
+
+/* для списка характеристик */
+.dotted {
+    list-style: none;
+}
+.dotted li {
+    margin-bottom: 5px;
+    border-bottom: 2px #404B51 dotted;
+    font-size: 26px;
+    line-height: 1;
+}
+.dotted li span:nth-child(odd) {
+    padding-right: 6px;
+    color: #404B51;
+}
+.dotted li span:nth-child(even) {
+    float: right;
+    padding-left: 6px;
+}
+.dotted span {
+    background: white;
+    bottom: -7px;
+}
+/* "конец" списка характеристик */
+
+/* галерея фото */
+.product-gallery {
     display: flex;
-    margin: 0 250px;
-
-}
-
-.review-block {
-    width: 350px;
-    height: 800px;
-    border: 1px solid black;
-    margin: 10px;
-    box-sizing: border-box;
-    padding: 20px;
-
-}
-
-.review-block img {
-    height: 15%;
-    width: 15%;
-    background-color: #ffffff;
-    border-radius: 50%;
-    float: left;
-    margin-right: 15px;
-}
-
-.photo-user {
-    height: 15%;
-    width: 15%;
-    background-color: #ffffff;
-    border-radius: 50%;
-    padding: 10px;
+    flex-direction: column;
     align-items: center;
 }
+.main-image {
+    max-width: 305px;
+    height: 410px;
+    margin-bottom: 20px;
+}
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+}
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+/* "конец" галерея фото */

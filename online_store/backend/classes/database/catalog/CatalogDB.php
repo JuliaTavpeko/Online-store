@@ -14,6 +14,17 @@ class CatalogDB
         $this->dbManager = $dbManager;
     }
 
+
+    public function getProductCharac($idProd){
+        $query = 'SELECT * FROM ProductCharacteristic WHERE idProd = :idProd';
+        try {
+            return $this->dbManager->query($query, ['idProd' => $idProd])->find();
+        } catch (PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+            return ['error' => 'Произошла ошибка при получении данных.'];
+        }
+    }
+
     public function getProductFromDB($id)
     {
         $query = 'SELECT * FROM Catalog WHERE id = :id';

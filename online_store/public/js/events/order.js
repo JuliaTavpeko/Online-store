@@ -91,12 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Результат запроса order:', result);
                 if(result !== false) {
                     new Order(result);
-                    //window.location.href = `orderSuccess.php?order=${result.id}`;
+                    window.location.href = `orderSuccess.php?order=${result.id}`;
                 }
             });
 
-        /*const basketItemsContainer = document.getElementById('basket-items');
-        EventHandler.addDeleteBasketFromDBHandlers(basketItemsContainer);*/
+        const basketItemsContainer = document.getElementById('basket-items');
+        EventHandler.addDeleteBasketFromDBHandlers(basketItemsContainer);
     });
 
     if (Authorization.getSessionData().id) {

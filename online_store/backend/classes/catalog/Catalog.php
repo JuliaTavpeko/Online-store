@@ -25,6 +25,11 @@ class Catalog
         return $this->product->getProducts();
     }
 
+    public function getProductCharac()
+    {
+        return $this->product->getProductCharac($this->idProd);
+    }
+
 
 
 }

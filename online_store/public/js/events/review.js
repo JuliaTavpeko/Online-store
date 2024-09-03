@@ -5,6 +5,24 @@ import {Rating} from "../classes/Rating.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    const tabItem = document.querySelectorAll('.tab');
+    const tabContent = document.querySelectorAll('.tab-hidden');
+
+    for(let item of tabItem){
+        item.addEventListener('click', function (event){
+            event.preventDefault();
+
+            for(let content of tabContent){
+                content.classList.add('tab-hidden');
+            }
+
+            const tab = document.querySelector('#' + item.dataset.tab);
+            tab.classList.remove('tab-hidden');
+        });
+    }
+
+
+
     const reviewForm = document.querySelector('[name="review"]');
     const idUser = Authorization.getSessionData().id;
     const prodContainer = document.querySelector('.product-container');
