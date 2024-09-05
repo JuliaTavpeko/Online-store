@@ -22,16 +22,6 @@ export class Review {
             `;
             });
         }
-
-      $('.reviews-list').slick('unslick');
-      $('.reviews-list').slick({
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 3,
-          centerMode: true,
-          variableWidth: true
-      });
     }
 
     static displayForm(reviewForm,user){

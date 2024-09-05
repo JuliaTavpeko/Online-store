@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Корзина</title>
-    <meta charset="utf-8" />
-
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/user/user.css" rel="stylesheet">
-    <link href="css/basket/basket.css" rel="stylesheet">
-    <link href="css/order.css" rel="stylesheet">
-
-    <script src="js/events/user.js" type="module" defer></script>
-    <script src="js/events/order.js" type="module" defer></script>
-
-    <link href="css/user/popUpUser.css" rel="stylesheet">
-    <link href="css/basket/popUpBasket.css" rel="stylesheet">
-
-    <script src="js/events/block/popUp/popUpUser.js" defer></script>
-    <script src="js/events/block/popUp/popUpBasket.js" type="module" defer></script>
-</head>
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
-<body>
-<div class="main">
-    <?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
+
     <h1>Корзина</h1>
     <div class="basketCont">
         <div class="totalOrder"></div>
@@ -43,9 +20,9 @@
             <label>Имя:</label>
             <input type="text" id="user" name="user" class="orderInfo" value="" required/>
             <label>Телефон:</label>
-            <input type="text" id="phone" name="phoneClient" class="orderInfo" required/>
+            <input type="text" id="phoneClient" name="phoneClient" class="orderInfo" required/>
             <label>Email:</label>
-            <input type="text" id="email" name="emailClient" class="orderInfo" value="" required/>
+            <input type="text" id="emailClient" name="emailClient" class="orderInfo" value="" required/>
             <label>Адрес:</label>
             <input type="text" id="address" name="address" class="orderInfo" required/>
             <div class="orderInfo payment" id="payment">
@@ -56,6 +33,5 @@
         </div>
     </form>
     <script src="https://unpkg.com/imask"></script>
-</div>
-</body>
+
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

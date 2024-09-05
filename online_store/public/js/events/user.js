@@ -82,42 +82,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
         });
         EventHandler.addPasswordFocusHandler(form_for_auth);
-    }
 
-    const forgot_pass = form_for_auth.querySelector('.forgot-pass');
+        const forgot_pass = form_for_auth.querySelector('.forgot-pass');
 
-    if (forgot_pass) {
-        forgot_pass.addEventListener('click', async function (event) {
-            event.preventDefault();
-
-            Authorization.displayForgotPass(form_for_auth);
-
-            const btn_pass = form_for_auth.querySelector('.change-password');
-            btn_pass.addEventListener('click', async function (event) {
+        if (forgot_pass) {
+            forgot_pass.addEventListener('click', async function (event) {
                 event.preventDefault();
 
-                const forgotArray = form_for_auth.querySelectorAll('.form_input');
-                const forgotData = {};
+                Authorization.displayForgotPass(form_for_auth);
 
-                forgotArray.forEach(element => {
-                    forgotData[element.name] = element.value;
-                });
+                const btn_pass = form_for_auth.querySelector('.change-password');
+                btn_pass.addEventListener('click', async function (event) {
+                    event.preventDefault();
 
-                console.log('forgotData:', forgotData);
+                    const forgotArray = form_for_auth.querySelectorAll('.form_input');
+                    const forgotData = {};
 
-                RequestManager.sendRequest('/forgotPass', 'POST', forgotData)
-                    .then(result => {
-                        console.log('Результат запроса forgotPass:', result);
-                        if(result !== false && typeof result !== 'string') {
-                            new Authorization(result);
-                            Authorization.displayChange(form_for_auth);
-                        } else {
-                            alert('Пароль уже существует');
-                            Common.clearInputs();
-                            return false;
-                        }
+                    forgotArray.forEach(element => {
+                        forgotData[element.name] = element.value;
                     });
+
+                    console.log('forgotData:', forgotData);
+
+                    RequestManager.sendRequest('/forgotPass', 'POST', forgotData)
+                        .then(result => {
+                            console.log('Результат запроса forgotPass:', result);
+                            if(result !== false && typeof result !== 'string') {
+                                new Authorization(result);
+                                Authorization.displayChange(form_for_auth);
+                            } else {
+                                alert('Пароль уже существует');
+                                Common.clearInputs();
+                                return false;
+                            }
+                        });
+                });
             });
-        });
+        }
     }
 });

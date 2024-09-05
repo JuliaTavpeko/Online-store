@@ -1,6 +1,46 @@
 .product-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.block-content {
+    margin: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.prod-colors svg {
+    cursor: pointer;
+}
+
+.read-more {
+    background: transparent;
+    border-bottom: 1px dotted;
+    cursor: pointer;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.hidden-text {
+    display: block;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.shops {
+    font-size: 12px;
+}
+
+.shops p {
+    margin: 5px 0;
 }
 
 .basket .quantity .minus-btn,
@@ -34,11 +74,12 @@
 .tab {
     display: inline-block;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     background-color: #2BB26E;
     border: none;
     cursor: pointer;
     color: white;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -46,34 +87,10 @@
     display: none;
 }
 
-.tab:hover {
+.tab.active, .tab:hover {
     background-color: lightgreen;
 }
 /* "конец" табов */
-
-/* для списка характеристик */
-.dotted {
-    list-style: none;
-}
-.dotted li {
-    margin-bottom: 5px;
-    border-bottom: 2px #404B51 dotted;
-    font-size: 26px;
-    line-height: 1;
-}
-.dotted li span:nth-child(odd) {
-    padding-right: 6px;
-    color: #404B51;
-}
-.dotted li span:nth-child(even) {
-    float: right;
-    padding-left: 6px;
-}
-.dotted span {
-    background: white;
-    bottom: -7px;
-}
-/* "конец" списка характеристик */
 
 /* галерея фото */
 .product-gallery {
@@ -84,7 +101,7 @@
 .main-image {
     max-width: 305px;
     height: 410px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .thumbnail-container {
     display: flex;
@@ -96,3 +113,5 @@
     cursor: pointer;
 }
 /* "конец" галерея фото */
+
+

@@ -1,0 +1,11 @@
+header {
+    background-color: #333944;
+    color: #fff;
+    padding: 3px;
+    text-align: center;
+}
+
+header ul li {
+    display: inline;
+    margin: 0 ;
+}

@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const basketArray = {
                 idUser: idUser,
-                idProd: prodData['id'],
-                nameProd: prodData['name'],
+                idProd: prodData.id,
+                nameProd: prodData.name,
                 quantity: Quantity.getQuantity(),
-                price: prodData['price'],
-                photo: prodData['photo'],
+                price: prodData.price,
+                photo: prodData.currentColorInfo.photo || '',
             };
 
             if (addBtn.value !== "Перейти в корзину") {

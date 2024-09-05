@@ -49,7 +49,7 @@
                         </article>
                     </div>
                 </div>
-                <div class="popUpCloseBasket" id="popUpCloseBasket">&#10006</div>
-            </div>
+            <div class="popUpCloseBasket" id="popUpCloseBasket">&#10006</div>
         </div>
     </div>
+</div>

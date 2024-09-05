@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title> Контакты </title>
-    <meta charset="utf-8" />
-
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/user/user.css" rel="stylesheet">
-    <link href="css/basket/basket.css" rel="stylesheet">
-
-    <script src="js/events/user.js" type="module" defer></script>
-    <script src="js/events/basket.js" type="module" defer></script>
-
-    <link href="css/user/popUpUser.css" rel="stylesheet">
-    <link href="css/basket/popUpBasket.css" rel="stylesheet">
-
-    <script src="js/events/block/popUp/popUpUser.js" defer></script>
-    <script src="js/events/block/popUp/popUpBasket.js" type="module" defer></script>
-
-</head>
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
-<body>
-<div class="main">
-    <?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
-    <?php require ROOT . '/backend/static/blocks/popUps/popUpBasket.php' ?>
 
     <div class="myframe">
     <h6>Местоположение</h6>
@@ -44,6 +19,5 @@
                 <area shape="rect" coords="0,0,568,351" href="https://oborot.ru/wp-content/uploads/2020/11/screenshot_48.png" target="_blank" alt="Откроется в новом окне">
             </map></p>
     </div>
-</div>
-</body>
+
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

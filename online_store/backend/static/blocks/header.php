@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/basket/basket.css" rel="stylesheet">
+    <link href="css/basket/popUpBasket.css" rel="stylesheet">
+    <link href="css/catalog/product.css" rel="stylesheet">
+    <link href="css/catalog/catalog.css" rel="stylesheet">
+    <link href="css/news/news_list.css" rel="stylesheet">
+    <link href="css/order/order.css" rel="stylesheet">
+    <link href="css/reviews/reviews.css" rel="stylesheet">
+    <link href="css/reviews/rating.css" rel="stylesheet">
+    <link href="css/table/table.css" rel="stylesheet">
+    <link href="css/user/user.css" rel="stylesheet">
+    <link href="css/user/popUpUser.css" rel="stylesheet">
+    <link href="css/user/forgotPass.css" rel="stylesheet">
+
+    <script src="js/events/block/popUp/popUpBasket.js" type="module" defer></script>
+    <script src="js/events/block/popUp/popUpUser.js" type="module" defer></script>
+    <script src="js/events/basket.js" type="module" defer></script>
+    <script src="js/events/order.js" type="module" defer></script>
+    <script src="js/events/orderSuccess.js" type="module" defer></script>
+    <script src="js/events/review.js" type="module" defer></script>
+    <script src="js/events/user.js" type="module" defer></script>
+
+</head>
 <header>
     <div class="container">
 
@@ -48,3 +80,8 @@
 
     </div>
 </header>
+<body>
+<div class="main">
+
+<?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
+<?php require ROOT . '/backend/static/blocks/popUps/popUpBasket.php' ?>

@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title> Интернет-магазин </title>
-    <meta charset="utf-8" />
-
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/user/user.css" rel="stylesheet">
-    <link href="css/basket/basket.css" rel="stylesheet">
-
-    <script src="js/events/user.js" type="module" defer></script>
-    <script src="js/events/basket.js" type="module" defer></script>
-
-    <link href="css/user/popUpUser.css" rel="stylesheet">
-    <link href="css/basket/popUpBasket.css" rel="stylesheet">
-
-    <script src="js/events/block/popUp/popUpUser.js" defer></script>
-    <script src="js/events/block/popUp/popUpBasket.js" type="module" defer></script>
-
-</head>
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
-<body>
-<div class="main">
-    <?php require ROOT . '/backend/static/blocks/popUps/popUpUser.php' ?>
-    <?php require ROOT . '/backend/static/blocks/popUps/popUpBasket.php' ?>
 
         <h1>Добро пожаловать!</h1>
         <span><b>Мы - ваш идеальный интернет-магазин для всех, кто ищет лучшие смартфоны!</b><br>Наш ассортимент включает в себя самые последние модели телефонов
@@ -84,6 +59,5 @@
 
         История "МобилМаркет" - это пример того, как упорство, внимательное отношение к клиентам и умение адаптироваться к изменениям на рынке могут привести к успеху. Александр Кузнецов превратил свою мечту в реальный бизнес, который продолжает расти и развиваться, несмотря на все трудности. Впереди у компании много новых возможностей, и она готова к новым вызовам в быстро меняющемся мире технологий.<br>
     <br> <br>
-</div>
-</body>
+
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

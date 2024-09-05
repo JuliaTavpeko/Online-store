@@ -4,43 +4,45 @@
 
 .decor {
     position: relative;
-    max-width: 500px;
-    margin: 50px auto 0;
-    background: #F0782D;
+    max-width: 430px;
+    background: #00AAC0;
     border-radius: 30px;
-    margin-bottom: 10px;
+    margin: 50px auto 10px;
 }
 
 .form-inner {
-    padding: 50px;
+    padding: 30px;
 }
+
 .form-inner input, .form-inner textarea {
     display: block;
     width: 100%;
-    padding: 0 20px;
+    padding: 10px 20px;
     margin-bottom: 10px;
     background: #ffffff;
-    line-height: 40px;
     border-width: 0;
     border-radius: 20px;
-    font-family: 'Roboto', sans-serif;
 }
+
+.form-inner input {
+    height: 40px;
+}
+
+.form-inner textarea {
+    height: 140px;
+    resize: none;
+}
+
 .form-inner input[type="submit"] {
-    margin-top: 30px;
     background: #ffffff;
-    border-bottom: 4px solid #FDBF3D;
+    border-bottom: 4px solid lightskyblue;
     color: #000000;
     font-size: 14px;
     cursor: pointer;
 }
-.form-inner textarea {
-    resize: none;
-}
+
 .form-inner h3 {
-    margin-top: 0;
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 24px;
     color: #ffffff;
 }
 
@@ -49,7 +51,7 @@
     align-items: center;
     color: white;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     padding-left: 5px;
 }
 
@@ -67,27 +69,22 @@
     color: #333;
     text-align: center;
     border-radius: 10px;
-
 }
 
 /* для списка отзывов */
 .reviews-list {
-    display: flex;
-    margin: 0 250px;
+    display: inline-block;
+    margin: 0 40px;
+    font-size: 14px;
 }
 
 .review-block {
-    width: 350px;
-    height: 800px;
-    border: 1px solid black;
-    margin: 10px;
-    box-sizing: border-box;
-    padding: 20px;
+    margin-bottom: 30px;
 }
 
 .review-block img {
-    height: 15%;
-    width: 15%;
+    height: 7%;
+    width: 7%;
     background-color: #ffffff;
     border-radius: 50%;
     float: left;
@@ -103,5 +100,3 @@
     align-items: center;
 }
 /* "конец" списка отзывов */
-
-

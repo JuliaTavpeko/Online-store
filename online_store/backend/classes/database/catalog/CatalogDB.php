@@ -14,26 +14,11 @@ class CatalogDB
         $this->dbManager = $dbManager;
     }
 
-
-    public function getProductCharac($idProd){
-        $query = 'SELECT * FROM ProductCharacteristic WHERE idProd = :idProd';
-        try {
-            return $this->dbManager->query($query, ['idProd' => $idProd])->find();
-        } catch (PDOException $e) {
-            error_log('Database error: ' . $e->getMessage());
-            return ['error' => 'Произошла ошибка при получении данных.'];
-        }
-    }
-
     public function getProductFromDB($id)
     {
         $query = 'SELECT * FROM Catalog WHERE id = :id';
         try {
-            $result = $this->dbManager->query($query, ['id' => $id])->find();
-            if ($result['Photo']) {
-                $result['Photo'] = base64_encode($result['Photo']);
-            }
-            return $result;
+            return $this->dbManager->query($query, ['id' => $id])->find();
         } catch (PDOException $e) {
             error_log('Database error: ' . $e->getMessage());
             return ['error' => 'Произошла ошибка при получении данных.'];
@@ -44,8 +29,7 @@ class CatalogDB
     {
         $query = 'SELECT * FROM Catalog';
         try {
-            $result = $this->dbManager->query($query)->findAll();
-            return $result;
+            return $this->dbManager->query($query)->findAll();
         } catch (PDOException $e) {
             error_log('Database error: ' . $e->getMessage());
             return ['error' => 'Произошла ошибка при получении данных.'];

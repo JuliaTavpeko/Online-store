@@ -12,16 +12,20 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener('click', function (event){
             event.preventDefault();
 
-            for(let content of tabContent){
-                content.classList.add('tab-hidden');
-            }
-
             const tab = document.querySelector('#' + item.dataset.tab);
-            tab.classList.remove('tab-hidden');
+
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                tab.classList.add('tab-hidden');
+            } else {
+                tabItem.forEach(tab => tab.classList.remove('active'));
+                tabContent.forEach(content => content.classList.add('tab-hidden'));
+
+                item.classList.add('active');
+                tab.classList.remove('tab-hidden');
+            }
         });
     }
-
-
 
     const reviewForm = document.querySelector('[name="review"]');
     const idUser = Authorization.getSessionData().id;
