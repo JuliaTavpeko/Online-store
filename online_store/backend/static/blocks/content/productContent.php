@@ -72,36 +72,23 @@ $json_data = json_encode($data);
                 <p>Цвета отсутствуют</p>
             <?php endif; ?>
         </div>
-        <h5 style="max-width: 275px; max-height: 20px;">Описание:</h5>
-        <p style="max-width: 520px; max-height: 100px;" class="hidden-text"><?php echo $data['description']; ?></p>
-        <span class="read-more lazyloaded">Читать далее</span>
-        <h5 style="max-width: 275px; max-height: 20px;">Коротко о товаре:</h5>
-        <table class="hidden-text" style="max-width: 520px; max-height: 100px;">
-            <tr>
-                <td>Название</td>
-                <td><?php echo $data['currentColorInfo']['styleName']; ?></td>
-            </tr>
-            <tr>
-                <td>Память</td>
-                <td><?php echo $data['currentColorInfo']['memoryStorage']; ?></td>
-            </tr>
-            <tr>
-                <td>Бренд</td>
-                <td><?php echo $data['currentColorInfo']['brand']; ?></td>
-            </tr>
-            <tr>
-                <td>Операционная система</td>
-                <td><?php echo $data['currentColorInfo']['operatingSystem']; ?></td>
-            </tr>
-        </table>
-        <span class="read-more lazyloaded">Смотреть далее</span>
+        <div class="description">
+            <h5 style="max-width: 275px; max-height: 20px;">Описание:</h5>
+            <p style="max-width: 520px; max-height: 100px;" class="hidden-text"><?php echo $data['description']; ?></p>
+            <span class="read-more lazyloaded">Читать далее</span>
+        </div>
+        <div class="characteristics hidden-text">
+            <h5 style="max-width: 275px; max-height: 20px;">Коротко о товаре:</h5>
+            <?php require ROOT . '/backend/static/blocks/common/characteristics.php' ?>
+            <span class="read-more lazyloaded">Смотреть далее</span>
+        </div>
     </article>
 
     <!-- цена... и магазины -->
     <article class="block-content" style="max-width: 380px; max-height: 480px;">
 
         <!-- цена... -->
-        <section style="max-width: 360px; max-height: 190px;">
+        <section class="block-with-shadow" style="max-width: 360px; max-height: 245px;">
             <div class="basket basket_item prod-cost">
                 <p>Цена: <span name="priceProd"><?php echo $data['price']; ?></span> руб.</p>
                 <div class="quantity">
@@ -121,53 +108,28 @@ $json_data = json_encode($data);
 
         <!-- магазины -->
         <section class="shops" style="max-width: 360px; max-height: 230px;">
-            <div>
-                <p>Цена: <span name="priceProd">1000</span> руб.</p>
-                <p>Доставка курьером: <span>7 сентября</span></p>
-                <p>Доставка в пункт выдачи: <span>7 сентября</span></p>
-                <p style="max-width: 275px; max-height: 20px;">Store ★<span>4</span></p>
-            </div>
-            <hr>
-            <span class="read-more lazyloaded">Смотреть далее</span>
+            <?php require ROOT . '/backend/static/blocks/common/shops.php' ?>
+            <span class="read-more-shops lazyloaded">Смотреть далее</span>
         </section>
+
+
 
     </article>
 </div>
 
 <!-- табы и блок с контентом -->
-<article style="max-width: 885px; max-height: 175px;">
+<article style="max-width: 100%; max-height: 500px;">
 
     <!-- табы -->
     <section style="max-width: 515px; max-height: 45px;">
-        <ul>
-            <li class="tab" data-tab="tab-description">Описание</li>
-            <li class="tab" data-tab="tab-characteristic">Характеристики</li>
-            <li class="tab" data-tab="tab-reviews">Отзывы</li>
-        </ul>
+        <?php require ROOT . '/backend/static/blocks/common/productTabs.php' ?>
     </section>
 
     <!-- контент -->
     <section>
         <div id="tab-description" class="tab-hidden" style="font-size: 14px; margin-left: 40px"><?php echo $data['description']; ?></div>
         <div id="tab-characteristic" class="tab-hidden" style="font-size: 14px; margin-left: 40px">
-            <table class="hidden-text">
-                <tr>
-                    <td>Название</td>
-                    <td><?php echo $data['currentColorInfo']['styleName']; ?></td>
-                </tr>
-                <tr>
-                    <td>Память</td>
-                    <td><?php echo $data['currentColorInfo']['memoryStorage']; ?></td>
-                </tr>
-                <tr>
-                    <td>Бренд</td>
-                    <td><?php echo $data['currentColorInfo']['brand']; ?></td>
-                </tr>
-                <tr>
-                    <td>Операционная система</td>
-                    <td><?php echo $data['currentColorInfo']['operatingSystem']; ?></td>
-                </tr>
-            </table>
+            <?php require ROOT . '/backend/static/blocks/common/characteristics.php' ?>
         </div>
         <div id="tab-reviews" class="tab-hidden">
             <div class="reviews-list"></div>
@@ -175,6 +137,8 @@ $json_data = json_encode($data);
     </section>
 
 </article>
+
+
 
 <script>
     function changeImage(src) {

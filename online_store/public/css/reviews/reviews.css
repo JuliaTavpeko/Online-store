@@ -4,10 +4,10 @@
 
 .decor {
     position: relative;
-    max-width: 430px;
+    max-width: 400px;
     background: #00AAC0;
     border-radius: 30px;
-    margin: 50px auto 10px;
+    margin: 40px;
 }
 
 .form-inner {
@@ -83,12 +83,11 @@
 }
 
 .review-block img {
-    height: 7%;
-    width: 7%;
+    height: 5%;
+    width: 5%;
     background-color: #ffffff;
     border-radius: 50%;
     float: left;
-    margin-right: 15px;
 }
 
 .photo-user {

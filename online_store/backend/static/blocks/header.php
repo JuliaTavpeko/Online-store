@@ -17,6 +17,7 @@
     <link href="css/reviews/reviews.css" rel="stylesheet">
     <link href="css/reviews/rating.css" rel="stylesheet">
     <link href="css/table/table.css" rel="stylesheet">
+    <link href="css/table/tbCharacteristics.css" rel="stylesheet">
     <link href="css/user/user.css" rel="stylesheet">
     <link href="css/user/popUpUser.css" rel="stylesheet">
     <link href="css/user/forgotPass.css" rel="stylesheet">

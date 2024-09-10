@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.read-more {
+.read-more, .read-more-shops {
     background: transparent;
     border-bottom: 1px dotted;
     cursor: pointer;
@@ -70,6 +70,10 @@
     background-color: #FDBF3D;
 }
 
+
+
+
+
 /* для табов */
 .tab {
     display: inline-block;
@@ -115,3 +119,14 @@
 /* "конец" галерея фото */
 
 
+.block-with-shadow {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.block-with-shadow:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

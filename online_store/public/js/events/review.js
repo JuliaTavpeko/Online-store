@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const tabItem = document.querySelectorAll('.tab');
     const tabContent = document.querySelectorAll('.tab-hidden');
+    const readMoreBtn = document.querySelectorAll('.read-more');
 
     for(let item of tabItem){
         item.addEventListener('click', function (event){
@@ -26,6 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    readMoreBtn.forEach((button, index) => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const tab = tabItem[index];
+            const tabContentItem = document.querySelector('#' + tab.dataset.tab);
+
+            tabItem.forEach(tab => tab.classList.remove('active'));
+            tabContent.forEach(content => content.classList.add('tab-hidden'));
+
+            tab.classList.add('active');
+            tabContentItem.classList.remove('tab-hidden');
+        });
+    });
 
     const reviewForm = document.querySelector('[name="review"]');
     const idUser = Authorization.getSessionData().id;
