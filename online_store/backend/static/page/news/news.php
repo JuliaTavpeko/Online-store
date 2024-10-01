@@ -15,7 +15,6 @@
 
     foreach ($limitedResult as $row) {
         ?>
-
     <div class="post-wrap">
         <div class="post-item">
             <div class="post-item-wrap">
@@ -42,7 +41,8 @@
     <h5>Обзоры</h5>
         <div>
             <iframe
-                src="https://www.kp.ru/expert/elektronika/luchshie-smartfony-dlya-videosyomki/" height="500px" width="800px" style="border: none">
+                src="https://www.kp.ru/expert/elektronika/luchshie-smartfony-dlya-videosyomki/"
+                height="500px" width="800px" style="border: none">
             </iframe>
         </div>
     </div>

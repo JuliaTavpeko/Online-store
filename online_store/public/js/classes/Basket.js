@@ -10,11 +10,13 @@ export class Basket {
     }
 
     static displayProduct(items, totalPrice) {
-        const basketItemsContainer = document.getElementById('basket-items');
-        basketItemsContainer.innerHTML = '';
+        const basketItemsContainers = document.querySelectorAll('[id="basket-items"]');
 
-        items.forEach((item) => {
-            const itemRow = `
+        basketItemsContainers.forEach(container => {
+            container.innerHTML = '';
+
+            items.forEach((item) => {
+                const itemRow = `
                 <tr class="basket_item" data-id="${item.id}">
                     <td>
                         <span class="delete-btn" data-id="${item.idProd}">
@@ -42,14 +44,15 @@ export class Basket {
                     </td>
                 </tr>
             `;
-            basketItemsContainer.innerHTML += itemRow;
-        });
+                container.innerHTML += itemRow;
+            });
 
-        const totalPriceElement = document.querySelector('.total-price');
-        if (totalPriceElement) {
-            totalPriceElement.textContent = `${totalPrice}`;
-        }
-        EventHandler.addDeleteProductFromBasketHandlers(basketItemsContainer);
+            const totalPriceElement = container.querySelector('.total-price');
+            if (totalPriceElement) {
+                totalPriceElement.textContent = `${totalPrice}`;
+            }
+            EventHandler.addDeleteProductFromBasketHandlers(container);
+        });
     }
 
     static async deleteBasket(idUser) {

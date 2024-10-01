@@ -47,7 +47,8 @@ $json_data = json_encode($data);
             <div class="thumbnail-container">
                 <?php if (!empty($data['additionalImages'])): ?>
                     <?php foreach ($data['additionalImages'] as $image): ?>
-                        <img class="thumbnail" style="max-width: 50px; max-height: 50px;" src="<?php echo $image; ?>" alt="Thumbnail" onclick="changeImage('<?php echo $image; ?>')">
+                        <img class="thumbnail" style="max-width: 50px; max-height: 50px;" src="<?php echo $image; ?>" alt="Thumbnail"
+                             onclick="changeImage('<?php echo $image; ?>')">
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p>Изображения отсутствуют</p>
@@ -89,13 +90,14 @@ $json_data = json_encode($data);
 
         <!-- цена... -->
         <section class="block-with-shadow" style="max-width: 360px; max-height: 245px;">
-            <div class="basket basket_item prod-cost">
+            <div class="basket basket_item prod-cost" >
                 <p>Цена: <span name="priceProd"><?php echo $data['price']; ?></span> руб.</p>
                 <div class="quantity">
                     <button class="minus-btn" type="button" name="button">
                         <img src="image/svg/icon/minus.svg" alt="minus" />
                     </button>
-                    <input type="number" class="input_price" data-price="<?php echo $data['price']; ?>" value="1" disabled />
+                    <input type="number" class="input_price" data-price="<?php echo $data['price']; ?>"
+                           value="1" disabled />
                     <button class="plus-btn" type="button" name="button">
                         <img src="image/svg/icon/plus.svg" alt="plus" />
                     </button>
@@ -112,13 +114,11 @@ $json_data = json_encode($data);
             <span class="read-more-shops lazyloaded">Смотреть далее</span>
         </section>
 
-
-
     </article>
 </div>
 
 <!-- табы и блок с контентом -->
-<article style="max-width: 100%; max-height: 500px;">
+<article style="max-width: 100%;">
 
     <!-- табы -->
     <section style="max-width: 515px; max-height: 45px;">

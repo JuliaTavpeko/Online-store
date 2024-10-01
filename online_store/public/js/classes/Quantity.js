@@ -30,7 +30,7 @@ export class Quantity {
             if (button) {
                 const product = button.closest('.basket_item');
                 const quantityInput = product.querySelector('.input_price');
-                const productId = product.dataset.id;
+                const productId = document.querySelector('h1').dataset.idProd;
 
                 if (button.classList.contains('plus-btn')) {
                     quantityInput.value++;
@@ -39,7 +39,9 @@ export class Quantity {
                 }
 
                 Quantity.setQuantity(quantityInput.value);
-                const selectedProduct = Quantity.data.find(item => item.id == productId);
+                const selectedProduct = Quantity.data.find(item => item.idProd == productId);
+
+                console.log('productId',productId);
 
                 if (selectedProduct) {
                     const quantData = {

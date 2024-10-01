@@ -1,7 +1,7 @@
 * {
     font-family: 'Montserrat', sans-serif;
     scrollbar-width: thin;
-
+    box-sizing: border-box;
 }
 
 body {
@@ -56,4 +56,32 @@ iframe {
 .link-box:hover {
     background-color: #FDBF3D;
 }
+
+.wrapper{
+    width: 900px;
+    height: 600px;
+    border-radius: 25px;
+    padding: 30px 40px;
+}
+
+.wrapper .remember{
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.remember a{
+    color: black;
+    text-decoration: none;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.remember a:hover{
+    text-decoration: underline;
+}
+
+/* #333944,#2BB26E,#FDBF3D,#00AAC0,#F0782Dc */
+/* dark,green,yellow,blue,orange */
 

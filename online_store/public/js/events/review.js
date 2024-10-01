@@ -1,7 +1,7 @@
 import { Review } from '../classes/Review.js';
-import {RequestManager} from "../classes/RequestManager.js";
 import {Authorization} from "../classes/Authorization.js";
 import {Rating} from "../classes/Rating.js";
+import {handleMakeReview, handleReviews} from "./utils/reviewUtils.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -60,12 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
             idProd: prodData['id'],
         };
 
-        RequestManager.sendRequest('/reviews', 'POST', prodReviews)
-            .then(result => {
-                console.log('Результат запроса reviews:', result);
-               Review.displayReview(result);
-            });
-
+        handleReviews(prodReviews);
         Rating.calcRating();
 
         if (reviewForm) {
@@ -82,15 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     pic: Authorization.getSessionData().photo,
                 };
 
-                console.log("reviewData:",reviewData);
-
-                RequestManager.sendRequest('/makeReview', 'POST', reviewData)
-                    .then(result => {
-                        console.log('Результат запроса makeReview:', result);
-                        if (result !== false) {
-                            new Review(result);
-                        }
-                    });
+                handleMakeReview(reviewData);
             });
         }
     }

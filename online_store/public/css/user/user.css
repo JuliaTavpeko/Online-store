@@ -116,8 +116,8 @@
     border: solid 1px #333;
     font-size: inherit;
     outline: none;
+    margin: 7px auto;
 }
-
 
 .form_btn{
     border: none;

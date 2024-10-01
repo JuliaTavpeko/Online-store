@@ -7,7 +7,6 @@
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
     <link href="css/basket/basket.css" rel="stylesheet">
     <link href="css/basket/popUpBasket.css" rel="stylesheet">
     <link href="css/catalog/product.css" rel="stylesheet">
@@ -71,11 +70,13 @@
         </div>
 
         <div class="btn_popup">
-            <a href="#" id="user_popup"><img src="image/png/icon/icons8-пользователь-96.png" alt="user_icon" width="65%" height="65%"></a>
+            <a href="#" id="user_popup"><img src="image/png/icon/icons8-пользователь-96.png" alt="user_icon"
+                                             width="65%" height="65%"></a>
             <p class="user-cab">Личный кабинет</p>
         </div>
         <div class="btn_basket">
-            <a href="#" id="basket_popup"><img src="image/png/icon/icons8-корзина-2-64.png" alt="basket_popup" width="65%" height="65%"></a>
+            <a href="#" id="basket_popup"><img src="image/png/icon/icons8-корзина-2-64.png" alt="basket_popup"
+                                               width="65%" height="65%"></a>
             <p>Корзина</p>
         </div>
 

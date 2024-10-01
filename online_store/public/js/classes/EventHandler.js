@@ -19,15 +19,15 @@ export class EventHandler {
         });
     }
 
-    static async addDeleteBasketFromDBHandlers(basketItemsContainer) {
+    static async addDeleteBasketFromDBHandlers() {
         const userId = Authorization.getSessionData().id;
         if (userId) {
             await Basket.deleteBasket(userId);
         }
     }
 
-    static async addDeleteProductFromBasketHandlers(basketItemsContainer) {
-        basketItemsContainer.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
+    static async addDeleteProductFromBasketHandlers(basketItemsContainers) {
+        basketItemsContainers.querySelectorAll('.delete-btn').forEach((deleteBtn) => {
             deleteBtn.addEventListener('click', () => {
                 const idProd = deleteBtn.getAttribute('data-id');
                 Basket.data.idProd = idProd;

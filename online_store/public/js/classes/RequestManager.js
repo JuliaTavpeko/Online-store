@@ -5,7 +5,7 @@ export class RequestManager {
       try {
          //console.log('url',url);
          //console.log('method',method);
-         console.log('data',data);
+         //console.log('data',data);
           const response = await fetch(url, {
               method: method,
               headers: {
@@ -15,7 +15,7 @@ export class RequestManager {
           });
           //console.log('response', response);
           const result = await response.json();
-          console.log('Сервер ответил:', result);
+          //console.log('Сервер ответил:', result);
           return result;
       } catch (error) {
           console.error('Ошибка при отправке данных:', error);

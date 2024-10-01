@@ -1,7 +1,6 @@
 
 .ratings-wrapper{
     display: flex;
-    align-items: center;
 }
 .ratings {
     display: flex;

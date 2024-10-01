@@ -13,8 +13,6 @@
     $limit = 40;
     $limitedResult = array_slice($result, 0, $limit); ?>
     <?php require ROOT . '/backend/static/blocks/common/productCards.php' ?>
-
-    <h4>Доставка по стране</h4>
     <?php require ROOT . '/backend/static/blocks/common/delivery.php' ?>
 
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>
