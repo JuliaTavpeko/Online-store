@@ -35,7 +35,7 @@
     }
     ?>
     <br>
-    <a href="news.php" style="text-decoration: none; display: flex; justify-content: center; align-items: center;">Смотреть больше</a>
+    <a href="news.php" style="text-decoration: none; display: flex; justify-content: center; align-items: center;"><?php echo $lang['seeMore']; ?></a>
     <hr>
     <div class="myframe">
     <h5>Обзоры</h5>
@@ -46,6 +46,5 @@
             </iframe>
         </div>
     </div>
-    <hr>
 
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

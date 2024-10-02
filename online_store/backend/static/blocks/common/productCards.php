@@ -12,8 +12,9 @@ foreach ($limitedResult as $row) {
                 <a href=""><img src="<?php echo $productImage; ?>" height="315" alt="img1"></a>
             </div>
             <div class="loop-action">
-                <a href="<?php echo 'product.php?prod=' . $row["id"] ?>" class="add-to-cart">Быстрый просмотр</a>
-                <a href="" class="loop-add-to-cart">В корзину</a>
+                <a href="<?php echo 'product.php?prod=' . $row["id"] ?>" class="add-to-cart">
+                    <?php echo $lang['quickView']; ?></a>
+                <a href="" class="loop-add-to-cart"><?php echo $lang['toCart']; ?></a>
             </div>
         </div>
         <div class="product-info">

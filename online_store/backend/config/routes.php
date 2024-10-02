@@ -27,4 +27,6 @@ $routes = [
     'deleteProduct' => '/backend/actions/basket/deleteProduct.php',
     'reviews' => '/backend/actions/review/reviewList.php',
     'makeReview' => '/backend/actions/review/makeReview.php',
+    'langEN' => '/backend/static/lang/en.php',
+    'langRU' => '/backend/static/lang/ru.php',
 ];

@@ -16,45 +16,11 @@ body {
     margin: 0 20px;
 }
 
-.container {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 .myframe {
     display: block;
     margin: auto;
     width: 100%;
     text-align: center;
-}
-
-iframe {
-    width: 800px;
-}
-
-.for-feedback{
-    display: inline-flex;
-    flex-flow: row-reverse;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    width: 100%;
-}
-
-.link-box {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #F0782D;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.link-box:hover {
-    background-color: #FDBF3D;
 }
 
 .wrapper{
@@ -82,6 +48,72 @@ iframe {
     text-decoration: underline;
 }
 
-/* #333944,#2BB26E,#FDBF3D,#00AAC0,#F0782Dc */
-/* dark,green,yellow,blue,orange */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("/image/jpg/banners/phoneBanner.jpg") no-repeat center center fixed;
+    background-size: cover;
+    z-index: 1;
+}
 
+.scroll-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+.horizontal-scroll {
+    width: 600px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+}
+
+.horizontal-scroll .btn-scroll {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    margin: 0 5px;
+    z-index: 1;
+    transition: 1s;
+}
+
+.horizontal-scroll .btn-scroll img {
+    height: 30px;
+    width: 30px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    flex-direction: row;
+    left: 0;
+    transition: 0.5s all ease-out;
+}
+
+.gallery .card {
+    height: 60px;
+    width: 60px;
+    margin: 15px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateZ(45deg);
+}
+
+.gallery .card img{
+    height: 53px;
+    width: 53px;
+    transform: rotateZ(-45deg);
+}

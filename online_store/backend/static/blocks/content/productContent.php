@@ -61,7 +61,7 @@ $json_data = json_encode($data);
     <article class="block-content" style="max-width: 535px; max-height: 480px;">
         <h1 style="max-width: 520px; word-wrap: break-word; text-align: left" data-id-prod="<?php echo $page; ?>"> <?php echo $data['name']; ?></h1>
         <h5 style="max-width: 275px; max-height: 20px;"><span><?php echo $data['rating']; ?></span>★ (0)</h5>
-        <p>Цвет: <span id="selected-color"><?php echo $selectedColor; ?></span></p>
+        <p><?php echo $lang['color']; ?>: <span id="selected-color"><?php echo $selectedColor; ?></span></p>
         <div class="prod-colors">
             <?php if (!empty($data['colors'])): ?>
                 <?php foreach ($data['colors'] as $color => $colorInfo): ?>
@@ -74,14 +74,14 @@ $json_data = json_encode($data);
             <?php endif; ?>
         </div>
         <div class="description">
-            <h5 style="max-width: 275px; max-height: 20px;">Описание:</h5>
+            <h5 style="max-width: 275px; max-height: 20px;"><?php echo $lang['description']; ?>:</h5>
             <p style="max-width: 520px; max-height: 100px;" class="hidden-text"><?php echo $data['description']; ?></p>
-            <span class="read-more lazyloaded">Читать далее</span>
+            <span class="read-more lazyloaded"><?php echo $lang['seeMore']; ?></span>
         </div>
         <div class="characteristics hidden-text">
             <h5 style="max-width: 275px; max-height: 20px;">Коротко о товаре:</h5>
             <?php require ROOT . '/backend/static/blocks/common/characteristics.php' ?>
-            <span class="read-more lazyloaded">Смотреть далее</span>
+            <span class="read-more lazyloaded"><?php echo $lang['seeMore']; ?></span>
         </div>
     </article>
 
@@ -91,7 +91,7 @@ $json_data = json_encode($data);
         <!-- цена... -->
         <section class="block-with-shadow" style="max-width: 360px; max-height: 245px;">
             <div class="basket basket_item prod-cost" >
-                <p>Цена: <span name="priceProd"><?php echo $data['price']; ?></span> руб.</p>
+                <p><?php echo $lang['price']; ?>: <span name="priceProd"><?php echo $data['price']; ?></span> руб.</p>
                 <div class="quantity">
                     <button class="minus-btn" type="button" name="button">
                         <img src="image/svg/icon/minus.svg" alt="minus" />
@@ -102,8 +102,8 @@ $json_data = json_encode($data);
                         <img src="image/svg/icon/plus.svg" alt="plus" />
                     </button>
                 </div>
-                <p>Доставка курьером: <span>7 сентября</span></p>
-                <p>Доставка в пункт выдачи: <span>7 сентября</span></p>
+                <p><?php echo $lang['courierDelivery']; ?>: <span>7 сентября</span></p>
+                <p><?php echo $lang['pickupPointDelivery']; ?>: <span>7 сентября</span></p>
                 <input class="btn_add_basket" type="submit" value="Добавить в корзину">
             </div>
         </section>
@@ -111,7 +111,7 @@ $json_data = json_encode($data);
         <!-- магазины -->
         <section class="shops" style="max-width: 360px; max-height: 230px;">
             <?php require ROOT . '/backend/static/blocks/common/shops.php' ?>
-            <span class="read-more-shops lazyloaded">Смотреть далее</span>
+            <span class="read-more-shops lazyloaded"><?php echo $lang['seeMore']; ?></span>
         </section>
 
     </article>

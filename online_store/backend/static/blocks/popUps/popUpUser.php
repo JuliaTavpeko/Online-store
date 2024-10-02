@@ -6,12 +6,12 @@
                         <article class="container-form">
                             <div class="block">
                                 <section class="block_item block-item">
-                                    <h2 class="block-item_title">Авторизация</h2>
-                                    <button class="block-item_btn signin-btn">Войти</button>
+                                    <h2 class="block-item_title"><?php echo $lang['authorization']; ?></h2>
+                                    <button class="block-item_btn signin-btn"><?php echo $lang['signIn']; ?></button>
                                 </section>
                                 <section class="block_item block-item">
-                                    <h2 class="block-item_title">Нет аккаунта?</h2>
-                                    <button class="block-item_btn signup-btn">Зарегистрироваться</button>
+                                    <h2 class="block-item_title"><?php echo $lang['noAccount']; ?></h2>
+                                    <button class="block-item_btn signup-btn"><?php echo $lang['register']; ?></button>
                                 </section>
                             </div>
                             <div class="form-box" id="form-box">

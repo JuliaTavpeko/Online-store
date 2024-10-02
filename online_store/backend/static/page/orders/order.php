@@ -9,8 +9,8 @@
                 <tr class="basket_item"></tr>
                 </tbody>
             </table>
-            <div>Итого: <span class="total-price"></span> руб.</div>
-            <div class="orderFormBtn"><button id="openFormButton" class="btnOrder">Заказать</button></div>
+            <div><?php echo $lang['totalAmount']; ?>: <span class="total-price"></span> руб.</div>
+            <div class="orderFormBtn"><button id="openFormButton" class="btnOrder"><?php echo $lang['order']; ?></button></div>
         </div>
     </div>
     <?php require ROOT . '/backend/static/forms/orderForm.php' ?>

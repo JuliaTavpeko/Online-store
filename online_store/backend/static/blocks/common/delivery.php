@@ -1,35 +1,35 @@
-<h4>Доставка по стране</h4>
+<h4><?php echo $lang['countryDelivery']; ?></h4>
 <div class="delivery">
     <table class="table">
         <thead>
         <tr>
-            <th>Область</th>
-            <th>Цена</th>
+            <th><?php echo $lang['oblast']; ?></th>
+            <th><?php echo $lang['price']; ?></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>Минская</td>
-            <td>Бесплатно</td>
+            <td><?php echo $lang['Minskaya']; ?></td>
+            <td><?php echo $lang['free']; ?></td>
         </tr>
         <tr>
-            <td>Брестская</td>
+            <td><?php echo $lang['Brestskaya']; ?></td>
             <td>2 руб</td>
         </tr>
         <tr>
-            <td>Гродненская</td>
+            <td><?php echo $lang['Grodnenskaya']; ?></td>
             <td>3 руб</td>
         </tr>
         <tr>
-            <td>Витебская</td>
+            <td><?php echo $lang['Vitebskaya']; ?></td>
             <td>4 руб</td>
         </tr>
         <tr>
-            <td>Могилёвская</td>
+            <td><?php echo $lang['Mogilevskaya']; ?></td>
             <td>2 руб</td>
         </tr>
         <tr>
-            <td>Гомельская</td>
+            <td><?php echo $lang['Gomelskaya']; ?></td>
             <td>2 руб</td>
         </tr>
     </table>
