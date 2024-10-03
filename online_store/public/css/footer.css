@@ -32,6 +32,7 @@ footer ul li a {
     color: #fff;
 }
 
+/* contact us */
 .footer-social-media {
     position: relative;
     display: flex;
@@ -63,6 +64,7 @@ footer ul li a {
     transform: scale(1.2);
 }
 
+/* privacy policy */
 .footer-privacy-policy {
     display: flex;
     justify-content: space-between;
@@ -77,6 +79,7 @@ footer ul li a {
     color: #fff;
 }
 
+/* contacts */
 .footer-contacts {
     position: relative;
     display: flex;
@@ -109,6 +112,7 @@ footer ul li a {
     margin-bottom: 10px;
 }
 
+/* button up */
 .btn-up {
     position: fixed;
     bottom: 50px;

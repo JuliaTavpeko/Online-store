@@ -1,3 +1,4 @@
+<div class="card-wrapper">
 <?php
 foreach ($limitedResult as $row) {
     $colorsData = json_decode($row['colors'], true) ?? [];
@@ -6,22 +7,28 @@ foreach ($limitedResult as $row) {
     $productImage = $currentColorInfo['photo'] ?? 'data:image/png;base64,' . base64_encode($row['Photo']);
 
     ?>
-    <div class="border photo">
-        <div class="wrap">
-            <div class="product-wrap">
-                <a href=""><img src="<?php echo $productImage; ?>" height="315" alt="img1"></a>
+
+        <div class="product">
+            <div class="prod-image">
+                <img src="<?php echo $productImage; ?>" alt="">
             </div>
-            <div class="loop-action">
-                <a href="<?php echo 'product.php?prod=' . $row["id"] ?>" class="add-to-cart">
-                    <?php echo $lang['quickView']; ?></a>
-                <a href="" class="loop-add-to-cart"><?php echo $lang['toCart']; ?></a>
+            <div class="prod-details">
+                <span>Popular</span>
+                <p><?php echo htmlspecialchars($row["Name"]); ?></p>
+                <p>
+                    Description
+                </p>
+                <p><?php echo htmlspecialchars($row["Price"]); ?></p>
+                <p>
+                    <a href="<?php echo 'product.php?prod=' . $row["id"] ?>" class="add-to-cart">
+                        <?php echo $lang['quickView']; ?>
+                    </a>
+                    <a href=""><?php echo $lang['buy']; ?></a>
+                </p>
             </div>
         </div>
-        <div class="product-info">
-            <h3 class="product-title"> <?php echo htmlspecialchars($row["Name"]); ?></h3>
-            <div class="price"> <?php echo htmlspecialchars($row["Price"]); ?> руб.</div>
-        </div>
-    </div>
+
     <?php
 }
 ?>
+</div>

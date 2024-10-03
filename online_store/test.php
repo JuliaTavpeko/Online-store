@@ -1,14 +1,6 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 
-    <section class="banner"></section>
-    <script type="text/javascript">
-        window.addEventListener("scroll",function () {
-            let header = document.querySelector('header');
-            header.classList.toggle('sticky', window.scrollY > 0);
-        });
-
-    </script>
-
+<!--
     <div class="scroll-container">
         <div class="horizontal-scroll">
             <button class="btn-scroll" id="btn-scroll-left"
@@ -26,6 +18,7 @@
         </div>
     </div>
     <script type="text/javascript">
+
         let currentScrollPosition = 0;
         let scrollAmount = 320;
 
@@ -60,6 +53,6 @@
 
     </script>
 
-
+-->
 
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

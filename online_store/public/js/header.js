@@ -7,10 +7,16 @@ if (window.location.pathname.endsWith('store.php')) {
 window.addEventListener("scroll",function () {
     let header = document.querySelector('header');
     header.classList.toggle('sticky', window.scrollY > 0);
-
 });
 
-function updateCity(selectElement) {
-    let selectedCity = selectElement.options[selectElement.selectedIndex].text;
-    document.querySelector('.selected-city').textContent = selectedCity;
+
+
+
+function showMenu(city){
+    document.querySelector('.textBox').value = city;
+}
+
+let dropdownMenu = document.querySelector('.dropdown-menu');
+dropdownMenu.onclick = function () {
+    dropdownMenu.classList.toggle('active');
 }

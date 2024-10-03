@@ -24,7 +24,7 @@
 
         <div class="footer-contacts">
             <div class="footer-contacts-links">
-                <span>Контакты:</span>
+                <span><?php echo $lang['contacts']; ?>:</span>
                 <div>
                     <a>+375 (29) 333-33-33</a>
                 </div>
@@ -33,15 +33,15 @@
                 </div>
             </div>
             <div class="footer-contacts-address">
-                <span>Юридический адрес:</span>
+                <span><?php echo $lang['office']; ?>:</span>
                 <span>
-                    ООО “Mobile Store” ул. Независимости, д. 123, офис 45 г. Минск, 220030 Республика Беларусь
+                    <?php echo $lang['officeAddress']; ?>
                 </span>
             </div>
         </div>
 
         <div class="footer-social-media">
-            <span>Связаться с нами:</span>
+            <span><?php echo $lang['contactUs']; ?>:</span>
             <div class="footer-sm-icons">
                 <img src="image/svg/icon/socialMedia/youtube-round.svg">
                 <img src="image/svg/icon/socialMedia/instagram-round.svg">
@@ -54,8 +54,8 @@
     </div>
 
     <div class="footer-privacy-policy">
-        <a href="">Политика конфиденциальности</a>
-        <span style="color: #fff;">Сайт разработан: с любовью :)</span>
+        <a href=""><?php echo $lang['privacyPolicy']; ?></a>
+        <span style="color: #fff;"><?php echo $lang['siteDevelop']; ?>: с любовью :)</span>
     </div>
 
 </footer>
