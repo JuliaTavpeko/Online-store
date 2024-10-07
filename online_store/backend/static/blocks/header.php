@@ -11,7 +11,10 @@
     <link href="css/basket/popUpBasket.css" rel="stylesheet">
     <link href="css/catalog/product.css" rel="stylesheet">
     <link href="css/catalog/catalog.css" rel="stylesheet">
+    <link href="css/contacts/contacts.css" rel="stylesheet">
     <link href="css/news/news_list.css" rel="stylesheet">
+    <link href="css/news/article.css" rel="stylesheet">
+    <link href="css/aboutCompany/aboutCompany.css" rel="stylesheet">
     <link href="css/order/order.css" rel="stylesheet">
     <link href="css/reviews/reviews.css" rel="stylesheet">
     <link href="css/reviews/rating.css" rel="stylesheet">
@@ -28,7 +31,6 @@
     <script src="js/events/orderSuccess.js" type="module" defer></script>
     <script src="js/events/review.js" type="module" defer></script>
     <script src="js/events/user.js" type="module" defer></script>
-
 
 </head>
 <header>

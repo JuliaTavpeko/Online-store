@@ -1,0 +1,19 @@
+.contacts {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    margin: 15px 0;
+}
+
+.contacts > div {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 12px;
+}
+
+.contacts-sm a svg{
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+}

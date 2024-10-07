@@ -23,8 +23,16 @@ $json_data = json_encode($data);
 
 ?>
 
-<article data-prod='<?php echo $json_data; ?>'>
-    <span name="priceProd"><?php echo $data['date']; ?></span>
-    <p name="name" style="font-size: 20px; font-weight: 500" data-id-prod="<?php echo $page; ?>"><?php echo $data['name']; ?></p>
-    <p name="description"><?php echo $data['description']; ?></p>
+<article data-prod='<?php /*echo $json_data; */?>'>
+    <div class="data-release">
+        <span><?php echo $data['date']; ?></span>
+    </div>
+    <div class="content-release">
+        <div class="title-release">
+            <p data-id-prod="<?php echo $page; ?>"><?php echo $data['name']; ?></p>
+        </div>
+        <div class="description-release">
+            <p name="description"><?php echo $data['description']; ?></p>
+        </div>
+    </div>
 </article>

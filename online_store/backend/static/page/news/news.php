@@ -34,17 +34,5 @@
         <?php
     }
     ?>
-    <br>
-    <a href="news.php" style="text-decoration: none; display: flex; justify-content: center; align-items: center;"><?php echo $lang['seeMore']; ?></a>
-    <hr>
-    <div class="myframe">
-    <h5>Обзоры</h5>
-        <div>
-            <iframe
-                src="https://www.kp.ru/expert/elektronika/luchshie-smartfony-dlya-videosyomki/"
-                height="500px" width="800px" style="border: none">
-            </iframe>
-        </div>
-    </div>
 
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

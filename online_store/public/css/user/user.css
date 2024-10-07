@@ -4,14 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #00AAC0;
+    background-color: #1C3C9D;
     transition: 0.5s;
     position: relative;
     border-radius: 20px;
 }
 
 .body-container.active{
-    background-color: #2BB26E;
+    background-color: #0E7559;
 }
 
 .container-form{
@@ -126,11 +126,11 @@
     font-size: inherit;
 
     padding: 10px 50px;
-    background-color:  #F0782D;
+    background-color:  #008BFC;
 }
 
 .form_btn_signup{
-    background-color: #F0782D;
+    background-color: #00B5A8;
 }
 
 .authCont {
