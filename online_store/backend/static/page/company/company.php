@@ -1,5 +1,6 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 
+
     <div class="company-container">
         <div class="top-section">
             <h1>Добро пожаловать!</h1>
@@ -69,7 +70,6 @@
                     </p>
                 </div>
             </div>
-
             <div class="section">
                 <div class="bead"></div>
                 <div class="content">
@@ -89,78 +89,23 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function qs(selector, all = false) {
-            return all ? document.querySelectorAll(selector) : document.querySelector(selector)
-        }
-
-        const sections = qs('.section', true);
-        const timeline = qs('.timeline');
-        const line = qs('.line');
-        line.style.bottom = `calc(100% - 20px)`;
-        let prevScrollY = window.scrollY;
-        let up, down;
-        let full = false;
-        let set = 0;
-        const targetY = window.innerHeight * 0.8;
-
-        function scrollHandler(e){
-            const{
-                scrollY
-            } = window;
-            up = scrollY < prevScrollY;
-            down = !up;
-            const timelineRect = timeline.getBoundingClientRect();
-            const lineRect = line.getBoundingClientRect(); //CONST LINEHEIGHT = lineRect.bottom - lineRect.top
-
-            const dist = targetY - timelineRect.top
-            console.log(dist);
-
-            if (down && !full){
-                set = Math.max(set, dist);
-                line.style.bottom = `calc(100% - ${set}px)`
-            }
-
-            if (dist > timeline.offsetHeight + 50 && !full){
-                full = true;
-                line.style.bottom = `-50px`
-            }
-
-            sections.forEach(item => {
-                //console.log(items);
-                const rect = item.getBoundingClientRect();
-
-                if(rect.top + item.offsetHeight / 5 < targetY) {
-                    item.classList.add('show-me')
-                }
-            });
-
-            prevScrollY = window.scrollY;
-        }
-
-        scrollHandler();
-        line.style.display = 'block';
-        window.addEventListener('scroll', scrollHandler)
-    </script>
-
     <h1 style="text-align: center">Преимущества</h1>
     <section class="advantages">
         <div class="advant-container">
             <div class="card-wraper">
                 <div class="advant-background" id="background"></div>
-                <a href="javascript:void(0)" class="card">
+                <a class="card">
                     <div class="card-main">
                         <div class="card-inner">
                             <div>
-                                <h3>Широкий ассортимент:</h3>
+                                <h3>Широкий ассортимент</h3>
                                 <p>Возможность предложить множество моделей и брендов, включая новинки и редкие
                                     устройства, без ограничений физического пространства.</p>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a href="javascript:void(0)" class="card">
+                <a class="card">
                     <div class="card-main">
                         <div class="card-inner">
                             <div>
@@ -171,7 +116,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="javascript:void(0)" class="card">
+                <a class="card">
                     <div class="card-main">
                         <div class="card-inner">
                             <div>
@@ -182,7 +127,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="javascript:void(0)" class="card">
+                <a class="card">
                     <div class="card-main">
                         <div class="card-inner">
                             <div>
@@ -193,7 +138,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="javascript:void(0)" class="card">
+                <a class="card">
                     <div class="card-main">
                         <div class="card-inner">
                             <div>
@@ -204,7 +149,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="javascript:void(0)" class="card">
+                <a class="card">
                     <div class="card-main">
                         <div class="card-inner">
                             <div>

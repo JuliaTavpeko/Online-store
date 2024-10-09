@@ -7,13 +7,13 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: 0.6s;
-    padding: 40px 100px;
+    padding: 40px 70px;
     z-index: 2;
 }
 
 header.sticky {
-    padding: 5px 100px;
-    background: #000;
+    padding: 10px 70px;
+    background: #00416A;
     position: sticky;
     z-index: 2;
 }

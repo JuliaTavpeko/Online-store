@@ -1,38 +1,48 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 
-<?php
-    use backend\classes\news\News;
-    global $db;
+<div class="news-container">
+    <div class="news-section">
+        <div class="news-title">
+            <h2>Свежие новости и обновления</h2>
+            <p>Добро пожаловать на страницу новостей нашего интернет-магазина!<br>
+                Здесь вы найдете самую актуальную информацию о наших новых поступлениях, специальных предложениях,
+                акциях и многом другом.<br>
+                Следите за обновлениями, чтобы быть в курсе всех новинок и выгодных предложений!</p>
+        </div>
+        <div class="news-cards">
+    <?php
+        use backend\classes\news\News;
+        global $db;
 
-    $db_config = require CONFIG . '/db.php';
-    $db->getConnection($db_config);
+        $db_config = require CONFIG . '/db.php';
+        $db->getConnection($db_config);
 
-    $news = new News(0, $db);
-    $result = $news->getNews();
+        $news = new News(0, $db);
+        $result = $news->getNews();
 
-    $limit = 15;
-    $limitedResult = array_slice($result, 0, $limit);
+        $limit = 15;
+        $limitedResult = array_slice($result, 0, $limit);
 
-    foreach ($limitedResult as $row) {
-        ?>
-    <div class="post-wrap">
-        <div class="post-item">
-            <div class="post-item-wrap">
-                <a href="<?php echo 'article.php?article=' . $row["id"] ?>" class="post-link">
-                    <img src="data:image/png;base64,<?php echo base64_encode($row["pic"]); ?>" height="315" alt="img1">
-                    <div class="post-info">
-                        <div class="post-meta">
-                            <div class="post-date"><?php echo $row["date"]; ?></div>
-                            <div class="post-cat"><?php echo $row["name"]; ?></div>
-                        </div>
-                        <h3 class="post-title"><?php echo $row["text"]; ?></h3>
+        foreach ($limitedResult as $row) {
+            ?>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="data:image/png;base64,<?php echo base64_encode($row["pic"]); ?>" />
                     </div>
-                </a>
-            </div>
+                    <div class="news-content">
+                        <h4><?php echo $row["name"]; ?></h4>
+                        <p><?php echo $row["text"]; ?></p>
+                        <a href="<?php echo 'article.php?article=' . $row["id"] ?>">Читать</a>
+                    </div>
+                    <div class="news-posted-data">
+                        <p><?php echo $row["date"]; ?></p>
+                    </div>
+                </div>
+            <?php
+        }
+    ?>
         </div>
     </div>
-        <?php
-    }
-    ?>
+</div>
 
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

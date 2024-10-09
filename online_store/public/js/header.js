@@ -24,7 +24,7 @@ dropdownMenu.onclick = function () {
 
 if (!window.location.pathname.endsWith('store.php')) {
     let header = document.querySelector('header');
-    header.style.background = "#000";
+    header.style.background = "#00416A";
 
     let logo = document.querySelector('header .logo');
     if (logo) {
@@ -43,5 +43,4 @@ if (!window.location.pathname.endsWith('store.php')) {
             element.style.color = "#fff";
         }
     });
-
 }

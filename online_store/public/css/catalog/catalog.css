@@ -21,7 +21,7 @@
 }
 
 .product:hover {
-    background: linear-gradient(to right, #008BFC, #1C3C9D);
+    background: linear-gradient(to right, #6495ED, #3E5F8A);
     color: #fff;
 }
 

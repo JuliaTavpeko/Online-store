@@ -52,7 +52,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url("/image/jpg/banners/phoneBanner.jpg") no-repeat center center fixed;
+    background: url("/image/jpg/banners/main-banner.jpg") no-repeat center center fixed;
     background-size: cover;
     z-index: 1;
 }
@@ -144,7 +144,7 @@ body {
     width: 250px;
     height: 100%;
     content: "";
-    z-index: 2;
+    z-index: 1;
 }
 
 .logos:before {
