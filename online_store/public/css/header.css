@@ -119,8 +119,8 @@ header.sticky ul li a {
     padding: 3px;
 }
 
-/* social networks rightside */
-.rightside-sm-icons {
+/* social networks leftside */
+.leftside-sm-icons {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -129,16 +129,16 @@ header.sticky ul li a {
     transform: translateY(-50%);
 }
 
-.rightside-sm-icons svg {
+.leftside-sm-icons svg {
     height: 35px;
     width: 35px;
 }
 
-header.sticky .rightside-sm-icons svg{
+header.sticky .leftside-sm-icons svg{
     fill: #000;
 }
 
-.rightside-sm-icons a {
+.leftside-sm-icons a {
     cursor: pointer;
 }
 

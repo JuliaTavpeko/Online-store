@@ -1,6 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
     font-family: 'Montserrat', sans-serif;
     scrollbar-width: thin;
+    font-style: normal;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    border: none;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -14,6 +26,61 @@ body {
 .main {
     flex-grow: 1;
     margin: 0 20px;
+    min-height: calc(100vh - 416px);
+    overflow: hidden;
+    display: block;
+}
+
+@keyframes swing {
+    15% {
+        -webkit-transform: translateX(9px);
+        transform: translateX(9px);
+    }
+    30% {
+        -webkit-transform: translateX(-9px);
+        transform: translateX(-9px);
+    }
+    40% {
+        -webkit-transform: translateX(6px);
+        transform: translateX(6px);
+    }
+    50% {
+        -webkit-transform: translateX(-6px);
+        transform: translateX(-6px);
+    }
+    65% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+small {
+    font-size: 80%;
 }
 
 .myframe {

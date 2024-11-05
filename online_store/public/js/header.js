@@ -38,7 +38,7 @@ if (!window.location.pathname.endsWith('store.php')) {
 
     let stickyElements = document.querySelectorAll('header svg, header span, header a');
     stickyElements.forEach(element => {
-        if (!(element.tagName === 'svg' && element.closest('.rightside-sm-icons'))) {
+        if (!(element.tagName === 'svg' && element.closest('.leftside-sm-icons'))) {
             element.style.fill = "#fff";
             element.style.color = "#fff";
         }
