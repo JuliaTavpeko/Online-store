@@ -1,6 +1,5 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 
-
     <div class="contacts">
         <span><?php echo $lang['contacts']; ?>:</span>
         <div>
@@ -16,7 +15,6 @@
         <span><?php echo $lang['officeAddress']; ?></span>
     </div>
 
-
     <div class="contacts-location">
         <span>Местоположение:</span>
         <div class="myframe">
@@ -28,6 +26,5 @@
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-
 
 <?php require ROOT . '/backend/static/blocks/footer.php' ?>

@@ -2,63 +2,63 @@
     width: 100%;
 }
 
-.news-section {
+.news__section {
     width: 85%;
     margin: 20px auto;
 }
 
-.news-section .news-title {
+.news__section .news__section-greeting {
     width: 60%;
     text-align: center;
     margin: auto;
 }
 
-.news-section .news-title h2 {
+.news__section .news__section-title {
     font-size: 40px;
     color: #357ca6;
     text-transform: uppercase;
     margin-top: 50px;
 }
 
-.news-section .news-title p {
+.news__section .news__section-description {
     font-size: 18px;
     color: #7e7e7e;
     margin-top: 20px;
 }
 
-.news-cards {
+.news__section-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
     margin: 25px auto;
 }
 
-.news-cards .news-card {
+.news__section-cards .news__section-card {
     width: 100%;
     position: relative;
 }
 
-.news-image img {
+.news__section-card-image img {
     width: 500px;
     height: 280px;
 }
 
-.news-content {
+.news__section-card-content {
     padding: 15px 20px;
 }
 
-.news-content h4{
+.news__section-card-content .news__section-card-content_title {
     font-size: 24px;
     font-weight: 500;
     color: #222;
 }
 
-.news-content p {
+.news__section-card-content .news__section-card-content_desc {
     font-size: 15px;
     color: #7e7e7e;
 }
 
-.news-content a {
+.news__section-card-content .news__section-card-content_btn {
     text-decoration: none;
     color: #fff;
     margin-top: 12px;
@@ -67,7 +67,7 @@
     padding: 8px 15px;
 }
 
-.news-card .news-posted-data {
+.news__section-card .news__section-card-date {
     position: absolute;
     top: 0;
     left: 0;
@@ -77,13 +77,13 @@
 }
 
 @media screen and (max-width: 992px){
-    .news-cards {
+    .news__section-cards {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 768px){
-    .news-cards {
+    .news__section-cards {
         grid-template-columns: 1fr;
     }
 }

@@ -23,5 +23,4 @@ if (file_exists($lang_file_path)) {
 $db_config = require CONFIG . '/db.php';
 $db = DatabaseManager::getInstance();
 $db->getConnection($db_config);
-
 require ROOT . '/backend/router.php';

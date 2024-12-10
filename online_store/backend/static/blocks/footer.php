@@ -10,8 +10,8 @@
     </div>
 </div>
 <footer>
-    <div class="footer-container">
-        <ul class="links">
+    <div class="footer">
+        <ul>
             <li><a href="store.php"><?php echo $lang['home']; ?></a></li>
             <li><a href="catalog.php"><?php echo $lang['catalog']; ?></a></li>
             <li><a href="news.php"><?php echo $lang['news']; ?></a></li>
@@ -22,15 +22,11 @@
             <li><a href="contacts.php"><?php echo $lang['contacts']; ?></a></li>
         </ul>
 
-        <div class="footer-contacts">
+        <div class="footer__contacts">
             <div class="footer-contacts-links">
                 <span><?php echo $lang['contacts']; ?>:</span>
-                <div>
-                    <a>+375 (29) 333-33-33</a>
-                </div>
-                <div>
-                    <a>mobilestore@gmail.com</a>
-                </div>
+                <a>+375 (29) 333-33-33</a>
+                <a>mobilestore@gmail.com</a>
             </div>
             <div class="footer-contacts-address">
                 <span><?php echo $lang['office']; ?>:</span>
@@ -42,8 +38,8 @@
         <?php require ROOT . '/backend/static/blocks/SMIcons/footer.php' ?>
     </div>
 
-    <div class="footer-privacy-policy">
-        <a href=""><?php echo $lang['privacyPolicy']; ?></a>
+    <div class="footer__info">
+        <a class="footer__info-privacy_policy" href=""><?php echo $lang['privacyPolicy']; ?></a>
         <span style="color: #fff;"><?php echo $lang['siteDevelop']; ?>: с любовью :)</span>
     </div>
 

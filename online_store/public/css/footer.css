@@ -5,7 +5,7 @@ footer {
     padding: 40px 70px;
 }
 
-.footer-container {
+.footer {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -64,8 +64,7 @@ footer ul li a {
     transform: scale(1.2);
 }
 
-/* privacy policy */
-.footer-privacy-policy {
+.footer__info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,14 +72,13 @@ footer ul li a {
     padding: 0 40px;
 }
 
-.footer-privacy-policy a {
+.footer__info .footer__info-privacy_policy {
     position: relative;
     text-decoration: none;
     color: #fff;
 }
 
-/* contacts */
-.footer-contacts {
+.footer__contacts {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -89,7 +87,7 @@ footer ul li a {
     padding-right: 40px;
 }
 
-.footer-contacts span {
+.footer__contacts span {
     color: #fff;
     margin-bottom: 10px;
 }

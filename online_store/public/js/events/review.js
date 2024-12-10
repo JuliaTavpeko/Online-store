@@ -5,9 +5,9 @@ import {handleMakeReview, handleReviews} from "./utils/reviewUtils.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    const tabItem = document.querySelectorAll('.tab');
+    const tabItem = document.querySelectorAll('.product__tabs-item');
     const tabContent = document.querySelectorAll('.tab-hidden');
-    const readMoreBtn = document.querySelectorAll('.read-more');
+    const readMoreBtn = document.querySelectorAll('.btn_read-more');
 
     for(let item of tabItem){
         item.addEventListener('click', function (event){

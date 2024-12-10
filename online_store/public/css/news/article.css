@@ -1,13 +1,18 @@
-/* news */
-.data-release {
+/* статья */
+.article__date {
     position: relative;
     display: block;
     justify-content: center;
-    text-align: center;
-    margin: 30px auto;
+    text-align: right;
+    margin: 10px auto;
+    padding: 20px;
 }
 
-.content-release {
+.article__date span {
+    color: #CECECE;
+}
+
+.article__content {
     position: relative;
     display: block;
     justify-content: center;
@@ -15,13 +20,12 @@
     max-height: 100%;
 }
 
-.content-release .title-release {
+.article__content .article__content-title {
     font-weight: 700;
     font-size: 1.4rem;
-    margin: 15px 60px;
 }
 
-.content-release .description-release {
+.article__content .article__content-description {
     font-size: 1rem;
     margin: 0 60px;
     line-height: 1.5;
@@ -29,30 +33,30 @@
     text-align: left;
 }
 
-.description-release p{
+.article__content-description p {
     margin: 0 60px;
 }
 
-/* email newsletter */
-.newsletter {
+/* рассылка */
+.article__newsletter {
     text-align: center;
     padding: 4rem 1rem;
 }
 
-.newsletter h3{
+.article__newsletter .article__newsletter-title {
     font-size: 1.8rem;
     color: #000;
     text-transform: uppercase;
 }
 
-.newsletter p{
+.article__newsletter .article__newsletter-description {
     font-size: 1rem;
     color: #000;
     margin: 2rem auto;
     width: 90rem;
 }
 
-.newsletter form{
+.article__newsletter .article__newsletter-form {
     display: flex;
     max-width: 50rem;
     margin: 2rem auto;
@@ -62,7 +66,7 @@
     height: 3.5rem;
 }
 
-.newsletter input[type=email]{
+.article__newsletter input[type=email] {
     padding: 0 3rem;
     font-size: 1.2rem;
     background: none;
@@ -72,12 +76,12 @@
     width: 100%;
 }
 
-.newsletter input[type=email]::placeholder{
+.article__newsletter input[type=email]::placeholder {
     color: lightgrey;
     text-transform: capitalize;
 }
 
-.newsletter input[type=submit]{
+.article__newsletter input[type=submit] {
     background: #000;
     color: #fff;
     width: 20rem;
@@ -89,17 +93,17 @@
     transition: 0.5s;
 }
 
-.newsletter input[type=submit]:hover {
+.article__newsletter input[type=submit]:hover {
     background: #ED760E;
     color: #ffff;
 }
 
 @media (max-width: 900px) {
-    .newsletter {
+    .article__newsletter {
         padding: 0 10%;
     }
 
-    .newsletter p {
+    .article__newsletter .article__newsletter-description {
         width: auto;
     }
 }

@@ -1,6 +1,5 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 
-
     <div class="company-container">
         <div class="top-section">
             <h1>Добро пожаловать!</h1>

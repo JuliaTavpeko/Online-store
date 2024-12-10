@@ -1,15 +1,17 @@
 <?php require ROOT . '/backend/static/blocks/header.php' ?>
 
-<div class="news-container">
-    <div class="news-section">
-        <div class="news-title">
-            <h2>Свежие новости и обновления</h2>
-            <p>Добро пожаловать на страницу новостей нашего интернет-магазина!<br>
+<div class="news news-container">
+    <div class="news__section">
+        <div class="news__section-greeting">
+            <h2 class="news__section-title">Свежие новости и обновления</h2>
+            <p class="news__section-description">
+                Добро пожаловать на страницу новостей нашего интернет-магазина!<br>
                 Здесь вы найдете самую актуальную информацию о наших новых поступлениях, специальных предложениях,
                 акциях и многом другом.<br>
-                Следите за обновлениями, чтобы быть в курсе всех новинок и выгодных предложений!</p>
+                Следите за обновлениями, чтобы быть в курсе всех новинок и выгодных предложений!
+            </p>
         </div>
-        <div class="news-cards">
+        <div class="news__section-cards">
     <?php
         use backend\classes\news\News;
         global $db;
@@ -25,16 +27,16 @@
 
         foreach ($limitedResult as $row) {
             ?>
-                <div class="news-card">
-                    <div class="news-image">
+                <div class="news__section-card">
+                    <div class="news__section-card-image">
                         <img src="data:image/png;base64,<?php echo base64_encode($row["pic"]); ?>" />
                     </div>
-                    <div class="news-content">
-                        <h4><?php echo $row["name"]; ?></h4>
-                        <p><?php echo $row["text"]; ?></p>
-                        <a href="<?php echo 'article.php?article=' . $row["id"] ?>">Читать</a>
+                    <div class="news__section-card-content">
+                        <h4 class="news__section-card-content_title"><?php echo $row["name"]; ?></h4>
+                        <p class="news__section-card-content_desc"><?php echo $row["text"]; ?></p>
+                        <a class="news__section-card-content_btn" href="<?php echo 'article.php?article=' . $row["id"] ?>">Читать</a>
                     </div>
-                    <div class="news-posted-data">
+                    <div class="news__section-card-date">
                         <p><?php echo $row["date"]; ?></p>
                     </div>
                 </div>
