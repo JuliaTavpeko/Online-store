@@ -27,8 +27,8 @@ export class Review {
     static displayForm(reviewForm,user){
         if(reviewForm) {
             if (user.idUser) {
-                const nameInput = reviewForm.querySelector('[name="name"]');
-                const photoElement = reviewForm.querySelector('[id="photo-user"]');
+                const nameInput = reviewForm.querySelector('.reviews__user-name');
+                const photoElement = reviewForm.querySelector('.reviews__user-image');
                 nameInput.value = user.name;
                 nameInput.readOnly = true;
 

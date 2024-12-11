@@ -90,28 +90,25 @@ small {
     text-align: center;
 }
 
-.wrapper{
-    width: 900px;
-    height: 600px;
-    border-radius: 25px;
+.wrapper {
     padding: 30px 40px;
 }
 
-.wrapper .remember{
+.wrapper .remember {
     display: flex;
     font-size: 14px;
     justify-content: space-between;
     flex-direction: column;
 }
 
-.remember a{
+.remember a {
     color: black;
     text-decoration: none;
     margin-top: 5px;
     cursor: pointer;
 }
 
-.remember a:hover{
+.remember a:hover {
     text-decoration: underline;
 }
 
@@ -124,74 +121,13 @@ small {
     z-index: 1;
 }
 
-.scroll-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-}
-
-.horizontal-scroll {
-    width: 600px;
-    height: 80px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    position: relative;
-    overflow: hidden;
-}
-
-.horizontal-scroll .btn-scroll {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #999;
-    margin: 0 5px;
-    z-index: 1;
-    transition: 1s;
-}
-
-.horizontal-scroll .btn-scroll img {
-    height: 30px;
-    width: 30px;
-}
-
-.gallery {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    position: absolute;
-    flex-direction: row;
-    left: 0;
-    transition: 0.5s all ease-out;
-}
-
-.gallery .card {
-    height: 60px;
-    width: 60px;
-    margin: 15px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotateZ(45deg);
-}
-
-.gallery .card img{
-    height: 53px;
-    width: 53px;
-    transform: rotateZ(-45deg);
-}
-
 /* logos slider */
 @keyframes slide {
     from {
         transform: translateX(0);
     }
 
-    to{
+    to {
         transform: translateX(-100%);
     }
 }

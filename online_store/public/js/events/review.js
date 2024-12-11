@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    const reviewForm = document.querySelector('[name="review"]');
+    const reviewForm = document.querySelector('.reviews');
     const idUser = Authorization.getSessionData().id;
     const prodContainer = document.querySelector('.product-container');
 
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     idProd: prodData['id'],
                     rating: Rating.getCurrentRating(),
                     name: Authorization.getSessionData().login,
-                    message: document.querySelector('textarea[name="message"]').value,
+                    message: document.querySelector('.reviews__user-text').value,
                     pic: Authorization.getSessionData().photo,
                 };
 

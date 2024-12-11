@@ -4,4 +4,3 @@
     <p><?php echo $lang['pickupPointDelivery']; ?>: <span>7 сентября</span></p>
     <p>Store ★<span>4</span></p>
 </div>
-<hr>

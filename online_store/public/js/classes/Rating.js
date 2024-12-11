@@ -3,7 +3,7 @@ export class Rating {
     static ratings = [];
 
     static calcRating() {
-        let stars = document.querySelectorAll(".ratings span");
+        let stars = document.querySelectorAll(".reviews__rating-rank span");
 
         for (let star of stars) {
             star.addEventListener("click", () => {

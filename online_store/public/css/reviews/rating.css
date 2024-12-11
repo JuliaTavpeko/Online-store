@@ -1,26 +1,26 @@
 
-.ratings-wrapper{
+.reviews__rating{
     display: flex;
 }
-.ratings {
+.reviews__rating-rank {
     display: flex;
     flex-direction: row-reverse;
 }
-.ratings span{
+.reviews__rating-rank span{
     cursor: pointer;
     transition: color .2s;
     font-size: 30px;
     color: #ffffff;
 }
-.ratings span:hover{
+.reviews__rating-rank span:hover{
     color: #FDBF3D;
 }
-.ratings span:hover ~ span{
+.reviews__rating-rank span:hover ~ span{
     color: #FDBF3D;
 }
-.ratings span[data-clicked]{
+.reviews__rating-rank span[data-clicked]{
     color: #FDBF3D;
 }
-.ratings span[data-clicked] ~ span{
+.reviews__rating-rank span[data-clicked] ~ span{
     color: #FDBF3D;
 }

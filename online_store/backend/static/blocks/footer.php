@@ -11,17 +11,17 @@
 </div>
 <footer>
     <div class="footer">
-        <ul>
-            <li><a href="store.php"><?php echo $lang['home']; ?></a></li>
-            <li><a href="catalog.php"><?php echo $lang['catalog']; ?></a></li>
-            <li><a href="news.php"><?php echo $lang['news']; ?></a></li>
-
-        </ul>
-        <ul>
-            <li><a href="company.php"><?php echo $lang['aboutCompany']; ?></a></li>
-            <li><a href="contacts.php"><?php echo $lang['contacts']; ?></a></li>
-        </ul>
-
+        <div class="footer__menu">
+            <ul class="footer__menu-list">
+                <li class="footer__menu-link"><a href="store.php"><?php echo $lang['home']; ?></a></li>
+                <li class="footer__menu-link"><a href="catalog.php"><?php echo $lang['catalog']; ?></a></li>
+                <li class="footer__menu-link"><a href="news.php"><?php echo $lang['news']; ?></a></li>
+            </ul>
+            <ul class="footer__menu-list">
+                <li class="footer__menu-link"><a href="company.php"><?php echo $lang['aboutCompany']; ?></a></li>
+                <li class="footer__menu-link"><a href="contacts.php"><?php echo $lang['contacts']; ?></a></li>
+            </ul>
+        </div>
         <div class="footer__contacts">
             <div class="footer-contacts-links">
                 <span><?php echo $lang['contacts']; ?>:</span>

@@ -1,10 +1,10 @@
-.card-wrapper {
+.cards {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.product {
+.cards__card {
     width: 450px;
     height: 225px;
     background: #fff;
@@ -20,18 +20,18 @@
     transition: 0.5s ease;
 }
 
-.product:hover {
+.cards__card:hover {
     background: linear-gradient(to right, #6495ED, #3E5F8A);
     color: #fff;
 }
 
-.product:hover p a{
+.cards__card:hover p a {
     border: 1px solid #fff;
     color: #fff;
     transition: 0.5s ease;
 }
 
-.product span {
+.cards__card span {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -42,39 +42,29 @@
     padding: 4px 10px;
 }
 
-.product .prod-image {
+.cards__card .cards__card-image {
     flex-basis: 30%;
 }
 
-.prod-image img {
+.cards__card-image img {
     width: 100%;
     height: 100%;
     transition: 0.3s ease;
 }
 
-.prod-image:hover img {
+.cards__card-image:hover img {
     transform: translateY(-15px);
 }
 
-.product .prod-details {
+.cards__card .cards__card-detail {
     flex-basis: 60%;
 }
 
-.product .prod-details h1{
-    font-weight: 700;
+.cards__card .cards__card-detail p {
     margin-bottom: 15px;
 }
 
-.product .prod-details h4{
-    font-weight: 600;
-    margin: 15px 0;
-}
-
-.product .prod-details p{
-    margin-bottom: 15px;
-}
-
-.product .prod-details a{
+.cards__card .cards__card-detail a {
     text-decoration: none;
     color: #0575e6;
     border: 1px solid #0575e6;
@@ -85,15 +75,15 @@
 }
 
 @media(max-width: 768px) {
-    .card-wrapper {
+    .cards {
         flex-direction: column;
     }
 
-    .product {
+    .cards__card {
         width: 390px;
     }
 
-    .product p a{
+    .cards__card p a{
         padding: 7px 12px;
         font-size: 12px;
     }
